@@ -1,0 +1,1146 @@
+openapi: "3.0.0"
+info:
+  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br> Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Folgende Client-Credentials können dafür verwendet werden:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8"
+  version: "1.0.0"
+  title: "Bundesagentur für Arbeit: Jobsuche API"
+
+servers:
+  - url: "https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/"
+
+paths:
+  /v2/app/jobs/:
+    get:
+      summary: Jobsuche
+      description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobSearchResponse'
+      parameters:
+        - in: query
+          name: was
+          schema:
+            type: string
+          description: Freitext suche Jobtitel
+          example: Referatsleiter
+          required: false
+        - in: query
+          name: wo
+          schema:
+            type: string
+          description: Freitext suche Beschäftigungsort
+          example: Berlin
+          required: false
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Ergebnissseite
+          example: 1
+          required: false
+        - in: query
+          name: size
+          schema:
+            type: integer
+          example: 50
+          description: Anzahl von Ergebnissen
+          required: false
+        - in: query
+          name: ARBEITGEBER
+          schema:
+            type: string
+          example: Deutsche%20Bahn%20AG_W4qFQypjw_IWOJAkn2NMSE-Yf-mRbt_6_PvZr0FLdX4%3D
+          description: Anzahl von Ergebnissen
+          required: false
+        - in: query
+          name: FCT.AKTUALITAET 
+          schema:
+            type: integer
+          example: 30
+          description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
+          required: false
+        - in: query
+          name: FCT.ARBEITSVERMITTLUNG
+          schema:
+            type: string
+            enum:
+              - MIT_AV
+              - ""
+          example: MIT_AV
+          description: Gibt an, ob Jobs von externen Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
+          required: false
+        - in: query
+          name: FCT.ANGEBOTSART
+          schema:
+            type: string
+            enum:
+              - ARBEIT
+              - SELBSTAENDIGKEIT
+              - AUSBILDUNG
+              - PRAKTIKUM_TRAINEE
+          example: ARBEIT
+          required: false
+        - in: query
+          name: FCT.BEFRISTUNG
+          schema:
+            type: string
+            enum:
+              - UNBEFRISTET
+              - KEINE_ANGABE
+              - BEFRISTET
+          example: UNBEFRISTET
+          required: false
+          description: "Kann mehrere Werte haben z.B. FCT.BEFRISTUNG=UNBEFRISTET&FCT.BEFRISTUNG=KEINE_ANGABE."
+        - in: query
+          name: FCT.ARBEITSZEITMODELL
+          schema:
+            type: string
+            enum:
+              - VOLLZEIT
+              - TEILZEIT
+              - SCHICHT_NACHTARBEIT_WOCHENENDE
+              - HEIM_TELEARBEIT
+              - MINIJOB
+          description: Kann mehrere Werte haben z.B. FCT.ARBEITSZEITMODELL=HEIM_TELEARBEIT&FCT.ARBEITSZEITMODELL=MINIJOB
+          example: UNBEFRISTET
+          required: false
+
+        - in: query
+          name: FCT.BEHINDERUNG
+          schema:
+            type: string
+            enum:
+              - AUS
+              - AN
+          example: AN
+          required: false
+        - in: query
+          name: FCT.AKTION
+          schema:
+            type: string
+            enum:
+              - AN
+          example: AN
+          description: Wenn AN, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+          required: false
+        - in: query
+          name: FCT.UMKREIS
+          schema:
+            type: integer
+          description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
+          example: 25
+          required: false
+  /pc/v1/jobdetails/{hashID}:
+    get:
+      summary: Jobdetail
+      description: "Abrufen von Details zu einem Job."
+      parameters:
+        - name: hashID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobDetails'
+  
+  /pc/v1/jobdetails/{hashID}/bewerbung:
+    get:
+      summary: Bewerbung Kontaktdaten
+      description: "Abrufen von Kontaktdaten zu einem Job."
+      parameters:
+        - name: hashID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobApplicationDetails'
+                  
+  
+  /ed/v1/arbeitgeberlogo/{hashID}:
+    get:
+      summary: Unternehmen Logo
+      description: "Abrufen des Logos eines Unternehmens"
+      parameters:
+        - name: hashID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+      responses:
+        '200':
+            description: OK
+            content:
+              image/png:
+                schema:
+                  type: string
+                  format: binary
+
+
+security: 
+  - clientCredAuth: 
+    - "read"
+
+components: 
+  securitySchemes:
+    clientCredAuth:    # <---- arbitrary name
+      type: oauth2
+      description: "Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs.Die Client Credentials sind z.B. in der App hinterlegt:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8"
+      flows:
+        clientCredentials:  
+          tokenUrl: https://api-con.arbeitsagentur.de/oauth/gettoken_cc
+  schemas:
+    
+    JobSearchResponse:
+      type: "object"
+      properties:
+        _embedded: 
+          type: object
+          properties: 
+            jobs: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  hashId: 
+                    type: string
+                    example: WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
+                  hauptberuf: 
+                    type: string
+                    example: Elektroinstallateur/in
+                  freieBezeichnung: 
+                    type: string
+                    example: 20€/h für Ihr Können  - Elektroniker (m/w/d)
+                  referenznummer: 
+                    type: string
+                    example: 10000-1184867112-S
+                  mehrereArbeitsorteVorhanden: 
+                    type: boolean
+                  arbeitgeber: 
+                    type: string
+                    example: Gröger & Oltermann Sicherheits- und Elektrotechnik GmbH
+                  arbeitgeberHashId: 
+                    type: string
+                    example: 0X2pzFXb4cWYH9YFQ1_nXg2u-eiDTRVOv0YCqcBh7_s=
+                  aktuelleVeroeffentlichungsdatum: 
+                    type: string
+                    format: date
+                    example: 2021-07-25
+                  eintrittsdatum: 
+                    type: string
+                    format: date
+                    example: 2021-07-26
+                  logoHashId: 
+                    type: string
+                    example: KlOzPpaXv_UCBnWH0KKLHeFQ-aFnSfi8ryVJ4OK2SZE=
+                  angebotsart: 
+                    type: string
+                    example: ARBEIT
+                  hauptDkz: 
+                    type: string
+                    example: 2728
+                  anzeigeAnonym: 
+                    type: boolean
+                  angebotsartGruppe: 
+                    type: string
+                    example: ARBEIT
+                  arbeitsort: 
+                    type: object
+                    properties: 
+                      ort: 
+                        type: string
+                        example: Berlin
+                      region: 
+                        type: string
+                        example: Berlin
+                      land: 
+                        type: string
+                        example: Deutschland
+                      koordinaten: 
+                        type: object
+                        properties: 
+                          lat: 
+                            type: number
+                            example: 52.4926832
+                          lon: 
+                            type: number
+                            example: 13.4025753
+                      entfernung: 
+                        type: string
+                        example: 3
+                  _links: 
+                    type: object
+                    properties: 
+                      details: 
+                        type: object
+                        properties: 
+                          href: 
+                            type: string
+                            example: http://jobboerse.arbeitsagentur.de/vamJB/stellenangebotAnzeigen.html?bencs=fvRY6ISnOfNcyi9cFHucsd2Qi8eRvpdwYRrRI8jerkUogoTZxPEl60aKIvpVWh0DK42lMRBgOhAEHkCHOI4M6w%3D%3D
+                      arbeitgeberlogo: 
+                        type: object
+                        properties: 
+                          href: 
+                            type: string
+                            example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/KlOzPpaXv_UCBnWH0KKLHeFQ-aFnSfi8ryVJ4OK2SZE=
+                      jobdetails: 
+                        type: object
+                        properties: 
+                          href: 
+                            type: string
+                            example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobdetails/WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
+        _links: 
+          type: object
+          properties: 
+            first: 
+              type: object
+              properties: 
+                href: 
+                  type: string
+                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=0&size=3
+            self: 
+              type: object
+              properties: 
+                href: 
+                  type: string
+                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&sort=RELEVANZdesc&FCT.UMKREIS=200
+            next: 
+              type: object
+              properties: 
+                href: 
+                  type: string
+                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=1&size=3
+            last: 
+              type: object
+              properties: 
+                href: 
+                  type: string
+                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=44584&size=3
+        page: 
+          type: object
+          properties: 
+            size: 
+              type: integer
+              format: int32
+              example: 3
+            totalElements: 
+              type: integer
+              format: int32
+              example: 133753
+            totalPages: 
+              type: integer
+              format: int32
+              example: 44585
+            number: 
+              type: integer
+              format: int32
+              example: 0
+        facetten: 
+          type: array
+          items: 
+            type: object
+            properties: 
+              id: 
+                type: string
+                example: FCT.ANGEBOTSART
+              typ: 
+                type: string
+                example: SINGLE
+              auswahl: 
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    trefferAnzahl: 
+                      type: integer
+                      format: int32
+                      example: 133753
+                    preset: 
+                      type: boolean
+                    name: 
+                      type: string
+                      example: ARBEIT
+        aggregierungen: 
+          type: object
+          properties: 
+            bundesland: 
+              type: object
+              properties: 
+                Baden-Württemberg: 
+                  type: integer
+                  format: int32
+                  example: 1997
+                Bayern: 
+                  type: integer
+                  format: int32
+                  example: 2455
+                Berlin: 
+                  type: integer
+                  format: int32
+                  example: 29282
+                Brandenburg: 
+                  type: integer
+                  format: int32
+                  example: 23286
+                Bremen: 
+                  type: integer
+                  format: int32
+                  example: 638
+                Hamburg: 
+                  type: integer
+                  format: int32
+                  example: 1681
+                Hessen: 
+                  type: integer
+                  format: int32
+                  example: 1946
+                Mecklenburg-Vorpommern: 
+                  type: integer
+                  format: int32
+                  example: 11754
+                Niedersachsen: 
+                  type: integer
+                  format: int32
+                  example: 8643
+                Nordrhein-Westfalen: 
+                  type: integer
+                  format: int32
+                  example: 2583
+                Rheinland-Pfalz: 
+                  type: integer
+                  format: int32
+                  example: 556
+                Saarland: 
+                  type: integer
+                  format: int32
+                  example: 135
+                Sachsen: 
+                  type: integer
+                  format: int32
+                  example: 42687
+                Sachsen-Anhalt: 
+                  type: integer
+                  format: int32
+                  example: 23241
+                Schleswig-Holstein: 
+                  type: integer
+                  format: int32
+                  example: 699
+                Thüringen: 
+                  type: integer
+                  format: int32
+                  example: 2503
+            plzebene2: 
+              type: object
+              properties: 
+                10: 
+                  type: integer
+                  format: int32
+                  example: 14790
+                12: 
+                  type: integer
+                  format: int32
+                  example: 6136
+                13: 
+                  type: integer
+                  format: int32
+                  example: 4656
+                14: 
+                  type: integer
+                  format: int32
+                  example: 8733
+                15: 
+                  type: integer
+                  format: int32
+                  example: 5145
+                16: 
+                  type: integer
+                  format: int32
+                  example: 4689
+                17: 
+                  type: integer
+                  format: int32
+                  example: 5081
+                18: 
+                  type: integer
+                  format: int32
+                  example: 3319
+                19: 
+                  type: integer
+                  format: int32
+                  example: 4039
+                20: 
+                  type: integer
+                  format: int32
+                  example: 703
+                21: 
+                  type: integer
+                  format: int32
+                  example: 286
+                22: 
+                  type: integer
+                  format: int32
+                  example: 495
+                23: 
+                  type: integer
+                  format: int32
+                  example: 271
+                24: 
+                  type: integer
+                  format: int32
+                  example: 401
+                25: 
+                  type: integer
+                  format: int32
+                  example: 37
+                26: 
+                  type: integer
+                  format: int32
+                  example: 163
+                27: 
+                  type: integer
+                  format: int32
+                  example: 77
+                28: 
+                  type: integer
+                  format: int32
+                  example: 432
+                29: 
+                  type: integer
+                  format: int32
+                  example: 1412
+                30: 
+                  type: integer
+                  format: int32
+                  example: 598
+                31: 
+                  type: integer
+                  format: int32
+                  example: 203
+                32: 
+                  type: integer
+                  format: int32
+                  example: 57
+                33: 
+                  type: integer
+                  format: int32
+                  example: 189
+                34: 
+                  type: integer
+                  format: int32
+                  example: 103
+                35: 
+                  type: integer
+                  format: int32
+                  example: 68
+                36: 
+                  type: integer
+                  format: int32
+                  example: 55
+                37: 
+                  type: integer
+                  format: int32
+                  example: 169
+                38: 
+                  type: integer
+                  format: int32
+                  example: 6735
+                39: 
+                  type: integer
+                  format: int32
+                  example: 7725
+                40: 
+                  type: integer
+                  format: int32
+                  example: 569
+                41: 
+                  type: integer
+                  format: int32
+                  example: 20
+                42: 
+                  type: integer
+                  format: int32
+                  example: 81
+                44: 
+                  type: integer
+                  format: int32
+                  example: 436
+                45: 
+                  type: integer
+                  format: int32
+                  example: 239
+                46: 
+                  type: integer
+                  format: int32
+                  example: 53
+                47: 
+                  type: integer
+                  format: int32
+                  example: 85
+                48: 
+                  type: integer
+                  format: int32
+                  example: 150
+                49: 
+                  type: integer
+                  format: int32
+                  example: 147
+                50: 
+                  type: integer
+                  format: int32
+                  example: 634
+                51: 
+                  type: integer
+                  format: int32
+                  example: 46
+                52: 
+                  type: integer
+                  format: int32
+                  example: 92
+                53: 
+                  type: integer
+                  format: int32
+                  example: 196
+                54: 
+                  type: integer
+                  format: int32
+                  example: 16
+                55: 
+                  type: integer
+                  format: int32
+                  example: 230
+                56: 
+                  type: integer
+                  format: int32
+                  example: 63
+                57: 
+                  type: integer
+                  format: int32
+                  example: 29
+                58: 
+                  type: integer
+                  format: int32
+                  example: 36
+                59: 
+                  type: integer
+                  format: int32
+                  example: 44
+                60: 
+                  type: integer
+                  format: int32
+                  example: 933
+                61: 
+                  type: integer
+                  format: int32
+                  example: 22
+                63: 
+                  type: integer
+                  format: int32
+                  example: 100
+                64: 
+                  type: integer
+                  format: int32
+                  example: 164
+                65: 
+                  type: integer
+                  format: int32
+                  example: 229
+                66: 
+                  type: integer
+                  format: int32
+                  example: 87
+                67: 
+                  type: integer
+                  format: int32
+                  example: 74
+                68: 
+                  type: integer
+                  format: int32
+                  example: 117
+                69: 
+                  type: integer
+                  format: int32
+                  example: 133
+                70: 
+                  type: integer
+                  format: int32
+                  example: 814
+                71: 
+                  type: integer
+                  format: int32
+                  example: 134
+                72: 
+                  type: integer
+                  format: int32
+                  example: 40
+                73: 
+                  type: integer
+                  format: int32
+                  example: 48
+                74: 
+                  type: integer
+                  format: int32
+                  example: 69
+                75: 
+                  type: integer
+                  format: int32
+                  example: 71
+                76: 
+                  type: integer
+                  format: int32
+                  example: 135
+                77: 
+                  type: integer
+                  format: int32
+                  example: 18
+                78: 
+                  type: integer
+                  format: int32
+                  example: 57
+                79: 
+                  type: integer
+                  format: int32
+                  example: 70
+                80: 
+                  type: integer
+                  format: int32
+                  example: 901
+                81: 
+                  type: integer
+                  format: int32
+                  example: 252
+                82: 
+                  type: integer
+                  format: int32
+                  example: 69
+                83: 
+                  type: integer
+                  format: int32
+                  example: 34
+                84: 
+                  type: integer
+                  format: int32
+                  example: 50
+                85: 
+                  type: integer
+                  format: int32
+                  example: 240
+                86: 
+                  type: integer
+                  format: int32
+                  example: 110
+                87: 
+                  type: integer
+                  format: int32
+                  example: 29
+                88: 
+                  type: integer
+                  format: int32
+                  example: 48
+                89: 
+                  type: integer
+                  format: int32
+                  example: 43
+                90: 
+                  type: integer
+                  format: int32
+                  example: 318
+                91: 
+                  type: integer
+                  format: int32
+                  example: 90
+                92: 
+                  type: integer
+                  format: int32
+                  example: 52
+                93: 
+                  type: integer
+                  format: int32
+                  example: 51
+                94: 
+                  type: integer
+                  format: int32
+                  example: 43
+                95: 
+                  type: integer
+                  format: int32
+                  example: 48
+                96: 
+                  type: integer
+                  format: int32
+                  example: 90
+                97: 
+                  type: integer
+                  format: int32
+                  example: 82
+                98: 
+                  type: integer
+                  format: int32
+                  example: 37
+                99: 
+                  type: integer
+                  format: int32
+                  example: 553
+                01: 
+                  type: integer
+                  format: int32
+                  example: 16078
+                02: 
+                  type: integer
+                  format: int32
+                  example: 3530
+                03: 
+                  type: integer
+                  format: int32
+                  example: 2456
+                04: 
+                  type: integer
+                  format: int32
+                  example: 15565
+                06: 
+                  type: integer
+                  format: int32
+                  example: 12311
+                07: 
+                  type: integer
+                  format: int32
+                  example: 610
+                08: 
+                  type: integer
+                  format: int32
+                  example: 1064
+                09: 
+                  type: integer
+                  format: int32
+                  example: 6326
+        parserResult: 
+          type: object
+          properties: 
+            result: 
+              type: string
+              example: Berlin
+            koordinaten: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  lat: 
+                    type: number
+                    example: 52.51079045
+                  lon: 
+                    type: number
+                    example: 13.42550815
+            suchmodus: 
+              type: string
+              example: UMKREISSUCHE
+              
+    JobApplicationDetails:
+      type: object
+      properties:
+          angebotskontakt: 
+            type: object
+            properties: 
+              anrede: 
+                type: string
+                example: HERR
+              nachname: 
+                type: string
+                example: Markus
+              vorname: 
+                type: string
+                example: Richter
+              strasse: 
+                type: string
+                example: Bundesplatz. 1a
+              ort: 
+                type: string
+                example: Berlin
+              plz: 
+                type: string
+                example: 13597
+              region: 
+                type: string
+                example: Berlin
+              land: 
+                type: string
+                example: Deutschland
+              email: 
+                type: string
+                example: StR@bmi.bund.de
+              firma: 
+                type: string
+                example: Markus Richter Beratung
+              festnetznummer: 
+                type: object
+                properties: 
+                  laendervorwahl: 
+                    type: string
+                    example: +49
+                  vorwahl: 
+                    type: string
+                    example: 30
+                  rufnummer: 
+                    type: string
+                    example: 2345654
+              mobilnummer: 
+                type: object
+                properties: 
+                  laendervorwahl: 
+                    type: string
+                    example: +49
+                  vorwahl: 
+                    type: string
+                    example: 1222
+                  rufnummer: 
+                    type: string
+                    example: 0050005
+          url: 
+            type: string
+            example: https://bmi.bund.de
+          bewerbungsarten: 
+            type: array
+            items: 
+              type: string
+              example: SCHRIFTLICH
+          zeitraumVon: 
+            type: string
+            format: date
+            example: 2021-07-25
+          zeitraumBis: 
+            type: string
+            format: date
+            example: 2021-12-31
+          geforderteAnlagen: 
+            type: string
+            example: "Geforderte Anlagen: Lebenslauf Zeugnisse"
+    JobDetails:
+      type: object
+      properties:
+            aktuelleVeroeffentlichungsdatum: 
+              type: string
+              format: date
+              example: 2021-07-25
+            laufzeitBis: 
+              type: string
+              format: date
+              example: 2021-12-31
+            angebotsart: 
+              type: string
+              example: ARBEIT
+            arbeitgeber: 
+              type: string
+              example: Kerstin Nickel Frisör
+            branchenbezeichnung: 
+              type: string
+              example: Frisörsalons
+            arbeitgeberHashId: 
+              type: string
+              example: dj32HpGiU3tdrYi6ohcMOtUhtBLPvwGIRiRlcvDsebg=
+            arbeitsorte: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  land: 
+                    type: string
+                    example: Deutschland
+                  region: 
+                    type: string
+                    example: Berlin
+                  plz: 
+                    type: string
+                    example: 13597
+                  ort: 
+                    type: string
+                    example: Berlin
+                  strasse: 
+                    type: string
+                    example: Jüdenstr. 31
+                  koordinaten: 
+                    type: object
+                    properties: 
+                      lat: 
+                        type: number
+                        example: 52.5383857
+                      lon: 
+                        type: number
+                        example: 13.2029692
+            arbeitszeitmodelle: 
+              type: array
+              items: 
+                type: string
+                example: TEILZEIT
+            befristung: 
+              type: string
+              example: UNBEFRISTET
+            betriebsgroesse: 
+              type: string
+              example: VON_6_BIS_50
+            eintrittsdatum: 
+              type: string
+              format: date
+              example: 2021-07-25
+            ersteVeroeffentlichungsdatum: 
+              type: string
+              format: date
+              example: 2021-05-23
+            freieBezeichnung: 
+              type: string
+              example: Friseur/in (m/w/d) im TOP-Salon in Berlin Spandau -1-
+            hashId: 
+              type: string
+              example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+            hauptberuf: 
+              type: string
+              example: Friseur/in
+            modifikationsTimestamp: 
+              type: string
+              example: 2021-07-25T13:12:33.913
+            stellenbeschreibung: 
+              type: string
+              example: kded
+            referenznummer: 
+              type: string
+              example: 10000-1183999289-S
+            fuerFluechtlingeGeeignet: 
+              type: boolean
+            nurFuerSchwerbehinderte: 
+              type: boolean
+            anzahlOffeneStellen: 
+              type: integer
+              format: int32
+              example: 1
+            arbeitgeberAdresse: 
+              type: object
+              properties: 
+                land: 
+                  type: string
+                  example: Deutschland
+                region: 
+                  type: string
+                  example: Berlin
+                plz: 
+                  type: string
+                  example: 13597
+                ort: 
+                  type: string
+                  example: Berlin
+                strasse: 
+                  type: string
+                  example: Jüdenstr. 31
+                strasseHausnummer: 
+                  type: string
+                  example: Jüdenstr. 31
+            fertigkeiten: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  bezeichnung: 
+                    type: string
+                    example: Kundenberatung -betreuung
+                  auspraegung: 
+                    type: string
+                    example: ERWEITERTE_KENNTNISSE
+            sprachkenntnisse: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  bezeichnung: 
+                    type: string
+                    example: Deutsch
+                  auspraegung: 
+                    type: string
+                    example: EXPERTENKENNTNISSE
+            staerken: 
+              type: array
+              items: 
+                type: string
+                example: Auffassungsfähigkeit/-gabe
+            mobilitaet: 
+              type: object
+              properties: 
+                reisebereitschaft: 
+                  type: string
+                  example: NICHT_ERFORDERLICH
+            berufserfahrung: 
+              type: string
+              example: MIT_BERUFSERFAHRUNG
+            fuehrungskompetenzen: 
+              type: object
+              properties: 
+                fuehrungsverantwortung: 
+                  type: string
+                  example: KEINE_FUEHRUNGSVERANTWORTUNG
+            ausbildungen: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  bezeichnung: 
+                    type: string
+                    example: Friseur/in
+            arbeitgeberdarstellungUrl: 
+              type: string
+              example: http://www.friseur-nickel.de
+            hauptDkz: 
+              type: string
+              example: 9907
+            istBetreut: 
+              type: boolean
+            istGoogleJobsRelevant: 
+              type: boolean
+            angebotsartGruppe: 
+              type: string
+              example: ARBEIT
+            anzeigeAnonym: 
+              type: boolean
+            _links: 
+              type: object
+              properties: 
+                self: 
+                  type: object
+                  properties: 
+                    href: 
+                      type: string
+                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobdetails/VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+                arbeitgeberlogo: 
+                  type: object
+                  properties: 
+                    href: 
+                      type: string
+                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/c2bGR3XF4cN4A0TIft0f1uegmBYlLIfRujFUeAtcaA8=
+                bewerbung: 
+                  type: object
+                  properties: 
+                    href: 
+                      type: string
+                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobs/VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=/bewerbung
+                details: 
+                  type: object
+                  properties: 
+                    href: 
+                      type: string
+                      example: http://jobboerse.arbeitsagentur.de/vamJB/stellenangebotAnzeigen.html?bencs=EBsSdF%2Ff5cSNZGzMtdpkxBTiwFIMjlnTaMsYhhxLfpdNtz7aagMVmZpmqq65g0a6lHiLT9GUPN0tncIm7LLUhw%3D%3D
+
+
+externalDocs:
+  description: "Weiterführende Dokumentation"
+  url: "http://swagger.io"
