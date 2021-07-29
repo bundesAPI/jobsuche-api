@@ -152,7 +152,7 @@ paths:
                 schema:
                   $ref: '#/components/schemas/JobDetails'
   
-  /pc/v1/jobdetails/{hashID}/bewerbung:
+  /pc/v1/app/jobs/{hashID}/bewerbung:
     get:
       summary: Bewerbung Kontaktdaten
       description: "Abrufen von Kontaktdaten zu einem Job."
