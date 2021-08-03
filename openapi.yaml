@@ -5,10 +5,10 @@ info:
   title: "Bundesagentur für Arbeit: Jobsuche API"
 
 servers:
-  - url: "https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/"
+  - url: "https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/"
 
 paths:
-  /v2/app/jobs/:
+  /pc/v2/app/jobs/:
     get:
       summary: Jobsuche
       description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
