@@ -53,7 +53,7 @@ paths:
           schema:
             type: string
           example: Deutsche%20Bahn%20AG_W4qFQypjw_IWOJAkn2NMSE-Yf-mRbt_6_PvZr0FLdX4%3D
-          description: Anzahl von Ergebnissen
+          description: Arbeitgeber der Stelle
           required: false
         - in: query
           name: FCT.AKTUALITAET 
