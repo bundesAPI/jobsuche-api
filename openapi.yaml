@@ -105,7 +105,7 @@ paths:
               - HEIM_TELEARBEIT
               - MINIJOB
           description: Kann mehrere Werte haben z.B. FCT.ARBEITSZEITMODELL=HEIM_TELEARBEIT&FCT.ARBEITSZEITMODELL=MINIJOB
-          example: UNBEFRISTET
+          example: VOLLZEIT
           required: false
 
         - in: query
