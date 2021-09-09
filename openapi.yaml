@@ -255,7 +255,7 @@ components:
                     example: ARBEIT
                   hauptDkz: 
                     type: string
-                    example: 2728
+                    example: "2728"
                   anzeigeAnonym: 
                     type: boolean
                   angebotsartGruppe: 
@@ -284,7 +284,7 @@ components:
                             example: 13.4025753
                       entfernung: 
                         type: string
-                        example: 3
+                        example: "3"
                   _links: 
                     type: object
                     properties: 
@@ -874,7 +874,7 @@ components:
                 example: Berlin
               plz: 
                 type: string
-                example: 13597
+                example: "13597"
               region: 
                 type: string
                 example: Berlin
@@ -892,25 +892,25 @@ components:
                 properties: 
                   laendervorwahl: 
                     type: string
-                    example: +49
+                    example: "+49"
                   vorwahl: 
                     type: string
-                    example: 30
+                    example: "30"
                   rufnummer: 
                     type: string
-                    example: 2345654
+                    example: "2345654"
               mobilnummer: 
                 type: object
                 properties: 
                   laendervorwahl: 
                     type: string
-                    example: +49
+                    example: "+49"
                   vorwahl: 
                     type: string
-                    example: 1222
+                    example: "1222"
                   rufnummer: 
                     type: string
-                    example: 0050005
+                    example: "0050005"
           url: 
             type: string
             example: https://bmi.bund.de
@@ -966,7 +966,7 @@ components:
                     example: Berlin
                   plz: 
                     type: string
-                    example: 13597
+                    example: "13597"
                   ort: 
                     type: string
                     example: Berlin
@@ -1038,7 +1038,7 @@ components:
                   example: Berlin
                 plz: 
                   type: string
-                  example: 13597
+                  example: "13597"
                 ort: 
                   type: string
                   example: Berlin
@@ -1103,7 +1103,7 @@ components:
               example: http://www.friseur-nickel.de
             hauptDkz: 
               type: string
-              example: 9907
+              example: "9907"
             istBetreut: 
               type: boolean
             istGoogleJobsRelevant: 
