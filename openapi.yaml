@@ -1,14 +1,14 @@
 openapi: "3.0.0"
 info:
-  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br> Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Folgende Client-Credentials können dafür verwendet werden:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8"
-  version: "1.0.0"
+  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br> Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Folgende Client-Credentials können dafür verwendet werden:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8. **Achtung**: der OAuth header muss 'OAuthAccessToken' heißen."
+  version: "2.0.0"
   title: "Bundesagentur für Arbeit: Jobsuche API"
 
 servers:
-  - url: "https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service"
+  - url: "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 
 paths:
-  /pc/v2/app/jobs/:
+  /pc/v4/app/jobs:
     get:
       summary: Jobsuche
       description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
@@ -49,91 +49,83 @@ paths:
           description: Anzahl von Ergebnissen
           required: false
         - in: query
-          name: ARBEITGEBER
+          name: arbeitgeber
           schema:
             type: string
-          example: Deutsche%20Bahn%20AG_W4qFQypjw_IWOJAkn2NMSE-Yf-mRbt_6_PvZr0FLdX4%3D
+          example: Deutsche%20Bahn%20AG
           description: Arbeitgeber der Stelle
           required: false
         - in: query
-          name: FCT.AKTUALITAET 
+          name: veroeffentlichtseit
           schema:
             type: integer
           example: 30
           description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
           required: false
         - in: query
-          name: FCT.ARBEITSVERMITTLUNG
+          name: zeitarbeit
           schema:
-            type: string
-            enum:
-              - MIT_AV
-              - ""
-          example: MIT_AV
-          description: Gibt an, ob Jobs von externen Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
+            type: boolean
+          example: true
+          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default: true).
           required: false
         - in: query
-          name: FCT.ANGEBOTSART
+          name: angebotsart
           schema:
-            type: string
+            type: integer
             enum:
-              - ARBEIT
-              - SELBSTAENDIGKEIT
-              - AUSBILDUNG
-              - PRAKTIKUM_TRAINEE
-          example: ARBEIT
+              - 1
+              - 2
+              - 4
+              - 34
+          example: 1
+          description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
           required: false
         - in: query
-          name: FCT.BEFRISTUNG
+          name: befristung
           schema:
-            type: string
+            type: integer
             enum:
-              - UNBEFRISTET
-              - KEINE_ANGABE
-              - BEFRISTET
-          example: UNBEFRISTET
+              - 1
+              - 2
+          example: 1
           required: false
-          description: "Kann mehrere Werte haben z.B. FCT.BEFRISTUNG=UNBEFRISTET&FCT.BEFRISTUNG=KEINE_ANGABE."
+          description: "1 = befristet; 2 = unbefristet"
         - in: query
-          name: FCT.ARBEITSZEITMODELL
+          name: arbeitszeit
           schema:
             type: string
             enum:
-              - VOLLZEIT
-              - TEILZEIT
-              - SCHICHT_NACHTARBEIT_WOCHENENDE
-              - HEIM_TELEARBEIT
-              - MINIJOB
-          description: Kann mehrere Werte haben z.B. FCT.ARBEITSZEITMODELL=HEIM_TELEARBEIT&FCT.ARBEITSZEITMODELL=MINIJOB
-          example: VOLLZEIT
+              - vz
+              - tz
+              - snw
+              - ho
+              - mj
+          description: Semikolon separirte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+          example: vz
           required: false
 
         - in: query
-          name: FCT.BEHINDERUNG
+          name: behinderung
           schema:
-            type: string
-            enum:
-              - AUS
-              - AN
-          example: AN
+            type: boolean
+          example: true
           required: false
         - in: query
-          name: FCT.AKTION
+          name: corona
           schema:
-            type: string
-            enum:
-              - AN
-          example: AN
-          description: Wenn AN, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+            type: boolean
+          example: true
+          description: Wenn true , werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
           required: false
         - in: query
-          name: FCT.UMKREIS
+          name: umkreis
           schema:
             type: integer
           description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
           example: 25
           required: false
-  /pc/v1/jobdetails/{hashID}:
+  /pc/v2/jobdetails/{hashID}:
     get:
       summary: Jobdetail
       description: "Abrufen von Details zu einem Job."
@@ -152,10 +144,10 @@ paths:
                 schema:
                   $ref: '#/components/schemas/JobDetails'
   
-  /pc/v1/app/jobs/{hashID}/bewerbung:
+  /pc/v2/app/jobs/{hashID}/bewerbung:
     get:
       summary: Bewerbung Kontaktdaten
-      description: "Abrufen von Kontaktdaten zu einem Job."
+      description: "Abrufen von Kontaktdaten zu einem Job. Dieser endpunkt benötigt Captcha headers."
       parameters:
         - name: hashID
           in: path
