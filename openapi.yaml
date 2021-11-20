@@ -67,7 +67,7 @@ paths:
           schema:
             type: boolean
           example: true
-          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default: true).
+          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
           required: false
         - in: query
           name: angebotsart
