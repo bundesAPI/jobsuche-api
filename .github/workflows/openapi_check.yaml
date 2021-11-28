@@ -7,8 +7,8 @@ jobs:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v2
 
-        # Runs a single command using the runners shell
-        - name: swagger-cli
-          uses: vaibhav-jain/spectral-action/@v2.6
+        # Run Spectral
+        - uses: stoplightio/spectral-action@v0.8.1
           with:
-            file_path: openapi.yaml
+            file_glob: openapi.yaml
+            spectral_ruleset: .spectral.yaml
