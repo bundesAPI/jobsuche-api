@@ -101,7 +101,7 @@ paths:
               - snw
               - ho
               - mj
-          description: Semikolon separirte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+          description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
           example: vz
           required: false
 
@@ -116,7 +116,7 @@ paths:
           schema:
             type: boolean
           example: true
-          description: Wenn true , werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+          description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
           required: false
         - in: query
           name: umkreis
@@ -147,7 +147,7 @@ paths:
   /pc/v2/app/jobs/{hashID}/bewerbung:
     get:
       summary: Bewerbung Kontaktdaten
-      description: "Abrufen von Kontaktdaten zu einem Job. Dieser endpunkt benötigt Captcha headers."
+      description: "Abrufen von Kontaktdaten zu einem Job. Dieser Endpunkt benötigt Captcha-Headers."
       parameters:
         - name: hashID
           in: path
@@ -193,7 +193,7 @@ components:
   securitySchemes:
     clientCredAuth:    # <---- arbitrary name
       type: oauth2
-      description: "Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Die Client Credentials sind z.B. in der App hinterlegt:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8"
+      description: "Die Authentifizierung funktioniert per OAuth-2-Client Credentials mit JWTs. Die Client Credentials sind z.B. in der App hinterlegt:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8"
       flows:
         clientCredentials:  
           tokenUrl: https://api-con.arbeitsagentur.de/oauth/gettoken_cc
