@@ -11,13 +11,20 @@ Die Client Credentials sind z.B. in der App hinterlegt:
 **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8
 
 ```bash
-curl -H 'Host: api-con.arbeitsagentur.de' -H 'Accept: */*' -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -H 'Cookie: JSESSIONID=DF392405E8F00714FBFE17EDAB5DDD98' -H 'Accept-Language: en-us' -H 'User-Agent: Jobsuche/1070 CFNetwork/1220.1 Darwin/20.3.0' --data-binary "client_id=c003a37f-024f-462a-b36d-b001be4cd24a&client_secret=32a39620-32b3-4307-9aa1-511e3d7f48a8&grant_type=client_credentials" --compressed 'https://api-con.arbeitsagentur.de/oauth/gettoken_cc'
+curl \
+-H 'Host: rest.arbeitsagentur.de' \
+-H 'Accept: */*' \
+-H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+-H 'Accept-Language: en-us' \
+-H 'User-Agent: Jobsuche/1070 CFNetwork/1220.1 Darwin/20.3.0' \
+--data-binary "client_id=c003a37f-024f-462a-b36d-b001be4cd24a&client_secret=32a39620-32b3-4307-9aa1-511e3d7f48a8&grant_type=client_credentials" \
+--compressed 'https://rest.arbeitsagentur.de/oauth/gettoken_cc'
 ```
 
-## Jobsuche
+## Jobbörse
 
-**URL:** https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?FCT.AKTUALITAET=100&FCT.ANGEBOTSART=ARBEIT
-
+**URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1
+	
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:
 
@@ -35,10 +42,12 @@ Freitext suche Jobtitel
 Seite…
 
 
+**Parameter:** *arbeitgeber* (Optional)
+ID des Arbeitgebers. z.B. "Deutsche%20Bahn%20AG"
 
-**Parameter:** *ARBEITGEBER* (Optional)
-ID des Arbeitgebers. z.B. "Deutsche%20Bahn%20AG_W4qFQypjw_IWOJAkn2NMSE-Yf-mRbt_6_PvZr0FLdX4%3D" (*arbeitgeberHashId*)
 
+**Parameter:** *zeitarbeit* (Optional)
+Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
 
 
 **Parameter:** *size* (Optional)
@@ -46,69 +55,78 @@ Anzahl der Ergebnisse
 
 ### Filter
 
-**Parameter:** *FCT.AKTUALITAET* (Optional)
+**Parameter:** *veröffentlichtseit* (Optional)
 
 Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
 
 
 
-**Parameter:** *FCT.ARBEITSVERMITTLUNG* (Optional)
-- MIT_AV
+**Parameter:** *pav* (Optional)
+- false 
+- true
 
-Gibt an, ob Jobs von externen Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
-
-
-
-**Parameter:** *FCT.ANGEBOTSART*  (Optional)
-- ARBEIT
-- SELBSTAENDIGKEIT
-- AUSBILDUNG
-- PRAKTIKUM_TRAINEE
+Gibt an, ob Jobs von privaten Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
 
 
 
-**Parameter:** *FCT.BEFRISTUNG*  (Optional)
-- UNBEFRISTET
-- KEINE_ANGABE
-- BEFRISTET
+**Parameter:** *angebotsart*  (Optional)
+- 1 
+- 2 
+- 3 
+- 34
 
-Kann mehrere Werte haben z.B. FCT.BEFRISTUNG=UNBEFRISTET&FCT.BEFRISTUNG=KEINE_ANGABE.
+1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
+
+**Parameter:** *befristung*  (Optional)
+- 1
+- 2
+
+Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
 
 
-
-**Parameter:** *FCT.BEHINDERUNG*  (Optional)
-- AUS
-- AN
-
+Parameter: behinderung (Optional)
+- false 
+- true
 
 
-**Parameter:** *FCT.AKTION*  (Optional)
-- AN
+Parameter: corona (Optional)
+- false 
+- true
 
 Wenn AN, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
 
-
-
-**Parameter:** *FCT.UMKREIS* (Optional)
+**Parameter:** *umreis* (Optional)
 
 Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
 
 
 
-**Parameter:** *FCT.ARBEITSZEITMODELL*  (Optional)
-- VOLLZEIT
-- TEILZEIT
-- SCHICHT_NACHTARBEIT_WOCHENENDE
-- HEIM_TELEARBEIT
-- MINIJOB
+**Parameter:** *arbeitszeit*  (Optional)
+- vz 
+- tz 
+- snw
+- ho 
+- mj 
 
-Kann mehrere Werte haben z.B. FCT.ARBEITSZEITMODELL=HEIM_TELEARBEIT&FCT.ARBEITSZEITMODELL=MINIJOB
+Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
 
 
 
 Beispiel:
 ```bash
-curl -H 'Host: api-con.arbeitsagentur.de' -H 'Accept: application/json' -H 'OAuthAccessToken: Bearer [JWT]'  -H 'User-Agent: Jobsuche/1070 CFNetwork/1220.1 Darwin/20.3.0' -H 'Accept-Language: en-us' --compressed 'https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?FCT.AKTUALITAET=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=0&size=100&wo=Berlin'
+res=$(curl -m 60 -H "Host: rest.arbeitsagentur.de" \
+-H "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0" \
+-H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+-H "Accept-Language: de,en-US;q=0.7,en;q=0.3" \
+-H "Accept-Encoding: gzip, deflate, br" \
+-H "Origin: https://web.arbeitsagentur.de" \
+-H "DNT: 1" \
+-H "Connection: keep-alive" \
+-H "Pragma: no-cache" \
+-H "Referer: https://jobboerse.arbeitsagentur.de/vamJB/stellenangeboteFinden.html?execution=e1s4&" \
+-H "Cache-Control: no-cache" \
+-H "OAuthAccessToken: $token" \
+'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false')
 ```
 
 ## Jobdetails
@@ -116,14 +134,15 @@ curl -H 'Host: api-con.arbeitsagentur.de' -H 'Accept: application/json' -H 'OAut
 ### Detailseite
 Abrufen von Details zu einem Job.
 
-**URL** https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobdetails/[hashId]
+**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobdetails/[hashId]
 
 ### Bewerbung
 Kontaktdaten für eine Bewerbung. (Ansprechpartner, Telefonnummer, …)
 
-**URL** https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/app/jobs/[hashId]/bewerbung
+**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs/[hashId]/bewerbung
 
 ### Arbeitgeberlogo zu einem Job
 Logo des Unternehmens
 
-**URL** https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/[hashId]
+**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/arbeitgeberlogo/[hashId]
+
