@@ -21,6 +21,8 @@ curl \
 --compressed 'https://rest.arbeitsagentur.de/oauth/gettoken_cc'
 ```
 
+Der generierte Token muss bei folgenden GET-requests im header als 'OAuthAccessToken' inkludiert werden.
+
 ## Jobbörse
 
 **URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1
@@ -31,26 +33,32 @@ Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parameter
 
 
 **Parameter:** *was* (Optional)
+
 Freitext suche Jobtitel
 
 
 **Parameter:** *wo*  (Optional)
+
 Freitext suche Jobtitel
 
 
 **Parameter:** *page* (Optional)
+
 Seite…
 
 
 **Parameter:** *arbeitgeber* (Optional)
+
 ID des Arbeitgebers. z.B. "Deutsche%20Bahn%20AG"
 
 
 **Parameter:** *zeitarbeit* (Optional)
+
 Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
 
 
 **Parameter:** *size* (Optional)
+
 Anzahl der Ergebnisse
 
 ### Filter
@@ -112,9 +120,9 @@ Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT
 
 
 
-Beispiel:
+##Beispiel:
 ```bash
-res=$(curl -m 60 -H "Host: rest.arbeitsagentur.de" \
+jobs=$(curl -m 60 -H "Host: rest.arbeitsagentur.de" \
 -H "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0" \
 -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
 -H "Accept-Language: de,en-US;q=0.7,en;q=0.3" \
