@@ -1,4 +1,4 @@
-# Arbeitsamt Jobsuche API 
+# Arbeitsagentur Jobsuche API 
 Die Bundesagentur für Arbeit verfügt über die größte Datenbank für offene Stellen in Deutschland. Obwohl sie vollständig staatlich ist und es sich dabei um einen sehr spannenden Basisdatensatz handelt, mit dem viele Analysen möglich wären, bietet die Bundesagentur für Arbeit dafür bis heute keine offizielle API an.
 
 
