@@ -21,7 +21,7 @@ curl \
 --compressed 'https://rest.arbeitsagentur.de/oauth/gettoken_cc'
 ```
 
-Der generierte Token muss bei folgenden GET-requests an https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs im header als 'OAuthAccessToken' inkludiert werden.
+Der generierte Token muss bei folgenden GET-requests an https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs o.ä. im header als 'OAuthAccessToken' inkludiert werden.
 
 ## Jobbörse
 
