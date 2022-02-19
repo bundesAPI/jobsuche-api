@@ -1,0 +1,26 @@
+templateDir: deutschland_templates # For local use: ./local/deutschland_templates
+additionalProperties:
+  packageName: "jobsuche"
+  infoName: "BundesAPI"
+  infoEmail: "kontakt@bund.dev"
+  packageVersion: 0.1.0
+  packageUrl: "https://github.com/bundesAPI/jobsuche-api"
+  namespace: "deutschland"
+  docLanguage: "de"
+gitHost: "github.com"
+gitUserId: "bundesAPI"
+gitRepoId: "jobsuche-api"
+files:
+  pyproject.mustache:
+    destinationFilename: pyproject.toml
+    templateType: SupportingFiles
+  requirements.txt: {}
+  create_doc.mustache:
+    destinationFilename: create_doc.py
+    templateType: SupportingFiles
+  rename_generated_code.mustache:
+    destinationFilename: rename_generated_code.py
+    templateType: SupportingFiles
+  README.mustache:
+    destinationFilename: README.md
+    templateType: SupportingFiles
