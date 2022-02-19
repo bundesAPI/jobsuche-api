@@ -1,0 +1,31 @@
+[tool]
+[tool.poetry]
+name = "de-jobsuche"
+version = "0.1.0"
+description = "Arbeitsagentur Jobsuche API"
+keywords = ["OpenAPI", "OpenAPI-Generator", "jobsuche", "App", "API"]
+homepage = "https://github.com/bundesAPI/jobsuche-api"
+authors = ["BundesAPI <kontakt@bund.dev>"]
+packages = [
+  { include = "deutschland"}
+]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+python-dateutil = "*"
+urllib3 = ">=1.25.3"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/bundesAPI/jobsuche-api/issues"
+
+[tool.poetry.dev-dependencies]
+black = "^21.7b0"
+pytest = "^6.2.4"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
