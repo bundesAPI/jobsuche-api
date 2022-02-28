@@ -63,7 +63,7 @@ Anzahl der Ergebnisse
 
 ### Filter
 
-**Parameter:** *veröffentlichtseit* (Optional)
+**Parameter:** *veroeffentlichtseit* (Optional)
 
 Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
 
