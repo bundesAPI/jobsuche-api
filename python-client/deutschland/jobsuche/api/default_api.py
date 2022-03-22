@@ -299,6 +299,10 @@ class DefaultApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -315,6 +319,7 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         kwargs["hash_id"] = hash_id
         return self.ed_v1_arbeitgeberlogo_hash_id_get_endpoint.call_with_http_info(
             **kwargs
@@ -359,6 +364,10 @@ class DefaultApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -375,6 +384,7 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         kwargs["hash_id"] = hash_id
         return self.pc_v2_app_jobs_hash_id_bewerbung_get_endpoint.call_with_http_info(
             **kwargs
@@ -419,6 +429,10 @@ class DefaultApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -435,6 +449,7 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         kwargs["hash_id"] = hash_id
         return self.pc_v2_jobdetails_hash_id_get_endpoint.call_with_http_info(**kwargs)
 
@@ -488,6 +503,10 @@ class DefaultApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -504,4 +523,5 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.pc_v4_app_jobs_get_endpoint.call_with_http_info(**kwargs)
