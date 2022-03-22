@@ -73,23 +73,23 @@ Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tag
 - false 
 - true
 
-Gibt an, ob Jobs von privaten Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
+Private Arbeitsvermittlung: Gibt an, ob Jobs von privaten Arbeitsvermittlungen in die Suchergebnisse einbezogen werden sollen.
 
 
 
 **Parameter:** *angebotsart*  (Optional)
 - 1 
 - 2 
-- 3 
+- 4 
 - 34
 
-1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
+Angebotsart: 1=ARBEIT; 2=SELBSTAENDIGKEIT; 4=AUSBILDUNG/Duales Studium; 34=Praktikum/Trainee.
 
 **Parameter:** *befristung*  (Optional)
 - 1
 - 2
 
-Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
+Befristung: 1 = befristet; 2 = unbefristet. Mehrere Semikolon-separierte Werte möglich (z.B. befristung=1;2).
 
 
 Parameter: behinderung (Optional)
@@ -101,11 +101,11 @@ Parameter: corona (Optional)
 - false 
 - true
 
-Wenn AN, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+Corona: Es werden nur Jobs die im Kontext von Corona angeboten werden angezeigt wenn *true*.
 
 **Parameter:** *umreis* (Optional)
 
-Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
+Umkreis: in Kilometern von *Wo*-Parameter (z.B. 25 oder 200).
 
 
 
@@ -116,7 +116,8 @@ Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
 - ho 
 - mj 
 
-Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+Arbeitszeit: vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB. 
+Mehrere Semikolon-separierte Werte möglich (z.B. arbeitszeit=vz;tz).
 
 
 
