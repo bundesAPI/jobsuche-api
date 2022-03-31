@@ -103,7 +103,7 @@ Parameter: corona (Optional)
 
 Corona: Es werden nur Jobs die im Kontext von Corona angeboten werden angezeigt wenn *true*.
 
-**Parameter:** *umreis* (Optional)
+**Parameter:** *umkreis* (Optional)
 
 Umkreis: in Kilometern von *Wo*-Parameter (z.B. 25 oder 200).
 
