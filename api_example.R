@@ -24,6 +24,5 @@ httr::GET(url=urlLogo, httr::add_headers(.headers=c("OAuthAccessToken"=token)), 
 
 urlDetails="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v2/jobdetails/MTQ3NTEtNjExMzcwLVM"
 httr::GET(url=urlDetails, httr::add_headers(.headers=c("OAuthAccessToken"=token)), config=httr::config(connecttimeout=60))
-&id=13611-202205010805020-S
 
 
