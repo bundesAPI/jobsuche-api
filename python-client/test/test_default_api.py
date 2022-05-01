@@ -32,13 +32,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_pc_v2_app_jobs_hash_id_bewerbung_get(self):
-        """Test case for pc_v2_app_jobs_hash_id_bewerbung_get
-
-        Bewerbung Kontaktdaten  # noqa: E501
-        """
-        pass
-
     def test_pc_v2_jobdetails_hash_id_get(self):
         """Test case for pc_v2_jobdetails_hash_id_get
 

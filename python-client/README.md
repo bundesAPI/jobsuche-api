@@ -50,7 +50,6 @@ import time
 from deutschland import jobsuche
 from pprint import pprint
 from deutschland.jobsuche.api import default_api
-from deutschland.jobsuche.model.job_application_details import JobApplicationDetails
 from deutschland.jobsuche.model.job_details import JobDetails
 from deutschland.jobsuche.model.job_search_response import JobSearchResponse
 # Defining the host is optional and defaults to https://rest.arbeitsagentur.de/jobboerse/jobsuche-service
@@ -92,7 +91,6 @@ All URIs are relative to *https://rest.arbeitsagentur.de/jobboerse/jobsuche-serv
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**ed_v1_arbeitgeberlogo_hash_id_get**](docs/DefaultApi.md#ed_v1_arbeitgeberlogo_hash_id_get) | **GET** /ed/v1/arbeitgeberlogo/{hashID} | Unternehmen Logo
-*DefaultApi* | [**pc_v2_app_jobs_hash_id_bewerbung_get**](docs/DefaultApi.md#pc_v2_app_jobs_hash_id_bewerbung_get) | **GET** /pc/v2/app/jobs/{hashID}/bewerbung | Bewerbung Kontaktdaten
 *DefaultApi* | [**pc_v2_jobdetails_hash_id_get**](docs/DefaultApi.md#pc_v2_jobdetails_hash_id_get) | **GET** /pc/v2/jobdetails/{hashID} | Jobdetail
 *DefaultApi* | [**pc_v4_app_jobs_get**](docs/DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche
 
