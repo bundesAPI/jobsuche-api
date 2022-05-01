@@ -18,16 +18,9 @@ from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten_in
 
 from deutschland import jobsuche
 
-globals()[
-    "JobSearchResponseParserResultKoordinatenInner"
-] = JobSearchResponseParserResultKoordinatenInner
-from deutschland.jobsuche.model.job_search_response_parser_result import (
-    JobSearchResponseParserResult,
-)
 
-
-class TestJobSearchResponseParserResult(unittest.TestCase):
-    """JobSearchResponseParserResult unit test stubs"""
+class TestJobSearchResponseParserResultKoordinatenInner(unittest.TestCase):
+    """JobSearchResponseParserResultKoordinatenInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -35,10 +28,10 @@ class TestJobSearchResponseParserResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobSearchResponseParserResult(self):
-        """Test JobSearchResponseParserResult"""
+    def testJobSearchResponseParserResultKoordinatenInner(self):
+        """Test JobSearchResponseParserResultKoordinatenInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobSearchResponseParserResult()  # noqa: E501
+        # model = JobSearchResponseParserResultKoordinatenInner()  # noqa: E501
         pass
 
 

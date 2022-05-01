@@ -18,8 +18,8 @@ from deutschland.jobsuche.model.job_search_response_aggregierungen import (
 from deutschland.jobsuche.model.job_search_response_embedded import (
     JobSearchResponseEmbedded,
 )
-from deutschland.jobsuche.model.job_search_response_facetten import (
-    JobSearchResponseFacetten,
+from deutschland.jobsuche.model.job_search_response_facetten_inner import (
+    JobSearchResponseFacettenInner,
 )
 from deutschland.jobsuche.model.job_search_response_links import JobSearchResponseLinks
 from deutschland.jobsuche.model.job_search_response_page import JobSearchResponsePage
@@ -31,7 +31,7 @@ from deutschland import jobsuche
 
 globals()["JobSearchResponseAggregierungen"] = JobSearchResponseAggregierungen
 globals()["JobSearchResponseEmbedded"] = JobSearchResponseEmbedded
-globals()["JobSearchResponseFacetten"] = JobSearchResponseFacetten
+globals()["JobSearchResponseFacettenInner"] = JobSearchResponseFacettenInner
 globals()["JobSearchResponseLinks"] = JobSearchResponseLinks
 globals()["JobSearchResponsePage"] = JobSearchResponsePage
 globals()["JobSearchResponseParserResult"] = JobSearchResponseParserResult

@@ -12,22 +12,15 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten_inner import (
-    JobSearchResponseParserResultKoordinatenInner,
+from deutschland.jobsuche.model.job_details_arbeitsorte_items_koordinaten import (
+    JobDetailsArbeitsorteItemsKoordinaten,
 )
 
 from deutschland import jobsuche
 
-globals()[
-    "JobSearchResponseParserResultKoordinatenInner"
-] = JobSearchResponseParserResultKoordinatenInner
-from deutschland.jobsuche.model.job_search_response_parser_result import (
-    JobSearchResponseParserResult,
-)
 
-
-class TestJobSearchResponseParserResult(unittest.TestCase):
-    """JobSearchResponseParserResult unit test stubs"""
+class TestJobDetailsArbeitsorteItemsKoordinaten(unittest.TestCase):
+    """JobDetailsArbeitsorteItemsKoordinaten unit test stubs"""
 
     def setUp(self):
         pass
@@ -35,10 +28,10 @@ class TestJobSearchResponseParserResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobSearchResponseParserResult(self):
-        """Test JobSearchResponseParserResult"""
+    def testJobDetailsArbeitsorteItemsKoordinaten(self):
+        """Test JobDetailsArbeitsorteItemsKoordinaten"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobSearchResponseParserResult()  # noqa: E501
+        # model = JobDetailsArbeitsorteItemsKoordinaten()  # noqa: E501
         pass
 
 

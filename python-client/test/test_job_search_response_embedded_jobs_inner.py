@@ -12,22 +12,28 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten_inner import (
-    JobSearchResponseParserResultKoordinatenInner,
+from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_arbeitsort import (
+    JobSearchResponseEmbeddedJobsItemsArbeitsort,
+)
+from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_links import (
+    JobSearchResponseEmbeddedJobsItemsLinks,
 )
 
 from deutschland import jobsuche
 
 globals()[
-    "JobSearchResponseParserResultKoordinatenInner"
-] = JobSearchResponseParserResultKoordinatenInner
-from deutschland.jobsuche.model.job_search_response_parser_result import (
-    JobSearchResponseParserResult,
+    "JobSearchResponseEmbeddedJobsItemsArbeitsort"
+] = JobSearchResponseEmbeddedJobsItemsArbeitsort
+globals()[
+    "JobSearchResponseEmbeddedJobsItemsLinks"
+] = JobSearchResponseEmbeddedJobsItemsLinks
+from deutschland.jobsuche.model.job_search_response_embedded_jobs_inner import (
+    JobSearchResponseEmbeddedJobsInner,
 )
 
 
-class TestJobSearchResponseParserResult(unittest.TestCase):
-    """JobSearchResponseParserResult unit test stubs"""
+class TestJobSearchResponseEmbeddedJobsInner(unittest.TestCase):
+    """JobSearchResponseEmbeddedJobsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -35,10 +41,10 @@ class TestJobSearchResponseParserResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobSearchResponseParserResult(self):
-        """Test JobSearchResponseParserResult"""
+    def testJobSearchResponseEmbeddedJobsInner(self):
+        """Test JobSearchResponseEmbeddedJobsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobSearchResponseParserResult()  # noqa: E501
+        # model = JobSearchResponseEmbeddedJobsInner()  # noqa: E501
         pass
 
 
