@@ -36,12 +36,17 @@ Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parameter
 
 **Parameter:** *was* (Optional)
 
-Freitext suche Jobtitel
+Freitextsuche Jobtitel (z.B. Referatsleiter).
 
 
 **Parameter:** *wo*  (Optional)
 
-Freitext suche Jobtitel
+Freitextsuche Beschäftigungsort (z.B. Berlin).
+
+
+**Parameter:** *berufsfeld*  (Optional)
+
+Freitextsuche Berufssfeld (z.B. Informatik).
 
 
 **Parameter:** *page* (Optional)
