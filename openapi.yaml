@@ -142,27 +142,7 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/JobDetails'
-  
-  /pc/v2/app/jobs/{hashID}/bewerbung:
-    get:
-      summary: Bewerbung Kontaktdaten
-      description: "Abrufen von Kontaktdaten zu einem Job. Dieser Endpunkt benötigt Captcha-Headers."
-      parameters:
-        - name: hashID
-          in: path
-          required: true
-          schema:
-            type: string
-            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
-      responses:
-        '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/JobApplicationDetails'
-                  
+                  $ref: '#/components/schemas/JobDetails'                   
   
   /ed/v1/arbeitgeberlogo/{hashID}:
     get:
