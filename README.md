@@ -136,23 +136,3 @@ jobs=$(curl -m 60 -H "Host: rest.arbeitsagentur.de" \
 -H "OAuthAccessToken: $token" \
 'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false')
 ```
-
-## Jobdetails
-
-### Detailseite
-Abrufen von Details zu einem Job.
-
-**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobdetails/[hashId]
-
-
-### Bewerbung
-Kontaktdaten für eine Bewerbung. (Ansprechpartner, Telefonnummer, …)
-
-**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs/[hashId]/bewerbung
-
-
-### Arbeitgeberlogo zu einem Job
-Logo des Unternehmens
-
-**URL** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/arbeitgeberlogo/[hashId]
-
