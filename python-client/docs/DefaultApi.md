@@ -283,6 +283,7 @@ with jobsuche.ApiClient(configuration) as api_client:
     api_instance = default_api.DefaultApi(api_client)
     was = "Referatsleiter" # str | Freitext suche Jobtitel (optional)
     wo = "Berlin" # str | Freitext suche Beschäftigungsort (optional)
+    berufsfeld = "Informatik" # str | Freitext suche Berufsfeld (optional)
     page = 1 # int | Ergebnissseite (optional)
     size = 50 # int | Anzahl von Ergebnissen (optional)
     arbeitgeber = "Deutsche%20Bahn%20AG" # str | Arbeitgeber der Stelle (optional)
@@ -299,7 +300,7 @@ with jobsuche.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Jobsuche
-        api_response = api_instance.pc_v4_app_jobs_get(was=was, wo=wo, page=page, size=size, arbeitgeber=arbeitgeber, veroeffentlichtseit=veroeffentlichtseit, zeitarbeit=zeitarbeit, angebotsart=angebotsart, befristung=befristung, arbeitszeit=arbeitszeit, behinderung=behinderung, corona=corona, umkreis=umkreis)
+        api_response = api_instance.pc_v4_app_jobs_get(was=was, wo=wo, berufsfeld=berufsfeld, page=page, size=size, arbeitgeber=arbeitgeber, veroeffentlichtseit=veroeffentlichtseit, zeitarbeit=zeitarbeit, angebotsart=angebotsart, befristung=befristung, arbeitszeit=arbeitszeit, behinderung=behinderung, corona=corona, umkreis=umkreis)
         pprint(api_response)
     except jobsuche.ApiException as e:
         print("Exception when calling DefaultApi->pc_v4_app_jobs_get: %s\n" % e)
@@ -312,6 +313,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **was** | **str**| Freitext suche Jobtitel | [optional]
  **wo** | **str**| Freitext suche Beschäftigungsort | [optional]
+ **berufsfeld** | **str**| Freitext suche Berufsfeld | [optional]
  **page** | **int**| Ergebnissseite | [optional]
  **size** | **int**| Anzahl von Ergebnissen | [optional]
  **arbeitgeber** | **str**| Arbeitgeber der Stelle | [optional]

@@ -172,6 +172,7 @@ class DefaultApi(object):
                 "all": [
                     "was",
                     "wo",
+                    "berufsfeld",
                     "page",
                     "size",
                     "arbeitgeber",
@@ -209,6 +210,7 @@ class DefaultApi(object):
                 "openapi_types": {
                     "was": (str,),
                     "wo": (str,),
+                    "berufsfeld": (str,),
                     "page": (int,),
                     "size": (int,),
                     "arbeitgeber": (str,),
@@ -224,6 +226,7 @@ class DefaultApi(object):
                 "attribute_map": {
                     "was": "was",
                     "wo": "wo",
+                    "berufsfeld": "berufsfeld",
                     "page": "page",
                     "size": "size",
                     "arbeitgeber": "arbeitgeber",
@@ -239,6 +242,7 @@ class DefaultApi(object):
                 "location_map": {
                     "was": "query",
                     "wo": "query",
+                    "berufsfeld": "query",
                     "page": "query",
                     "size": "query",
                     "arbeitgeber": "query",
@@ -467,6 +471,7 @@ class DefaultApi(object):
         Keyword Args:
             was (str): Freitext suche Jobtitel. [optional]
             wo (str): Freitext suche Beschäftigungsort. [optional]
+            berufsfeld (str): Freitext suche Berufsfeld. [optional]
             page (int): Ergebnissseite. [optional]
             size (int): Anzahl von Ergebnissen. [optional]
             arbeitgeber (str): Arbeitgeber der Stelle. [optional]
