@@ -725,10 +725,8 @@ COERCION_INDEX_BY_TYPE = {
 UPCONVERSION_TYPE_PAIRS = (
     (str, datetime),
     (str, date),
-    (
-        int,
-        float,
-    ),  # A float may be serialized as an integer, e.g. '3' is a valid serialized float.
+    # A float may be serialized as an integer, e.g. '3' is a valid serialized float.
+    (int, float),
     (list, ModelComposed),
     (dict, ModelComposed),
     (str, ModelComposed),
@@ -1608,7 +1606,7 @@ def validate_and_convert_types(
     input_class_simple = get_simple_class(input_value)
     valid_type = is_valid_type(input_class_simple, valid_classes)
     if not valid_type:
-        if configuration or (input_class_simple == dict and not dict in valid_classes):
+        if configuration or (input_class_simple == dict and dict not in valid_classes):
             # if input_value is not valid_type try to convert it
             converted_instance = attempt_convert_item(
                 input_value,
@@ -1702,11 +1700,13 @@ def model_to_dict(model_instance, serialize=True):
             attribute_map
     """
     result = {}
-    extract_item = (
-        lambda item: (item[0], model_to_dict(item[1], serialize=serialize))
-        if hasattr(item[1], "_data_store")
-        else item
-    )
+
+    def extract_item(item):
+        return (
+            (item[0], model_to_dict(item[1], serialize=serialize))
+            if hasattr(item[1], "_data_store")
+            else item
+        )
 
     model_instances = [model_instance]
     if model_instance._composed_schemas:

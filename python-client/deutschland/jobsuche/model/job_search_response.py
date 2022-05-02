@@ -37,8 +37,8 @@ def lazy_import():
     from deutschland.jobsuche.model.job_search_response_embedded import (
         JobSearchResponseEmbedded,
     )
-    from deutschland.jobsuche.model.job_search_response_facetten import (
-        JobSearchResponseFacetten,
+    from deutschland.jobsuche.model.job_search_response_facetten_inner import (
+        JobSearchResponseFacettenInner,
     )
     from deutschland.jobsuche.model.job_search_response_links import (
         JobSearchResponseLinks,
@@ -52,7 +52,7 @@ def lazy_import():
 
     globals()["JobSearchResponseAggregierungen"] = JobSearchResponseAggregierungen
     globals()["JobSearchResponseEmbedded"] = JobSearchResponseEmbedded
-    globals()["JobSearchResponseFacetten"] = JobSearchResponseFacetten
+    globals()["JobSearchResponseFacettenInner"] = JobSearchResponseFacettenInner
     globals()["JobSearchResponseLinks"] = JobSearchResponseLinks
     globals()["JobSearchResponsePage"] = JobSearchResponsePage
     globals()["JobSearchResponseParserResult"] = JobSearchResponseParserResult
@@ -122,7 +122,7 @@ class JobSearchResponse(ModelNormal):
             "embedded": (JobSearchResponseEmbedded,),  # noqa: E501
             "links": (JobSearchResponseLinks,),  # noqa: E501
             "page": (JobSearchResponsePage,),  # noqa: E501
-            "facetten": ([JobSearchResponseFacetten],),  # noqa: E501
+            "facetten": ([JobSearchResponseFacettenInner],),  # noqa: E501
             "aggregierungen": (JobSearchResponseAggregierungen,),  # noqa: E501
             "parser_result": (JobSearchResponseParserResult,),  # noqa: E501
         }
@@ -183,7 +183,7 @@ class JobSearchResponse(ModelNormal):
             embedded (JobSearchResponseEmbedded): [optional]  # noqa: E501
             links (JobSearchResponseLinks): [optional]  # noqa: E501
             page (JobSearchResponsePage): [optional]  # noqa: E501
-            facetten ([JobSearchResponseFacetten]): [optional]  # noqa: E501
+            facetten ([JobSearchResponseFacettenInner]): [optional]  # noqa: E501
             aggregierungen (JobSearchResponseAggregierungen): [optional]  # noqa: E501
             parser_result (JobSearchResponseParserResult): [optional]  # noqa: E501
         """
@@ -279,7 +279,7 @@ class JobSearchResponse(ModelNormal):
             embedded (JobSearchResponseEmbedded): [optional]  # noqa: E501
             links (JobSearchResponseLinks): [optional]  # noqa: E501
             page (JobSearchResponsePage): [optional]  # noqa: E501
-            facetten ([JobSearchResponseFacetten]): [optional]  # noqa: E501
+            facetten ([JobSearchResponseFacettenInner]): [optional]  # noqa: E501
             aggregierungen (JobSearchResponseAggregierungen): [optional]  # noqa: E501
             parser_result (JobSearchResponseParserResult): [optional]  # noqa: E501
         """

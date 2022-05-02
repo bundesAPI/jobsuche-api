@@ -397,6 +397,8 @@ class RESTClientObject(object):
 
 
 # end of class RESTClientObject
+
+
 def is_ipv4(target):
     """Test if IPv4 address or not"""
     try:

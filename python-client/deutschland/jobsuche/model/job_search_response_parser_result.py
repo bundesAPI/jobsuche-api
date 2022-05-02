@@ -31,13 +31,13 @@ from deutschland.jobsuche.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten import (
-        JobSearchResponseParserResultKoordinaten,
+    from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten_inner import (
+        JobSearchResponseParserResultKoordinatenInner,
     )
 
     globals()[
-        "JobSearchResponseParserResultKoordinaten"
-    ] = JobSearchResponseParserResultKoordinaten
+        "JobSearchResponseParserResultKoordinatenInner"
+    ] = JobSearchResponseParserResultKoordinatenInner
 
 
 class JobSearchResponseParserResult(ModelNormal):
@@ -102,7 +102,9 @@ class JobSearchResponseParserResult(ModelNormal):
         lazy_import()
         return {
             "result": (str,),  # noqa: E501
-            "koordinaten": ([JobSearchResponseParserResultKoordinaten],),  # noqa: E501
+            "koordinaten": (
+                [JobSearchResponseParserResultKoordinatenInner],
+            ),  # noqa: E501
             "suchmodus": (str,),  # noqa: E501
         }
 
@@ -157,7 +159,7 @@ class JobSearchResponseParserResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             result (str): [optional]  # noqa: E501
-            koordinaten ([JobSearchResponseParserResultKoordinaten]): [optional]  # noqa: E501
+            koordinaten ([JobSearchResponseParserResultKoordinatenInner]): [optional]  # noqa: E501
             suchmodus (str): [optional]  # noqa: E501
         """
 
@@ -250,7 +252,7 @@ class JobSearchResponseParserResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             result (str): [optional]  # noqa: E501
-            koordinaten ([JobSearchResponseParserResultKoordinaten]): [optional]  # noqa: E501
+            koordinaten ([JobSearchResponseParserResultKoordinatenInner]): [optional]  # noqa: E501
             suchmodus (str): [optional]  # noqa: E501
         """
 

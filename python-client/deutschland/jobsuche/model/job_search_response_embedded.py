@@ -31,11 +31,11 @@ from deutschland.jobsuche.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.jobsuche.model.job_search_response_embedded_jobs import (
-        JobSearchResponseEmbeddedJobs,
+    from deutschland.jobsuche.model.job_search_response_embedded_jobs_inner import (
+        JobSearchResponseEmbeddedJobsInner,
     )
 
-    globals()["JobSearchResponseEmbeddedJobs"] = JobSearchResponseEmbeddedJobs
+    globals()["JobSearchResponseEmbeddedJobsInner"] = JobSearchResponseEmbeddedJobsInner
 
 
 class JobSearchResponseEmbedded(ModelNormal):
@@ -99,7 +99,7 @@ class JobSearchResponseEmbedded(ModelNormal):
         """
         lazy_import()
         return {
-            "jobs": ([JobSearchResponseEmbeddedJobs],),  # noqa: E501
+            "jobs": ([JobSearchResponseEmbeddedJobsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +150,7 @@ class JobSearchResponseEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            jobs ([JobSearchResponseEmbeddedJobs]): [optional]  # noqa: E501
+            jobs ([JobSearchResponseEmbeddedJobsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -241,7 +241,7 @@ class JobSearchResponseEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            jobs ([JobSearchResponseEmbeddedJobs]): [optional]  # noqa: E501
+            jobs ([JobSearchResponseEmbeddedJobsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

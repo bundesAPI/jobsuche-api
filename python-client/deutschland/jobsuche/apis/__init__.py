@@ -5,7 +5,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.default_api import DefaultApi
+#   from deutschland.jobsuche.api.default_api import DefaultApi
 #
 # or import this package, but before doing it, use:
 #

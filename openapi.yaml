@@ -35,6 +35,13 @@ paths:
           example: Berlin
           required: false
         - in: query
+          name: berufsfeld
+          schema:
+            type: string
+          description: Freitext suche Berufsfeld
+          example: Informatik
+          required: false          
+        - in: query
           name: page
           schema:
             type: integer

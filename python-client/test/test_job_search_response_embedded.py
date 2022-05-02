@@ -12,13 +12,13 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_search_response_embedded_jobs import (
-    JobSearchResponseEmbeddedJobs,
+from deutschland.jobsuche.model.job_search_response_embedded_jobs_inner import (
+    JobSearchResponseEmbeddedJobsInner,
 )
 
 from deutschland import jobsuche
 
-globals()["JobSearchResponseEmbeddedJobs"] = JobSearchResponseEmbeddedJobs
+globals()["JobSearchResponseEmbeddedJobsInner"] = JobSearchResponseEmbeddedJobsInner
 from deutschland.jobsuche.model.job_search_response_embedded import (
     JobSearchResponseEmbedded,
 )

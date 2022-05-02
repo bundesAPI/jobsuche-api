@@ -34,30 +34,32 @@ def lazy_import():
     from deutschland.jobsuche.model.job_details_arbeitgeber_adresse import (
         JobDetailsArbeitgeberAdresse,
     )
-    from deutschland.jobsuche.model.job_details_arbeitsorte import JobDetailsArbeitsorte
-    from deutschland.jobsuche.model.job_details_ausbildungen import (
-        JobDetailsAusbildungen,
+    from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
+        JobDetailsArbeitsorteInner,
     )
-    from deutschland.jobsuche.model.job_details_fertigkeiten import (
-        JobDetailsFertigkeiten,
+    from deutschland.jobsuche.model.job_details_ausbildungen_inner import (
+        JobDetailsAusbildungenInner,
+    )
+    from deutschland.jobsuche.model.job_details_fertigkeiten_inner import (
+        JobDetailsFertigkeitenInner,
     )
     from deutschland.jobsuche.model.job_details_fuehrungskompetenzen import (
         JobDetailsFuehrungskompetenzen,
     )
     from deutschland.jobsuche.model.job_details_links import JobDetailsLinks
     from deutschland.jobsuche.model.job_details_mobilitaet import JobDetailsMobilitaet
-    from deutschland.jobsuche.model.job_details_sprachkenntnisse import (
-        JobDetailsSprachkenntnisse,
+    from deutschland.jobsuche.model.job_details_sprachkenntnisse_inner import (
+        JobDetailsSprachkenntnisseInner,
     )
 
     globals()["JobDetailsArbeitgeberAdresse"] = JobDetailsArbeitgeberAdresse
-    globals()["JobDetailsArbeitsorte"] = JobDetailsArbeitsorte
-    globals()["JobDetailsAusbildungen"] = JobDetailsAusbildungen
-    globals()["JobDetailsFertigkeiten"] = JobDetailsFertigkeiten
+    globals()["JobDetailsArbeitsorteInner"] = JobDetailsArbeitsorteInner
+    globals()["JobDetailsAusbildungenInner"] = JobDetailsAusbildungenInner
+    globals()["JobDetailsFertigkeitenInner"] = JobDetailsFertigkeitenInner
     globals()["JobDetailsFuehrungskompetenzen"] = JobDetailsFuehrungskompetenzen
     globals()["JobDetailsLinks"] = JobDetailsLinks
     globals()["JobDetailsMobilitaet"] = JobDetailsMobilitaet
-    globals()["JobDetailsSprachkenntnisse"] = JobDetailsSprachkenntnisse
+    globals()["JobDetailsSprachkenntnisseInner"] = JobDetailsSprachkenntnisseInner
 
 
 class JobDetails(ModelNormal):
@@ -127,7 +129,7 @@ class JobDetails(ModelNormal):
             "arbeitgeber": (str,),  # noqa: E501
             "branchenbezeichnung": (str,),  # noqa: E501
             "arbeitgeber_hash_id": (str,),  # noqa: E501
-            "arbeitsorte": ([JobDetailsArbeitsorte],),  # noqa: E501
+            "arbeitsorte": ([JobDetailsArbeitsorteInner],),  # noqa: E501
             "arbeitszeitmodelle": ([str],),  # noqa: E501
             "befristung": (str,),  # noqa: E501
             "betriebsgroesse": (str,),  # noqa: E501
@@ -143,13 +145,13 @@ class JobDetails(ModelNormal):
             "nur_fuer_schwerbehinderte": (bool,),  # noqa: E501
             "anzahl_offene_stellen": (int,),  # noqa: E501
             "arbeitgeber_adresse": (JobDetailsArbeitgeberAdresse,),  # noqa: E501
-            "fertigkeiten": ([JobDetailsFertigkeiten],),  # noqa: E501
-            "sprachkenntnisse": ([JobDetailsSprachkenntnisse],),  # noqa: E501
+            "fertigkeiten": ([JobDetailsFertigkeitenInner],),  # noqa: E501
+            "sprachkenntnisse": ([JobDetailsSprachkenntnisseInner],),  # noqa: E501
             "staerken": ([str],),  # noqa: E501
             "mobilitaet": (JobDetailsMobilitaet,),  # noqa: E501
             "berufserfahrung": (str,),  # noqa: E501
             "fuehrungskompetenzen": (JobDetailsFuehrungskompetenzen,),  # noqa: E501
-            "ausbildungen": ([JobDetailsAusbildungen],),  # noqa: E501
+            "ausbildungen": ([JobDetailsAusbildungenInner],),  # noqa: E501
             "arbeitgeberdarstellung_url": (str,),  # noqa: E501
             "haupt_dkz": (str,),  # noqa: E501
             "ist_betreut": (bool,),  # noqa: E501
@@ -248,7 +250,7 @@ class JobDetails(ModelNormal):
             arbeitgeber (str): [optional]  # noqa: E501
             branchenbezeichnung (str): [optional]  # noqa: E501
             arbeitgeber_hash_id (str): [optional]  # noqa: E501
-            arbeitsorte ([JobDetailsArbeitsorte]): [optional]  # noqa: E501
+            arbeitsorte ([JobDetailsArbeitsorteInner]): [optional]  # noqa: E501
             arbeitszeitmodelle ([str]): [optional]  # noqa: E501
             befristung (str): [optional]  # noqa: E501
             betriebsgroesse (str): [optional]  # noqa: E501
@@ -264,13 +266,13 @@ class JobDetails(ModelNormal):
             nur_fuer_schwerbehinderte (bool): [optional]  # noqa: E501
             anzahl_offene_stellen (int): [optional]  # noqa: E501
             arbeitgeber_adresse (JobDetailsArbeitgeberAdresse): [optional]  # noqa: E501
-            fertigkeiten ([JobDetailsFertigkeiten]): [optional]  # noqa: E501
-            sprachkenntnisse ([JobDetailsSprachkenntnisse]): [optional]  # noqa: E501
+            fertigkeiten ([JobDetailsFertigkeitenInner]): [optional]  # noqa: E501
+            sprachkenntnisse ([JobDetailsSprachkenntnisseInner]): [optional]  # noqa: E501
             staerken ([str]): [optional]  # noqa: E501
             mobilitaet (JobDetailsMobilitaet): [optional]  # noqa: E501
             berufserfahrung (str): [optional]  # noqa: E501
             fuehrungskompetenzen (JobDetailsFuehrungskompetenzen): [optional]  # noqa: E501
-            ausbildungen ([JobDetailsAusbildungen]): [optional]  # noqa: E501
+            ausbildungen ([JobDetailsAusbildungenInner]): [optional]  # noqa: E501
             arbeitgeberdarstellung_url (str): [optional]  # noqa: E501
             haupt_dkz (str): [optional]  # noqa: E501
             ist_betreut (bool): [optional]  # noqa: E501
@@ -374,7 +376,7 @@ class JobDetails(ModelNormal):
             arbeitgeber (str): [optional]  # noqa: E501
             branchenbezeichnung (str): [optional]  # noqa: E501
             arbeitgeber_hash_id (str): [optional]  # noqa: E501
-            arbeitsorte ([JobDetailsArbeitsorte]): [optional]  # noqa: E501
+            arbeitsorte ([JobDetailsArbeitsorteInner]): [optional]  # noqa: E501
             arbeitszeitmodelle ([str]): [optional]  # noqa: E501
             befristung (str): [optional]  # noqa: E501
             betriebsgroesse (str): [optional]  # noqa: E501
@@ -390,13 +392,13 @@ class JobDetails(ModelNormal):
             nur_fuer_schwerbehinderte (bool): [optional]  # noqa: E501
             anzahl_offene_stellen (int): [optional]  # noqa: E501
             arbeitgeber_adresse (JobDetailsArbeitgeberAdresse): [optional]  # noqa: E501
-            fertigkeiten ([JobDetailsFertigkeiten]): [optional]  # noqa: E501
-            sprachkenntnisse ([JobDetailsSprachkenntnisse]): [optional]  # noqa: E501
+            fertigkeiten ([JobDetailsFertigkeitenInner]): [optional]  # noqa: E501
+            sprachkenntnisse ([JobDetailsSprachkenntnisseInner]): [optional]  # noqa: E501
             staerken ([str]): [optional]  # noqa: E501
             mobilitaet (JobDetailsMobilitaet): [optional]  # noqa: E501
             berufserfahrung (str): [optional]  # noqa: E501
             fuehrungskompetenzen (JobDetailsFuehrungskompetenzen): [optional]  # noqa: E501
-            ausbildungen ([JobDetailsAusbildungen]): [optional]  # noqa: E501
+            ausbildungen ([JobDetailsAusbildungenInner]): [optional]  # noqa: E501
             arbeitgeberdarstellung_url (str): [optional]  # noqa: E501
             haupt_dkz (str): [optional]  # noqa: E501
             ist_betreut (bool): [optional]  # noqa: E501
