@@ -6,19 +6,18 @@ Die Bundesagentur für Arbeit verfügt über die größte Datenbank für offene 
 Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs.
 Die Client Credentials sind z.B. in der App hinterlegt:
 
-**ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a
+**client_id:** c003a37f-024f-462a-b36d-b001be4cd24a
 
-**ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8
+**client_secret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8
+
+**grant_type:** client_credentials
+
+Die Credentials sind im body POST-request an https://rest.arbeitsagentur.de/oauth/gettoken_cc zu senden.
 
 ```bash
-curl \
--H 'Host: rest.arbeitsagentur.de' \
--H 'Accept: */*' \
--H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
--H 'Accept-Language: en-us' \
--H 'User-Agent: Jobsuche/1070 CFNetwork/1220.1 Darwin/20.3.0' \
---data-binary "client_id=c003a37f-024f-462a-b36d-b001be4cd24a&client_secret=32a39620-32b3-4307-9aa1-511e3d7f48a8&grant_type=client_credentials" \
---compressed 'https://rest.arbeitsagentur.de/oauth/gettoken_cc'
+token=$(curl \
+-d "client_id=c003a37f-024f-462a-b36d-b001be4cd24a&client_secret=32a39620-32b3-4307-9aa1-511e3d7f48a8&grant_type=client_credentials" \
+-X POST 'https://rest.arbeitsagentur.de/oauth/gettoken_cc' |grep -Eo '[^"]{500,}'|head -n 1)
 ```
 
 Der generierte Token muss bei folgenden GET-requests an https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs o.ä. im header als 'OAuthAccessToken' inkludiert werden.
@@ -127,17 +126,7 @@ Mehrere Semikolon-separierte Werte möglich (z.B. arbeitszeit=vz;tz).
 
 ### Beispiel:
 ```bash
-jobs=$(curl -m 60 -H "Host: rest.arbeitsagentur.de" \
--H "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0" \
--H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
--H "Accept-Language: de,en-US;q=0.7,en;q=0.3" \
--H "Accept-Encoding: gzip, deflate, br" \
--H "Origin: https://web.arbeitsagentur.de" \
--H "DNT: 1" \
--H "Connection: keep-alive" \
--H "Pragma: no-cache" \
--H "Referer: https://jobboerse.arbeitsagentur.de/vamJB/stellenangeboteFinden.html?execution=e1s4&" \
--H "Cache-Control: no-cache" \
+jobs=$(curl -m 60 \
 -H "OAuthAccessToken: $token" \
 'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false')
 ```
