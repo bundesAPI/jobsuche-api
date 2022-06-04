@@ -12,7 +12,7 @@ Die Client Credentials sind z.B. in der App hinterlegt:
 
 **grant_type:** client_credentials
 
-Die Credentials sind im body POST-request an https://rest.arbeitsagentur.de/oauth/gettoken_cc zu senden.
+Die Credentials sind im body eines POST-request an https://rest.arbeitsagentur.de/oauth/gettoken_cc zu senden.
 
 ```bash
 token=$(curl \
