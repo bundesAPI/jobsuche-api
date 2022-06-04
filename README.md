@@ -24,7 +24,7 @@ Der generierte Token muss bei folgenden GET-requests an https://rest.arbeitsagen
 
 ## Jobbörse
 
-**URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1
+**URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs
 	
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:
