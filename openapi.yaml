@@ -8,7 +8,7 @@ servers:
   - url: "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 
 paths:
-  /pc/v4/app/jobs:
+  /pc/v4/jobs:
     get:
       summary: Jobsuche
       description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
@@ -132,6 +132,132 @@ paths:
           description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
           example: 25
           required: false
+
+  /pc/v4/app/jobs:
+    get:
+      summary: Jobsuche via App
+      description: "Die Jobsuche via App ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobSearchResponse'
+      parameters:
+        - in: query
+          name: was
+          schema:
+            type: string
+          description: Freitext suche Jobtitel
+          example: Referatsleiter
+          required: false
+        - in: query
+          name: wo
+          schema:
+            type: string
+          description: Freitext suche Beschäftigungsort
+          example: Berlin
+          required: false
+        - in: query
+          name: berufsfeld
+          schema:
+            type: string
+          description: Freitext suche Berufsfeld
+          example: Informatik
+          required: false          
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Ergebnissseite
+          example: 1
+          required: false
+        - in: query
+          name: size
+          schema:
+            type: integer
+          example: 50
+          description: Anzahl von Ergebnissen
+          required: false
+        - in: query
+          name: arbeitgeber
+          schema:
+            type: string
+          example: Deutsche%20Bahn%20AG
+          description: Arbeitgeber der Stelle
+          required: false
+        - in: query
+          name: veroeffentlichtseit
+          schema:
+            type: integer
+          example: 30
+          description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
+          required: false
+        - in: query
+          name: zeitarbeit
+          schema:
+            type: boolean
+          example: true
+          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
+          required: false
+        - in: query
+          name: angebotsart
+          schema:
+            type: integer
+            enum:
+              - 1
+              - 2
+              - 4
+              - 34
+          example: 1
+          description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
+          required: false
+        - in: query
+          name: befristung
+          schema:
+            type: integer
+            enum:
+              - 1
+              - 2
+          example: 1
+          required: false
+          description: Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
+        - in: query
+          name: arbeitszeit
+          schema:
+            type: string
+            enum:
+              - vz
+              - tz
+              - snw
+              - ho
+              - mj
+          description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+          example: vz
+          required: false
+
+        - in: query
+          name: behinderung
+          schema:
+            type: boolean
+          example: true
+          required: false
+        - in: query
+          name: corona
+          schema:
+            type: boolean
+          example: true
+          description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+          required: false
+        - in: query
+          name: umkreis
+          schema:
+            type: integer
+          description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
+          example: 25
+          required: false
+
   /pc/v2/jobdetails/{hashID}:
     get:
       summary: Jobdetail
