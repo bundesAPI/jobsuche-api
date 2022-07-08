@@ -297,7 +297,6 @@ paths:
                   type: string
                   format: binary
 
-
 security: 
   - clientCredAuth: 
     - "read"
@@ -312,650 +311,191 @@ components:
           tokenUrl: https://api-con.arbeitsagentur.de/oauth/gettoken_cc
           scopes: {}
   schemas:
-    
+
     JobSearchResponse:
       type: "object"
       properties:
-        _embedded: 
-          type: object
-          properties: 
-            jobs: 
-              type: array
-              items: 
-                type: object
-                properties: 
-                  hashId: 
-                    type: string
-                    example: WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
-                  hauptberuf: 
-                    type: string
-                    example: Elektroinstallateur/in
-                  freieBezeichnung: 
-                    type: string
-                    example: 20€/h für Ihr Können  - Elektroniker (m/w/d)
-                  referenznummer: 
-                    type: string
-                    example: 10000-1184867112-S
-                  mehrereArbeitsorteVorhanden: 
-                    type: boolean
-                  arbeitgeber: 
-                    type: string
-                    example: Gröger & Oltermann Sicherheits- und Elektrotechnik GmbH
-                  arbeitgeberHashId: 
-                    type: string
-                    example: 0X2pzFXb4cWYH9YFQ1_nXg2u-eiDTRVOv0YCqcBh7_s=
-                  aktuelleVeroeffentlichungsdatum: 
-                    type: string
-                    format: date
-                    example: 2021-07-25
-                  eintrittsdatum: 
-                    type: string
-                    format: date
-                    example: 2021-07-26
-                  logoHashId: 
-                    type: string
-                    example: KlOzPpaXv_UCBnWH0KKLHeFQ-aFnSfi8ryVJ4OK2SZE=
-                  angebotsart: 
-                    type: string
-                    example: ARBEIT
-                  hauptDkz: 
-                    type: string
-                    example: "2728"
-                  anzeigeAnonym: 
-                    type: boolean
-                  angebotsartGruppe: 
-                    type: string
-                    example: ARBEIT
-                  arbeitsort: 
-                    type: object
-                    properties: 
-                      ort: 
-                        type: string
-                        example: Berlin
-                      region: 
-                        type: string
-                        example: Berlin
-                      land: 
-                        type: string
-                        example: Deutschland
-                      koordinaten: 
-                        type: object
-                        properties: 
-                          lat: 
-                            type: number
-                            example: 52.4926832
-                          lon: 
-                            type: number
-                            example: 13.4025753
-                      entfernung: 
-                        type: string
-                        example: "3"
-                  _links: 
-                    type: object
-                    properties: 
-                      details: 
-                        type: object
-                        properties: 
-                          href: 
-                            type: string
-                            example: http://jobboerse.arbeitsagentur.de/vamJB/stellenangebotAnzeigen.html?bencs=fvRY6ISnOfNcyi9cFHucsd2Qi8eRvpdwYRrRI8jerkUogoTZxPEl60aKIvpVWh0DK42lMRBgOhAEHkCHOI4M6w%3D%3D
-                      arbeitgeberlogo: 
-                        type: object
-                        properties: 
-                          href: 
-                            type: string
-                            example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/KlOzPpaXv_UCBnWH0KKLHeFQ-aFnSfi8ryVJ4OK2SZE=
-                      jobdetails: 
-                        type: object
-                        properties: 
-                          href: 
-                            type: string
-                            example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobdetails/WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
-        _links: 
-          type: object
-          properties: 
-            first: 
-              type: object
-              properties: 
-                href: 
-                  type: string
-                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=0&size=3
-            self: 
-              type: object
-              properties: 
-                href: 
-                  type: string
-                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&sort=RELEVANZdesc&FCT.UMKREIS=200
-            next: 
-              type: object
-              properties: 
-                href: 
-                  type: string
-                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=1&size=3
-            last: 
-              type: object
-              properties: 
-                href: 
-                  type: string
-                  example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v2/app/jobs?wo=Berlin&aktualitaet=100&FCT.ANGEBOTSART=ARBEIT&FCT.BEHINDERUNG=AUS&FCT.UMKREIS=200&page=44584&size=3
-        page: 
-          type: object
-          properties: 
-            size: 
-              type: integer
-              format: int32
-              example: 3
-            totalElements: 
-              type: integer
-              format: int32
-              example: 133753
-            totalPages: 
-              type: integer
-              format: int32
-              example: 44585
-            number: 
-              type: integer
-              format: int32
-              example: 0
+        stellenangebote:
+          type: array
+          items: 
+            type: object
+            properties: 
+              hashId: 
+                type: string
+                example: WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
+              beruf: 
+                type: string
+                example: Elektroinstallateur/in              
+              refnr: 
+                type: string
+                example: 10000-1184867112-S
+              arbeitgeber: 
+                type: string
+                example: Gröger & Oltermann Sicherheits- und Elektrotechnik GmbH
+              aktuelleVeroeffentlichungsdatum: 
+                type: string
+                format: date
+                example: 2021-07-25
+              eintrittsdatum: 
+                type: string
+                format: date
+                example: 2021-07-26
+              arbeitsort: 
+                  type: object
+                  properties: 
+                    plz: 
+                      type: string
+                      example: 90537
+                    ort: 
+                      type: string
+                      example: Berlin
+                    strasse: 
+                      type: string
+                      example: Altdorfer Straße
+                    region: 
+                      type: string
+                      example: Berlin
+                    land: 
+                      type: string
+                      example: Deutschland
+                    koordinaten: 
+                      type: object
+                      properties: 
+                        lat: 
+                          type: number
+                          example: 52.4926832
+                        lon: 
+                          type: number
+                          example: 13.4025753
+                    entfernung: 
+                      type: string
+                      example: "3"
+              modifikationsTimestamp: 
+                type: string
+        maxErgebnisse:
+          type: string
+        page:
+          type: string
+        size:
+          type: string
         facetten: 
           type: array
           items: 
             type: object
             properties: 
-              id: 
-                type: string
-                example: FCT.ANGEBOTSART
-              typ: 
-                type: string
-                example: SINGLE
-              auswahl: 
-                type: array
-                items: 
-                  type: object
-                  properties: 
-                    trefferAnzahl: 
-                      type: integer
-                      format: int32
-                      example: 133753
-                    preset: 
-                      type: boolean
-                    name: 
-                      type: string
-                      example: ARBEIT
-        aggregierungen: 
-          type: object
-          properties: 
-            bundesland: 
-              type: object
-              properties: 
-                Baden-Württemberg: 
-                  type: integer
-                  format: int32
-                  example: 1997
-                Bayern: 
-                  type: integer
-                  format: int32
-                  example: 2455
-                Berlin: 
-                  type: integer
-                  format: int32
-                  example: 29282
-                Brandenburg: 
-                  type: integer
-                  format: int32
-                  example: 23286
-                Bremen: 
-                  type: integer
-                  format: int32
-                  example: 638
-                Hamburg: 
-                  type: integer
-                  format: int32
-                  example: 1681
-                Hessen: 
-                  type: integer
-                  format: int32
-                  example: 1946
-                Mecklenburg-Vorpommern: 
-                  type: integer
-                  format: int32
-                  example: 11754
-                Niedersachsen: 
-                  type: integer
-                  format: int32
-                  example: 8643
-                Nordrhein-Westfalen: 
-                  type: integer
-                  format: int32
-                  example: 2583
-                Rheinland-Pfalz: 
-                  type: integer
-                  format: int32
-                  example: 556
-                Saarland: 
-                  type: integer
-                  format: int32
-                  example: 135
-                Sachsen: 
-                  type: integer
-                  format: int32
-                  example: 42687
-                Sachsen-Anhalt: 
-                  type: integer
-                  format: int32
-                  example: 23241
-                Schleswig-Holstein: 
-                  type: integer
-                  format: int32
-                  example: 699
-                Thüringen: 
-                  type: integer
-                  format: int32
-                  example: 2503
-            plzebene2: 
-              type: object
-              properties: 
-                "10": 
-                  type: integer
-                  format: int32
-                  example: 14790
-                "12": 
-                  type: integer
-                  format: int32
-                  example: 6136
-                "13": 
-                  type: integer
-                  format: int32
-                  example: 4656
-                "14": 
-                  type: integer
-                  format: int32
-                  example: 8733
-                "15": 
-                  type: integer
-                  format: int32
-                  example: 5145
-                "16": 
-                  type: integer
-                  format: int32
-                  example: 4689
-                "17": 
-                  type: integer
-                  format: int32
-                  example: 5081
-                "18": 
-                  type: integer
-                  format: int32
-                  example: 3319
-                "19": 
-                  type: integer
-                  format: int32
-                  example: 4039
-                "20": 
-                  type: integer
-                  format: int32
-                  example: 703
-                "21": 
-                  type: integer
-                  format: int32
-                  example: 286
-                "22": 
-                  type: integer
-                  format: int32
-                  example: 495
-                "23": 
-                  type: integer
-                  format: int32
-                  example: 271
-                "24": 
-                  type: integer
-                  format: int32
-                  example: 401
-                "25": 
-                  type: integer
-                  format: int32
-                  example: 37
-                "26": 
-                  type: integer
-                  format: int32
-                  example: 163
-                "27": 
-                  type: integer
-                  format: int32
-                  example: 77
-                "28": 
-                  type: integer
-                  format: int32
-                  example: 432
-                "29": 
-                  type: integer
-                  format: int32
-                  example: 1412
-                "30": 
-                  type: integer
-                  format: int32
-                  example: 598
-                "31": 
-                  type: integer
-                  format: int32
-                  example: 203
-                "32": 
-                  type: integer
-                  format: int32
-                  example: 57
-                "33": 
-                  type: integer
-                  format: int32
-                  example: 189
-                "34": 
-                  type: integer
-                  format: int32
-                  example: 103
-                "35": 
-                  type: integer
-                  format: int32
-                  example: 68
-                "36": 
-                  type: integer
-                  format: int32
-                  example: 55
-                "37": 
-                  type: integer
-                  format: int32
-                  example: 169
-                "38": 
-                  type: integer
-                  format: int32
-                  example: 6735
-                "39": 
-                  type: integer
-                  format: int32
-                  example: 7725
-                "40": 
-                  type: integer
-                  format: int32
-                  example: 569
-                "41": 
-                  type: integer
-                  format: int32
-                  example: 20
-                "42": 
-                  type: integer
-                  format: int32
-                  example: 81
-                "44": 
-                  type: integer
-                  format: int32
-                  example: 436
-                "45": 
-                  type: integer
-                  format: int32
-                  example: 239
-                "46": 
-                  type: integer
-                  format: int32
-                  example: 53
-                "47": 
-                  type: integer
-                  format: int32
-                  example: 85
-                "48": 
-                  type: integer
-                  format: int32
-                  example: 150
-                "49": 
-                  type: integer
-                  format: int32
-                  example: 147
-                "50": 
-                  type: integer
-                  format: int32
-                  example: 634
-                "51": 
-                  type: integer
-                  format: int32
-                  example: 46
-                "52": 
-                  type: integer
-                  format: int32
-                  example: 92
-                "53": 
-                  type: integer
-                  format: int32
-                  example: 196
-                "54": 
-                  type: integer
-                  format: int32
-                  example: 16
-                "55": 
-                  type: integer
-                  format: int32
-                  example: 230
-                "56": 
-                  type: integer
-                  format: int32
-                  example: 63
-                "57": 
-                  type: integer
-                  format: int32
-                  example: 29
-                "58": 
-                  type: integer
-                  format: int32
-                  example: 36
-                "59": 
-                  type: integer
-                  format: int32
-                  example: 44
-                "60": 
-                  type: integer
-                  format: int32
-                  example: 933
-                "61": 
-                  type: integer
-                  format: int32
-                  example: 22
-                "63": 
-                  type: integer
-                  format: int32
-                  example: 100
-                "64": 
-                  type: integer
-                  format: int32
-                  example: 164
-                "65": 
-                  type: integer
-                  format: int32
-                  example: 229
-                "66": 
-                  type: integer
-                  format: int32
-                  example: 87
-                "67": 
-                  type: integer
-                  format: int32
-                  example: 74
-                "68": 
-                  type: integer
-                  format: int32
-                  example: 117
-                "69": 
-                  type: integer
-                  format: int32
-                  example: 133
-                "70": 
-                  type: integer
-                  format: int32
-                  example: 814
-                "71": 
-                  type: integer
-                  format: int32
-                  example: 134
-                "72": 
-                  type: integer
-                  format: int32
-                  example: 40
-                "73": 
-                  type: integer
-                  format: int32
-                  example: 48
-                "74": 
-                  type: integer
-                  format: int32
-                  example: 69
-                "75": 
-                  type: integer
-                  format: int32
-                  example: 71
-                "76": 
-                  type: integer
-                  format: int32
-                  example: 135
-                "77": 
-                  type: integer
-                  format: int32
-                  example: 18
-                "78": 
-                  type: integer
-                  format: int32
-                  example: 57
-                "79": 
-                  type: integer
-                  format: int32
-                  example: 70
-                "80": 
-                  type: integer
-                  format: int32
-                  example: 901
-                "81": 
-                  type: integer
-                  format: int32
-                  example: 252
-                "82": 
-                  type: integer
-                  format: int32
-                  example: 69
-                "83": 
-                  type: integer
-                  format: int32
-                  example: 34
-                "84": 
-                  type: integer
-                  format: int32
-                  example: 50
-                "85": 
-                  type: integer
-                  format: int32
-                  example: 240
-                "86": 
-                  type: integer
-                  format: int32
-                  example: 110
-                "87": 
-                  type: integer
-                  format: int32
-                  example: 29
-                "88": 
-                  type: integer
-                  format: int32
-                  example: 48
-                "89": 
-                  type: integer
-                  format: int32
-                  example: 43
-                "90": 
-                  type: integer
-                  format: int32
-                  example: 318
-                "91": 
-                  type: integer
-                  format: int32
-                  example: 90
-                "92": 
-                  type: integer
-                  format: int32
-                  example: 52
-                "93": 
-                  type: integer
-                  format: int32
-                  example: 51
-                "94": 
-                  type: integer
-                  format: int32
-                  example: 43
-                "95": 
-                  type: integer
-                  format: int32
-                  example: 48
-                "96": 
-                  type: integer
-                  format: int32
-                  example: 90
-                "97": 
-                  type: integer
-                  format: int32
-                  example: 82
-                "98": 
-                  type: integer
-                  format: int32
-                  example: 37
-                "99": 
-                  type: integer
-                  format: int32
-                  example: 553
-                "01": 
-                  type: integer
-                  format: int32
-                  example: 16078
-                "02": 
-                  type: integer
-                  format: int32
-                  example: 3530
-                "03": 
-                  type: integer
-                  format: int32
-                  example: 2456
-                "04": 
-                  type: integer
-                  format: int32
-                  example: 15565
-                "06": 
-                  type: integer
-                  format: int32
-                  example: 12311
-                "07": 
-                  type: integer
-                  format: int32
-                  example: 610
-                "08": 
-                  type: integer
-                  format: int32
-                  example: 1064
-                "09": 
-                  type: integer
-                  format: int32
-                  example: 6326
-        parserResult: 
-          type: object
-          properties: 
-            result: 
-              type: string
-              example: Berlin
-            koordinaten: 
-              type: array
-              items: 
+              befristung:
                 type: object
                 properties: 
-                  lat: 
-                    type: number
-                    example: 52.51079045
-                  lon: 
-                    type: number
-                    example: 13.42550815
-            suchmodus: 
-              type: string
-              example: UMKREISSUCHE
-              
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              behinderung:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              pav:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              berufsfeld:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              arbeitsort:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              ausbildungsart:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              veroeffentlichtseit:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              schulbildung:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              arbeitsort_plz:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              arbeitgeber:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              beruf:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              branche:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              arbeitszeit:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              eintrittsdatum:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              zeitarbeit:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+              corona:
+                type: object
+                properties: 
+                  counts:
+                    type: object
+                  maxCount:
+                    type: integer
+
     JobApplicationDetails:
       type: object
       properties:
@@ -1246,7 +786,6 @@ components:
                       type: string
                       example: http://jobboerse.arbeitsagentur.de/vamJB/stellenangebotAnzeigen.html?bencs=EBsSdF%2Ff5cSNZGzMtdpkxBTiwFIMjlnTaMsYhhxLfpdNtz7aagMVmZpmqq65g0a6lHiLT9GUPN0tncIm7LLUhw%3D%3D
 
-
 externalDocs:
   description: "Weiterführende Dokumentation"
-  url: "https://github.com/bundesAPI/jobsuche-api/blob/main/README.md"
+  url: "https://github.com/bundesAPI/jobsuche-api"
