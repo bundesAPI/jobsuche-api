@@ -367,9 +367,6 @@ components:
                         lon: 
                           type: number
                           example: 13.4025753
-                    entfernung: 
-                      type: string
-                      example: "3"
               modifikationsTimestamp: 
                 type: string
         maxErgebnisse:
