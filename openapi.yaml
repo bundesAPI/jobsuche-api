@@ -344,7 +344,7 @@ components:
                   type: object
                   properties: 
                     plz: 
-                      type: string
+                      type: integer
                       example: 90537
                     ort: 
                       type: string
