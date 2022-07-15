@@ -12,24 +12,22 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_search_response_facetten_inner import (
-    JobSearchResponseFacettenInner,
-)
-from deutschland.jobsuche.model.job_search_response_stellenangebote_inner import (
-    JobSearchResponseStellenangeboteInner,
+from deutschland.jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort_koordinaten import (
+    JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten,
 )
 
 from deutschland import jobsuche
 
-globals()["JobSearchResponseFacettenInner"] = JobSearchResponseFacettenInner
 globals()[
-    "JobSearchResponseStellenangeboteInner"
-] = JobSearchResponseStellenangeboteInner
-from deutschland.jobsuche.model.job_search_response import JobSearchResponse
+    "JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten"
+] = JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten
+from deutschland.jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort import (
+    JobSearchResponseStellenangeboteInnerArbeitsort,
+)
 
 
-class TestJobSearchResponse(unittest.TestCase):
-    """JobSearchResponse unit test stubs"""
+class TestJobSearchResponseStellenangeboteInnerArbeitsort(unittest.TestCase):
+    """JobSearchResponseStellenangeboteInnerArbeitsort unit test stubs"""
 
     def setUp(self):
         pass
@@ -37,10 +35,10 @@ class TestJobSearchResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobSearchResponse(self):
-        """Test JobSearchResponse"""
+    def testJobSearchResponseStellenangeboteInnerArbeitsort(self):
+        """Test JobSearchResponseStellenangeboteInnerArbeitsort"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobSearchResponse()  # noqa: E501
+        # model = JobSearchResponseStellenangeboteInnerArbeitsort()  # noqa: E501
         pass
 
 

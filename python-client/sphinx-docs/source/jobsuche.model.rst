@@ -4,38 +4,6 @@ jobsuche.model package
 Submodules
 ----------
 
-jobsuche.model.job\_application\_details module
------------------------------------------------
-
-.. automodule:: jobsuche.model.job_application_details
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_application\_details\_angebotskontakt module
-----------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_application_details_angebotskontakt
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_application\_details\_angebotskontakt\_festnetznummer module
---------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_application_details_angebotskontakt_festnetznummer
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_application\_details\_angebotskontakt\_mobilnummer module
------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_application_details_angebotskontakt_mobilnummer
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 jobsuche.model.job\_details module
 ----------------------------------
 
@@ -60,10 +28,10 @@ jobsuche.model.job\_details\_arbeitsorte\_inner module
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_details\_arbeitsorte\_items\_koordinaten module
+jobsuche.model.job\_details\_arbeitsorte\_inner\_koordinaten module
 -------------------------------------------------------------------
 
-.. automodule:: jobsuche.model.job_details_arbeitsorte_items_koordinaten
+.. automodule:: jobsuche.model.job_details_arbeitsorte_inner_koordinaten
    :members:
    :undoc-members:
    :show-inheritance:
@@ -156,94 +124,6 @@ jobsuche.model.job\_search\_response module
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_search\_response\_aggregierungen module
------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_aggregierungen
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_aggregierungen\_bundesland module
------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_aggregierungen_bundesland
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_aggregierungen\_plzebene2 module
-----------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_aggregierungen_plzebene2
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded module
------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_inner module
-------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_inner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_arbeitsort module
-------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_arbeitsort
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_arbeitsort\_koordinaten module
--------------------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_arbeitsort_koordinaten
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_links module
--------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_links
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_links\_arbeitgeberlogo module
-------------------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_links_arbeitgeberlogo
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_links\_details module
-----------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_links_details
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_embedded\_jobs\_items\_links\_jobdetails module
--------------------------------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_embedded_jobs_items_links_jobdetails
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 jobsuche.model.job\_search\_response\_facetten\_inner module
 ------------------------------------------------------------
 
@@ -252,74 +132,34 @@ jobsuche.model.job\_search\_response\_facetten\_inner module
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_search\_response\_facetten\_items\_auswahl\_inner module
-----------------------------------------------------------------------------
+jobsuche.model.job\_search\_response\_facetten\_inner\_befristung module
+------------------------------------------------------------------------
 
-.. automodule:: jobsuche.model.job_search_response_facetten_items_auswahl_inner
+.. automodule:: jobsuche.model.job_search_response_facetten_inner_befristung
    :members:
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_search\_response\_links module
---------------------------------------------------
+jobsuche.model.job\_search\_response\_stellenangebote\_inner module
+-------------------------------------------------------------------
 
-.. automodule:: jobsuche.model.job_search_response_links
+.. automodule:: jobsuche.model.job_search_response_stellenangebote_inner
    :members:
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_search\_response\_links\_first module
----------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_links_first
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_links\_last module
---------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_links_last
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_links\_next module
---------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_links_next
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_links\_self module
---------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_links_self
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_page module
--------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_page
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_parser\_result module
------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_search_response_parser_result
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_search\_response\_parser\_result\_koordinaten\_inner module
+jobsuche.model.job\_search\_response\_stellenangebote\_inner\_arbeitsort module
 -------------------------------------------------------------------------------
 
-.. automodule:: jobsuche.model.job_search_response_parser_result_koordinaten_inner
+.. automodule:: jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jobsuche.model.job\_search\_response\_stellenangebote\_inner\_arbeitsort\_koordinaten module
+--------------------------------------------------------------------------------------------
+
+.. automodule:: jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort_koordinaten
    :members:
    :undoc-members:
    :show-inheritance:

@@ -31,31 +31,17 @@ from deutschland.jobsuche.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.jobsuche.model.job_search_response_aggregierungen import (
-        JobSearchResponseAggregierungen,
-    )
-    from deutschland.jobsuche.model.job_search_response_embedded import (
-        JobSearchResponseEmbedded,
-    )
     from deutschland.jobsuche.model.job_search_response_facetten_inner import (
         JobSearchResponseFacettenInner,
     )
-    from deutschland.jobsuche.model.job_search_response_links import (
-        JobSearchResponseLinks,
-    )
-    from deutschland.jobsuche.model.job_search_response_page import (
-        JobSearchResponsePage,
-    )
-    from deutschland.jobsuche.model.job_search_response_parser_result import (
-        JobSearchResponseParserResult,
+    from deutschland.jobsuche.model.job_search_response_stellenangebote_inner import (
+        JobSearchResponseStellenangeboteInner,
     )
 
-    globals()["JobSearchResponseAggregierungen"] = JobSearchResponseAggregierungen
-    globals()["JobSearchResponseEmbedded"] = JobSearchResponseEmbedded
     globals()["JobSearchResponseFacettenInner"] = JobSearchResponseFacettenInner
-    globals()["JobSearchResponseLinks"] = JobSearchResponseLinks
-    globals()["JobSearchResponsePage"] = JobSearchResponsePage
-    globals()["JobSearchResponseParserResult"] = JobSearchResponseParserResult
+    globals()[
+        "JobSearchResponseStellenangeboteInner"
+    ] = JobSearchResponseStellenangeboteInner
 
 
 class JobSearchResponse(ModelNormal):
@@ -119,12 +105,11 @@ class JobSearchResponse(ModelNormal):
         """
         lazy_import()
         return {
-            "embedded": (JobSearchResponseEmbedded,),  # noqa: E501
-            "links": (JobSearchResponseLinks,),  # noqa: E501
-            "page": (JobSearchResponsePage,),  # noqa: E501
+            "stellenangebote": ([JobSearchResponseStellenangeboteInner],),  # noqa: E501
+            "max_ergebnisse": (str,),  # noqa: E501
+            "page": (str,),  # noqa: E501
+            "size": (str,),  # noqa: E501
             "facetten": ([JobSearchResponseFacettenInner],),  # noqa: E501
-            "aggregierungen": (JobSearchResponseAggregierungen,),  # noqa: E501
-            "parser_result": (JobSearchResponseParserResult,),  # noqa: E501
         }
 
     @cached_property
@@ -132,12 +117,11 @@ class JobSearchResponse(ModelNormal):
         return None
 
     attribute_map = {
-        "embedded": "_embedded",  # noqa: E501
-        "links": "_links",  # noqa: E501
+        "stellenangebote": "stellenangebote",  # noqa: E501
+        "max_ergebnisse": "maxErgebnisse",  # noqa: E501
         "page": "page",  # noqa: E501
+        "size": "size",  # noqa: E501
         "facetten": "facetten",  # noqa: E501
-        "aggregierungen": "aggregierungen",  # noqa: E501
-        "parser_result": "parserResult",  # noqa: E501
     }
 
     read_only_vars = {}
@@ -180,12 +164,11 @@ class JobSearchResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            embedded (JobSearchResponseEmbedded): [optional]  # noqa: E501
-            links (JobSearchResponseLinks): [optional]  # noqa: E501
-            page (JobSearchResponsePage): [optional]  # noqa: E501
+            stellenangebote ([JobSearchResponseStellenangeboteInner]): [optional]  # noqa: E501
+            max_ergebnisse (str): [optional]  # noqa: E501
+            page (str): [optional]  # noqa: E501
+            size (str): [optional]  # noqa: E501
             facetten ([JobSearchResponseFacettenInner]): [optional]  # noqa: E501
-            aggregierungen (JobSearchResponseAggregierungen): [optional]  # noqa: E501
-            parser_result (JobSearchResponseParserResult): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -276,12 +259,11 @@ class JobSearchResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            embedded (JobSearchResponseEmbedded): [optional]  # noqa: E501
-            links (JobSearchResponseLinks): [optional]  # noqa: E501
-            page (JobSearchResponsePage): [optional]  # noqa: E501
+            stellenangebote ([JobSearchResponseStellenangeboteInner]): [optional]  # noqa: E501
+            max_ergebnisse (str): [optional]  # noqa: E501
+            page (str): [optional]  # noqa: E501
+            size (str): [optional]  # noqa: E501
             facetten ([JobSearchResponseFacettenInner]): [optional]  # noqa: E501
-            aggregierungen (JobSearchResponseAggregierungen): [optional]  # noqa: E501
-            parser_result (JobSearchResponseParserResult): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

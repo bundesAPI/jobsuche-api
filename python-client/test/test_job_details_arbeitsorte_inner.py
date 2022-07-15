@@ -12,15 +12,15 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_details_arbeitsorte_items_koordinaten import (
-    JobDetailsArbeitsorteItemsKoordinaten,
+from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
+    JobDetailsArbeitsorteInnerKoordinaten,
 )
 
 from deutschland import jobsuche
 
 globals()[
-    "JobDetailsArbeitsorteItemsKoordinaten"
-] = JobDetailsArbeitsorteItemsKoordinaten
+    "JobDetailsArbeitsorteInnerKoordinaten"
+] = JobDetailsArbeitsorteInnerKoordinaten
 from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
     JobDetailsArbeitsorteInner,
 )

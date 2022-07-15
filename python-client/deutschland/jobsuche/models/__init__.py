@@ -9,16 +9,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from deutschland.jobsuche.model.job_application_details import JobApplicationDetails
-from deutschland.jobsuche.model.job_application_details_angebotskontakt import (
-    JobApplicationDetailsAngebotskontakt,
-)
-from deutschland.jobsuche.model.job_application_details_angebotskontakt_festnetznummer import (
-    JobApplicationDetailsAngebotskontaktFestnetznummer,
-)
-from deutschland.jobsuche.model.job_application_details_angebotskontakt_mobilnummer import (
-    JobApplicationDetailsAngebotskontaktMobilnummer,
-)
 from deutschland.jobsuche.model.job_details import JobDetails
 from deutschland.jobsuche.model.job_details_arbeitgeber_adresse import (
     JobDetailsArbeitgeberAdresse,
@@ -26,8 +16,8 @@ from deutschland.jobsuche.model.job_details_arbeitgeber_adresse import (
 from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
     JobDetailsArbeitsorteInner,
 )
-from deutschland.jobsuche.model.job_details_arbeitsorte_items_koordinaten import (
-    JobDetailsArbeitsorteItemsKoordinaten,
+from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
+    JobDetailsArbeitsorteInnerKoordinaten,
 )
 from deutschland.jobsuche.model.job_details_ausbildungen_inner import (
     JobDetailsAusbildungenInner,
@@ -52,62 +42,18 @@ from deutschland.jobsuche.model.job_details_sprachkenntnisse_inner import (
     JobDetailsSprachkenntnisseInner,
 )
 from deutschland.jobsuche.model.job_search_response import JobSearchResponse
-from deutschland.jobsuche.model.job_search_response_aggregierungen import (
-    JobSearchResponseAggregierungen,
-)
-from deutschland.jobsuche.model.job_search_response_aggregierungen_bundesland import (
-    JobSearchResponseAggregierungenBundesland,
-)
-from deutschland.jobsuche.model.job_search_response_aggregierungen_plzebene2 import (
-    JobSearchResponseAggregierungenPlzebene2,
-)
-from deutschland.jobsuche.model.job_search_response_embedded import (
-    JobSearchResponseEmbedded,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_inner import (
-    JobSearchResponseEmbeddedJobsInner,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_arbeitsort import (
-    JobSearchResponseEmbeddedJobsItemsArbeitsort,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_arbeitsort_koordinaten import (
-    JobSearchResponseEmbeddedJobsItemsArbeitsortKoordinaten,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_links import (
-    JobSearchResponseEmbeddedJobsItemsLinks,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_links_arbeitgeberlogo import (
-    JobSearchResponseEmbeddedJobsItemsLinksArbeitgeberlogo,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_links_details import (
-    JobSearchResponseEmbeddedJobsItemsLinksDetails,
-)
-from deutschland.jobsuche.model.job_search_response_embedded_jobs_items_links_jobdetails import (
-    JobSearchResponseEmbeddedJobsItemsLinksJobdetails,
-)
 from deutschland.jobsuche.model.job_search_response_facetten_inner import (
     JobSearchResponseFacettenInner,
 )
-from deutschland.jobsuche.model.job_search_response_facetten_items_auswahl_inner import (
-    JobSearchResponseFacettenItemsAuswahlInner,
+from deutschland.jobsuche.model.job_search_response_facetten_inner_befristung import (
+    JobSearchResponseFacettenInnerBefristung,
 )
-from deutschland.jobsuche.model.job_search_response_links import JobSearchResponseLinks
-from deutschland.jobsuche.model.job_search_response_links_first import (
-    JobSearchResponseLinksFirst,
+from deutschland.jobsuche.model.job_search_response_stellenangebote_inner import (
+    JobSearchResponseStellenangeboteInner,
 )
-from deutschland.jobsuche.model.job_search_response_links_last import (
-    JobSearchResponseLinksLast,
+from deutschland.jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort import (
+    JobSearchResponseStellenangeboteInnerArbeitsort,
 )
-from deutschland.jobsuche.model.job_search_response_links_next import (
-    JobSearchResponseLinksNext,
-)
-from deutschland.jobsuche.model.job_search_response_links_self import (
-    JobSearchResponseLinksSelf,
-)
-from deutschland.jobsuche.model.job_search_response_page import JobSearchResponsePage
-from deutschland.jobsuche.model.job_search_response_parser_result import (
-    JobSearchResponseParserResult,
-)
-from deutschland.jobsuche.model.job_search_response_parser_result_koordinaten_inner import (
-    JobSearchResponseParserResultKoordinatenInner,
+from deutschland.jobsuche.model.job_search_response_stellenangebote_inner_arbeitsort_koordinaten import (
+    JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten,
 )

@@ -31,13 +31,13 @@ from deutschland.jobsuche.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.jobsuche.model.job_details_arbeitsorte_items_koordinaten import (
-        JobDetailsArbeitsorteItemsKoordinaten,
+    from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
+        JobDetailsArbeitsorteInnerKoordinaten,
     )
 
     globals()[
-        "JobDetailsArbeitsorteItemsKoordinaten"
-    ] = JobDetailsArbeitsorteItemsKoordinaten
+        "JobDetailsArbeitsorteInnerKoordinaten"
+    ] = JobDetailsArbeitsorteInnerKoordinaten
 
 
 class JobDetailsArbeitsorteInner(ModelNormal):
@@ -106,7 +106,7 @@ class JobDetailsArbeitsorteInner(ModelNormal):
             "plz": (str,),  # noqa: E501
             "ort": (str,),  # noqa: E501
             "strasse": (str,),  # noqa: E501
-            "koordinaten": (JobDetailsArbeitsorteItemsKoordinaten,),  # noqa: E501
+            "koordinaten": (JobDetailsArbeitsorteInnerKoordinaten,),  # noqa: E501
         }
 
     @cached_property
@@ -167,7 +167,7 @@ class JobDetailsArbeitsorteInner(ModelNormal):
             plz (str): [optional]  # noqa: E501
             ort (str): [optional]  # noqa: E501
             strasse (str): [optional]  # noqa: E501
-            koordinaten (JobDetailsArbeitsorteItemsKoordinaten): [optional]  # noqa: E501
+            koordinaten (JobDetailsArbeitsorteInnerKoordinaten): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -263,7 +263,7 @@ class JobDetailsArbeitsorteInner(ModelNormal):
             plz (str): [optional]  # noqa: E501
             ort (str): [optional]  # noqa: E501
             strasse (str): [optional]  # noqa: E501
-            koordinaten (JobDetailsArbeitsorteItemsKoordinaten): [optional]  # noqa: E501
+            koordinaten (JobDetailsArbeitsorteInnerKoordinaten): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

@@ -92,19 +92,16 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**ed_v1_arbeitgeberlogo_hash_id_get**](docs/DefaultApi.md#ed_v1_arbeitgeberlogo_hash_id_get) | **GET** /ed/v1/arbeitgeberlogo/{hashID} | Unternehmen Logo
 *DefaultApi* | [**pc_v2_jobdetails_hash_id_get**](docs/DefaultApi.md#pc_v2_jobdetails_hash_id_get) | **GET** /pc/v2/jobdetails/{hashID} | Jobdetail
-*DefaultApi* | [**pc_v4_app_jobs_get**](docs/DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche
+*DefaultApi* | [**pc_v4_app_jobs_get**](docs/DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche via App
+*DefaultApi* | [**pc_v4_jobs_get**](docs/DefaultApi.md#pc_v4_jobs_get) | **GET** /pc/v4/jobs | Jobsuche
 
 
 ## Documentation For Models
 
- - [JobApplicationDetails](docs/JobApplicationDetails.md)
- - [JobApplicationDetailsAngebotskontakt](docs/JobApplicationDetailsAngebotskontakt.md)
- - [JobApplicationDetailsAngebotskontaktFestnetznummer](docs/JobApplicationDetailsAngebotskontaktFestnetznummer.md)
- - [JobApplicationDetailsAngebotskontaktMobilnummer](docs/JobApplicationDetailsAngebotskontaktMobilnummer.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobDetailsArbeitgeberAdresse](docs/JobDetailsArbeitgeberAdresse.md)
  - [JobDetailsArbeitsorteInner](docs/JobDetailsArbeitsorteInner.md)
- - [JobDetailsArbeitsorteItemsKoordinaten](docs/JobDetailsArbeitsorteItemsKoordinaten.md)
+ - [JobDetailsArbeitsorteInnerKoordinaten](docs/JobDetailsArbeitsorteInnerKoordinaten.md)
  - [JobDetailsAusbildungenInner](docs/JobDetailsAusbildungenInner.md)
  - [JobDetailsFertigkeitenInner](docs/JobDetailsFertigkeitenInner.md)
  - [JobDetailsFuehrungskompetenzen](docs/JobDetailsFuehrungskompetenzen.md)
@@ -116,27 +113,11 @@ Class | Method | HTTP request | Description
  - [JobDetailsMobilitaet](docs/JobDetailsMobilitaet.md)
  - [JobDetailsSprachkenntnisseInner](docs/JobDetailsSprachkenntnisseInner.md)
  - [JobSearchResponse](docs/JobSearchResponse.md)
- - [JobSearchResponseAggregierungen](docs/JobSearchResponseAggregierungen.md)
- - [JobSearchResponseAggregierungenBundesland](docs/JobSearchResponseAggregierungenBundesland.md)
- - [JobSearchResponseAggregierungenPlzebene2](docs/JobSearchResponseAggregierungenPlzebene2.md)
- - [JobSearchResponseEmbedded](docs/JobSearchResponseEmbedded.md)
- - [JobSearchResponseEmbeddedJobsInner](docs/JobSearchResponseEmbeddedJobsInner.md)
- - [JobSearchResponseEmbeddedJobsItemsArbeitsort](docs/JobSearchResponseEmbeddedJobsItemsArbeitsort.md)
- - [JobSearchResponseEmbeddedJobsItemsArbeitsortKoordinaten](docs/JobSearchResponseEmbeddedJobsItemsArbeitsortKoordinaten.md)
- - [JobSearchResponseEmbeddedJobsItemsLinks](docs/JobSearchResponseEmbeddedJobsItemsLinks.md)
- - [JobSearchResponseEmbeddedJobsItemsLinksArbeitgeberlogo](docs/JobSearchResponseEmbeddedJobsItemsLinksArbeitgeberlogo.md)
- - [JobSearchResponseEmbeddedJobsItemsLinksDetails](docs/JobSearchResponseEmbeddedJobsItemsLinksDetails.md)
- - [JobSearchResponseEmbeddedJobsItemsLinksJobdetails](docs/JobSearchResponseEmbeddedJobsItemsLinksJobdetails.md)
  - [JobSearchResponseFacettenInner](docs/JobSearchResponseFacettenInner.md)
- - [JobSearchResponseFacettenItemsAuswahlInner](docs/JobSearchResponseFacettenItemsAuswahlInner.md)
- - [JobSearchResponseLinks](docs/JobSearchResponseLinks.md)
- - [JobSearchResponseLinksFirst](docs/JobSearchResponseLinksFirst.md)
- - [JobSearchResponseLinksLast](docs/JobSearchResponseLinksLast.md)
- - [JobSearchResponseLinksNext](docs/JobSearchResponseLinksNext.md)
- - [JobSearchResponseLinksSelf](docs/JobSearchResponseLinksSelf.md)
- - [JobSearchResponsePage](docs/JobSearchResponsePage.md)
- - [JobSearchResponseParserResult](docs/JobSearchResponseParserResult.md)
- - [JobSearchResponseParserResultKoordinatenInner](docs/JobSearchResponseParserResultKoordinatenInner.md)
+ - [JobSearchResponseFacettenInnerBefristung](docs/JobSearchResponseFacettenInnerBefristung.md)
+ - [JobSearchResponseStellenangeboteInner](docs/JobSearchResponseStellenangeboteInner.md)
+ - [JobSearchResponseStellenangeboteInnerArbeitsort](docs/JobSearchResponseStellenangeboteInnerArbeitsort.md)
+ - [JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten](docs/JobSearchResponseStellenangeboteInnerArbeitsortKoordinaten.md)
 
 
 ## Documentation For Authorization

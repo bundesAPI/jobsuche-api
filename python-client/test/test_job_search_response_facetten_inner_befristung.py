@@ -9,48 +9,29 @@
 """
 
 
+import sys
 import unittest
 
-from deutschland.jobsuche.api.default_api import DefaultApi  # noqa: E501
+from deutschland.jobsuche.model.job_search_response_facetten_inner_befristung import (
+    JobSearchResponseFacettenInnerBefristung,
+)
 
 from deutschland import jobsuche
 
 
-class TestDefaultApi(unittest.TestCase):
-    """DefaultApi unit test stubs"""
+class TestJobSearchResponseFacettenInnerBefristung(unittest.TestCase):
+    """JobSearchResponseFacettenInnerBefristung unit test stubs"""
 
     def setUp(self):
-        self.api = DefaultApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_ed_v1_arbeitgeberlogo_hash_id_get(self):
-        """Test case for ed_v1_arbeitgeberlogo_hash_id_get
-
-        Unternehmen Logo  # noqa: E501
-        """
-        pass
-
-    def test_pc_v2_jobdetails_hash_id_get(self):
-        """Test case for pc_v2_jobdetails_hash_id_get
-
-        Jobdetail  # noqa: E501
-        """
-        pass
-
-    def test_pc_v4_app_jobs_get(self):
-        """Test case for pc_v4_app_jobs_get
-
-        Jobsuche via App  # noqa: E501
-        """
-        pass
-
-    def test_pc_v4_jobs_get(self):
-        """Test case for pc_v4_jobs_get
-
-        Jobsuche  # noqa: E501
-        """
+    def testJobSearchResponseFacettenInnerBefristung(self):
+        """Test JobSearchResponseFacettenInnerBefristung"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = JobSearchResponseFacettenInnerBefristung()  # noqa: E501
         pass
 
 

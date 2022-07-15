@@ -12,15 +12,15 @@
 import sys
 import unittest
 
-from deutschland.jobsuche.model.job_search_response_facetten_items_auswahl_inner import (
-    JobSearchResponseFacettenItemsAuswahlInner,
+from deutschland.jobsuche.model.job_search_response_facetten_inner_befristung import (
+    JobSearchResponseFacettenInnerBefristung,
 )
 
 from deutschland import jobsuche
 
 globals()[
-    "JobSearchResponseFacettenItemsAuswahlInner"
-] = JobSearchResponseFacettenItemsAuswahlInner
+    "JobSearchResponseFacettenInnerBefristung"
+] = JobSearchResponseFacettenInnerBefristung
 from deutschland.jobsuche.model.job_search_response_facetten_inner import (
     JobSearchResponseFacettenInner,
 )

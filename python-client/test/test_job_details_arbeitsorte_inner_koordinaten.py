@@ -9,48 +9,29 @@
 """
 
 
+import sys
 import unittest
 
-from deutschland.jobsuche.api.default_api import DefaultApi  # noqa: E501
+from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
+    JobDetailsArbeitsorteInnerKoordinaten,
+)
 
 from deutschland import jobsuche
 
 
-class TestDefaultApi(unittest.TestCase):
-    """DefaultApi unit test stubs"""
+class TestJobDetailsArbeitsorteInnerKoordinaten(unittest.TestCase):
+    """JobDetailsArbeitsorteInnerKoordinaten unit test stubs"""
 
     def setUp(self):
-        self.api = DefaultApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_ed_v1_arbeitgeberlogo_hash_id_get(self):
-        """Test case for ed_v1_arbeitgeberlogo_hash_id_get
-
-        Unternehmen Logo  # noqa: E501
-        """
-        pass
-
-    def test_pc_v2_jobdetails_hash_id_get(self):
-        """Test case for pc_v2_jobdetails_hash_id_get
-
-        Jobdetail  # noqa: E501
-        """
-        pass
-
-    def test_pc_v4_app_jobs_get(self):
-        """Test case for pc_v4_app_jobs_get
-
-        Jobsuche via App  # noqa: E501
-        """
-        pass
-
-    def test_pc_v4_jobs_get(self):
-        """Test case for pc_v4_jobs_get
-
-        Jobsuche  # noqa: E501
-        """
+    def testJobDetailsArbeitsorteInnerKoordinaten(self):
+        """Test JobDetailsArbeitsorteInnerKoordinaten"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = JobDetailsArbeitsorteInnerKoordinaten()  # noqa: E501
         pass
 
 
