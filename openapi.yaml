@@ -499,19 +499,18 @@ components:
               type: string
               format: date
               example: 2021-07-25
-            laufzeitBis: 
-              type: string
-              format: date
-              example: 2021-12-31
             angebotsart: 
               type: string
               example: ARBEIT
             arbeitgeber: 
               type: string
               example: Kerstin Nickel Frisör
-            branchenbezeichnung: 
+            branchengruppe: 
               type: string
-              example: Frisörsalons
+              example:  IT, Computer, Telekommunikation
+            branche: 
+              type: string
+              example:  Sonstige Softwareentwicklung              
             arbeitgeberHashId: 
               type: string
               example: dj32HpGiU3tdrYi6ohcMOtUhtBLPvwGIRiRlcvDsebg=
@@ -552,9 +551,12 @@ components:
             befristung: 
               type: string
               example: UNBEFRISTET
+            uebernahme: 
+              type: boolean
+              example: false
             betriebsgroesse: 
               type: string
-              example: VON_6_BIS_50
+              example: '2'
             eintrittsdatum: 
               type: string
               format: date
@@ -562,29 +564,36 @@ components:
             ersteVeroeffentlichungsdatum: 
               type: string
               format: date
-              example: 2021-05-23
-            freieBezeichnung: 
+              example: 2021-05-23              
+            allianzpartner: 
               type: string
-              example: Friseur/in (m/w/d) im TOP-Salon in Berlin Spandau -1-
+              example: arbeitsagentur.de
+            allianzpartnerUrl: 
+              type: string
+              example: http://www.arbeitsagentur.de
+            titel: 
+              type: string
+              example: Wissenschaftlicher Mitarbeiter (m/w/d)              
             hashId: 
               type: string
               example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
-            hauptberuf: 
+            beruf: 
               type: string
-              example: Friseur/in
+              example: Wissenschaftliche/r Mitarbeiter/in (Hochschule)
             modifikationsTimestamp: 
               type: string
               example: 2021-07-25T13:12:33.913
             stellenbeschreibung: 
               type: string
-              example: kded
-            referenznummer: 
+            refnr: 
               type: string
               example: 10000-1183999289-S
             fuerFluechtlingeGeeignet: 
               type: boolean
+              example: false
             nurFuerSchwerbehinderte: 
               type: boolean
+              example: false
             anzahlOffeneStellen: 
               type: integer
               format: int32
@@ -615,54 +624,34 @@ components:
               items: 
                 type: object
                 properties: 
-                  bezeichnung: 
+                  hierarchieName: 
                     type: string
-                    example: Kundenberatung -betreuung
-                  auspraegung: 
-                    type: string
-                    example: ERWEITERTE_KENNTNISSE
-            sprachkenntnisse: 
-              type: array
-              items: 
-                type: object
-                properties: 
-                  bezeichnung: 
-                    type: string
-                    example: Deutsch
-                  auspraegung: 
-                    type: string
-                    example: EXPERTENKENNTNISSE
-            staerken: 
-              type: array
-              items: 
-                type: string
-                example: Auffassungsfähigkeit/-gabe
+                    example: Soziales, Erziehung, Gesundheit, Sport
+                  auspraegungen: 
+                    type: object
             mobilitaet: 
               type: object
               properties: 
                 reisebereitschaft: 
                   type: string
-                  example: NICHT_ERFORDERLICH
-            berufserfahrung: 
-              type: string
-              example: MIT_BERUFSERFAHRUNG
+                  example: '1'
             fuehrungskompetenzen: 
               type: object
               properties: 
-                fuehrungsverantwortung: 
-                  type: string
-                  example: KEINE_FUEHRUNGSVERANTWORTUNG
-            ausbildungen: 
-              type: array
-              items: 
-                type: object
-                properties: 
-                  bezeichnung: 
-                    type: string
-                    example: Friseur/in
+                hatVollmacht: 
+                  type: boolean
+                  example: false
+                hatBudgetverantwortung: 
+                  type: boolean
+                  example: false                  
+            verguetung: 
+              type: string
+              example: Entgeltgruppe 13 TV-L
             arbeitgeberdarstellungUrl: 
               type: string
               example: http://www.friseur-nickel.de
+            arbeitgeberdarstellung: 
+              type: string
             hauptDkz: 
               type: string
               example: "9907"
@@ -670,38 +659,8 @@ components:
               type: boolean
             istGoogleJobsRelevant: 
               type: boolean
-            angebotsartGruppe: 
-              type: string
-              example: ARBEIT
             anzeigeAnonym: 
               type: boolean
-            _links: 
-              type: object
-              properties: 
-                self: 
-                  type: object
-                  properties: 
-                    href: 
-                      type: string
-                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobdetails/VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
-                arbeitgeberlogo: 
-                  type: object
-                  properties: 
-                    href: 
-                      type: string
-                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/c2bGR3XF4cN4A0TIft0f1uegmBYlLIfRujFUeAtcaA8=
-                bewerbung: 
-                  type: object
-                  properties: 
-                    href: 
-                      type: string
-                      example: https://api-con.arbeitsagentur.de/prod/jobboerse/jobsuche-service/pc/v1/jobs/VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=/bewerbung
-                details: 
-                  type: object
-                  properties: 
-                    href: 
-                      type: string
-                      example: http://jobboerse.arbeitsagentur.de/vamJB/stellenangebotAnzeigen.html?bencs=EBsSdF%2Ff5cSNZGzMtdpkxBTiwFIMjlnTaMsYhhxLfpdNtz7aagMVmZpmqq65g0a6lHiLT9GUPN0tncIm7LLUhw%3D%3D
 
 externalDocs:
   description: "Weiterführende Dokumentation"
