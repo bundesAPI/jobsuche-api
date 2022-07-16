@@ -18,31 +18,21 @@ from deutschland.jobsuche.model.job_details_arbeitgeber_adresse import (
 from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
     JobDetailsArbeitsorteInner,
 )
-from deutschland.jobsuche.model.job_details_ausbildungen_inner import (
-    JobDetailsAusbildungenInner,
-)
 from deutschland.jobsuche.model.job_details_fertigkeiten_inner import (
     JobDetailsFertigkeitenInner,
 )
 from deutschland.jobsuche.model.job_details_fuehrungskompetenzen import (
     JobDetailsFuehrungskompetenzen,
 )
-from deutschland.jobsuche.model.job_details_links import JobDetailsLinks
 from deutschland.jobsuche.model.job_details_mobilitaet import JobDetailsMobilitaet
-from deutschland.jobsuche.model.job_details_sprachkenntnisse_inner import (
-    JobDetailsSprachkenntnisseInner,
-)
 
 from deutschland import jobsuche
 
 globals()["JobDetailsArbeitgeberAdresse"] = JobDetailsArbeitgeberAdresse
 globals()["JobDetailsArbeitsorteInner"] = JobDetailsArbeitsorteInner
-globals()["JobDetailsAusbildungenInner"] = JobDetailsAusbildungenInner
 globals()["JobDetailsFertigkeitenInner"] = JobDetailsFertigkeitenInner
 globals()["JobDetailsFuehrungskompetenzen"] = JobDetailsFuehrungskompetenzen
-globals()["JobDetailsLinks"] = JobDetailsLinks
 globals()["JobDetailsMobilitaet"] = JobDetailsMobilitaet
-globals()["JobDetailsSprachkenntnisseInner"] = JobDetailsSprachkenntnisseInner
 from deutschland.jobsuche.model.job_details import JobDetails
 
 

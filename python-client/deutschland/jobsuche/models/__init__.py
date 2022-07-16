@@ -19,28 +19,13 @@ from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
 from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
     JobDetailsArbeitsorteInnerKoordinaten,
 )
-from deutschland.jobsuche.model.job_details_ausbildungen_inner import (
-    JobDetailsAusbildungenInner,
-)
 from deutschland.jobsuche.model.job_details_fertigkeiten_inner import (
     JobDetailsFertigkeitenInner,
 )
 from deutschland.jobsuche.model.job_details_fuehrungskompetenzen import (
     JobDetailsFuehrungskompetenzen,
 )
-from deutschland.jobsuche.model.job_details_links import JobDetailsLinks
-from deutschland.jobsuche.model.job_details_links_arbeitgeberlogo import (
-    JobDetailsLinksArbeitgeberlogo,
-)
-from deutschland.jobsuche.model.job_details_links_bewerbung import (
-    JobDetailsLinksBewerbung,
-)
-from deutschland.jobsuche.model.job_details_links_details import JobDetailsLinksDetails
-from deutschland.jobsuche.model.job_details_links_self import JobDetailsLinksSelf
 from deutschland.jobsuche.model.job_details_mobilitaet import JobDetailsMobilitaet
-from deutschland.jobsuche.model.job_details_sprachkenntnisse_inner import (
-    JobDetailsSprachkenntnisseInner,
-)
 from deutschland.jobsuche.model.job_search_response import JobSearchResponse
 from deutschland.jobsuche.model.job_search_response_facetten_inner import (
     JobSearchResponseFacettenInner,

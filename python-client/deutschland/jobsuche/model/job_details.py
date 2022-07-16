@@ -37,29 +37,19 @@ def lazy_import():
     from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
         JobDetailsArbeitsorteInner,
     )
-    from deutschland.jobsuche.model.job_details_ausbildungen_inner import (
-        JobDetailsAusbildungenInner,
-    )
     from deutschland.jobsuche.model.job_details_fertigkeiten_inner import (
         JobDetailsFertigkeitenInner,
     )
     from deutschland.jobsuche.model.job_details_fuehrungskompetenzen import (
         JobDetailsFuehrungskompetenzen,
     )
-    from deutschland.jobsuche.model.job_details_links import JobDetailsLinks
     from deutschland.jobsuche.model.job_details_mobilitaet import JobDetailsMobilitaet
-    from deutschland.jobsuche.model.job_details_sprachkenntnisse_inner import (
-        JobDetailsSprachkenntnisseInner,
-    )
 
     globals()["JobDetailsArbeitgeberAdresse"] = JobDetailsArbeitgeberAdresse
     globals()["JobDetailsArbeitsorteInner"] = JobDetailsArbeitsorteInner
-    globals()["JobDetailsAusbildungenInner"] = JobDetailsAusbildungenInner
     globals()["JobDetailsFertigkeitenInner"] = JobDetailsFertigkeitenInner
     globals()["JobDetailsFuehrungskompetenzen"] = JobDetailsFuehrungskompetenzen
-    globals()["JobDetailsLinks"] = JobDetailsLinks
     globals()["JobDetailsMobilitaet"] = JobDetailsMobilitaet
-    globals()["JobDetailsSprachkenntnisseInner"] = JobDetailsSprachkenntnisseInner
 
 
 class JobDetails(ModelNormal):
@@ -124,41 +114,40 @@ class JobDetails(ModelNormal):
         lazy_import()
         return {
             "aktuelle_veroeffentlichungsdatum": (date,),  # noqa: E501
-            "laufzeit_bis": (date,),  # noqa: E501
             "angebotsart": (str,),  # noqa: E501
             "arbeitgeber": (str,),  # noqa: E501
-            "branchenbezeichnung": (str,),  # noqa: E501
+            "branchengruppe": (str,),  # noqa: E501
+            "branche": (str,),  # noqa: E501
             "arbeitgeber_hash_id": (str,),  # noqa: E501
             "arbeitsorte": ([JobDetailsArbeitsorteInner],),  # noqa: E501
             "arbeitszeitmodelle": ([str],),  # noqa: E501
             "befristung": (str,),  # noqa: E501
+            "uebernahme": (bool,),  # noqa: E501
             "betriebsgroesse": (str,),  # noqa: E501
             "eintrittsdatum": (date,),  # noqa: E501
             "erste_veroeffentlichungsdatum": (date,),  # noqa: E501
-            "freie_bezeichnung": (str,),  # noqa: E501
+            "allianzpartner": (str,),  # noqa: E501
+            "allianzpartner_url": (str,),  # noqa: E501
+            "titel": (str,),  # noqa: E501
             "hash_id": (str,),  # noqa: E501
-            "hauptberuf": (str,),  # noqa: E501
+            "beruf": (str,),  # noqa: E501
             "modifikations_timestamp": (str,),  # noqa: E501
             "stellenbeschreibung": (str,),  # noqa: E501
-            "referenznummer": (str,),  # noqa: E501
+            "refnr": (str,),  # noqa: E501
             "fuer_fluechtlinge_geeignet": (bool,),  # noqa: E501
             "nur_fuer_schwerbehinderte": (bool,),  # noqa: E501
             "anzahl_offene_stellen": (int,),  # noqa: E501
             "arbeitgeber_adresse": (JobDetailsArbeitgeberAdresse,),  # noqa: E501
             "fertigkeiten": ([JobDetailsFertigkeitenInner],),  # noqa: E501
-            "sprachkenntnisse": ([JobDetailsSprachkenntnisseInner],),  # noqa: E501
-            "staerken": ([str],),  # noqa: E501
             "mobilitaet": (JobDetailsMobilitaet,),  # noqa: E501
-            "berufserfahrung": (str,),  # noqa: E501
             "fuehrungskompetenzen": (JobDetailsFuehrungskompetenzen,),  # noqa: E501
-            "ausbildungen": ([JobDetailsAusbildungenInner],),  # noqa: E501
+            "verguetung": (str,),  # noqa: E501
             "arbeitgeberdarstellung_url": (str,),  # noqa: E501
+            "arbeitgeberdarstellung": (str,),  # noqa: E501
             "haupt_dkz": (str,),  # noqa: E501
             "ist_betreut": (bool,),  # noqa: E501
             "ist_google_jobs_relevant": (bool,),  # noqa: E501
-            "angebotsart_gruppe": (str,),  # noqa: E501
             "anzeige_anonym": (bool,),  # noqa: E501
-            "links": (JobDetailsLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -167,41 +156,40 @@ class JobDetails(ModelNormal):
 
     attribute_map = {
         "aktuelle_veroeffentlichungsdatum": "aktuelleVeroeffentlichungsdatum",  # noqa: E501
-        "laufzeit_bis": "laufzeitBis",  # noqa: E501
         "angebotsart": "angebotsart",  # noqa: E501
         "arbeitgeber": "arbeitgeber",  # noqa: E501
-        "branchenbezeichnung": "branchenbezeichnung",  # noqa: E501
+        "branchengruppe": "branchengruppe",  # noqa: E501
+        "branche": "branche",  # noqa: E501
         "arbeitgeber_hash_id": "arbeitgeberHashId",  # noqa: E501
         "arbeitsorte": "arbeitsorte",  # noqa: E501
         "arbeitszeitmodelle": "arbeitszeitmodelle",  # noqa: E501
         "befristung": "befristung",  # noqa: E501
+        "uebernahme": "uebernahme",  # noqa: E501
         "betriebsgroesse": "betriebsgroesse",  # noqa: E501
         "eintrittsdatum": "eintrittsdatum",  # noqa: E501
         "erste_veroeffentlichungsdatum": "ersteVeroeffentlichungsdatum",  # noqa: E501
-        "freie_bezeichnung": "freieBezeichnung",  # noqa: E501
+        "allianzpartner": "allianzpartner",  # noqa: E501
+        "allianzpartner_url": "allianzpartnerUrl",  # noqa: E501
+        "titel": "titel",  # noqa: E501
         "hash_id": "hashId",  # noqa: E501
-        "hauptberuf": "hauptberuf",  # noqa: E501
+        "beruf": "beruf",  # noqa: E501
         "modifikations_timestamp": "modifikationsTimestamp",  # noqa: E501
         "stellenbeschreibung": "stellenbeschreibung",  # noqa: E501
-        "referenznummer": "referenznummer",  # noqa: E501
+        "refnr": "refnr",  # noqa: E501
         "fuer_fluechtlinge_geeignet": "fuerFluechtlingeGeeignet",  # noqa: E501
         "nur_fuer_schwerbehinderte": "nurFuerSchwerbehinderte",  # noqa: E501
         "anzahl_offene_stellen": "anzahlOffeneStellen",  # noqa: E501
         "arbeitgeber_adresse": "arbeitgeberAdresse",  # noqa: E501
         "fertigkeiten": "fertigkeiten",  # noqa: E501
-        "sprachkenntnisse": "sprachkenntnisse",  # noqa: E501
-        "staerken": "staerken",  # noqa: E501
         "mobilitaet": "mobilitaet",  # noqa: E501
-        "berufserfahrung": "berufserfahrung",  # noqa: E501
         "fuehrungskompetenzen": "fuehrungskompetenzen",  # noqa: E501
-        "ausbildungen": "ausbildungen",  # noqa: E501
+        "verguetung": "verguetung",  # noqa: E501
         "arbeitgeberdarstellung_url": "arbeitgeberdarstellungUrl",  # noqa: E501
+        "arbeitgeberdarstellung": "arbeitgeberdarstellung",  # noqa: E501
         "haupt_dkz": "hauptDkz",  # noqa: E501
         "ist_betreut": "istBetreut",  # noqa: E501
         "ist_google_jobs_relevant": "istGoogleJobsRelevant",  # noqa: E501
-        "angebotsart_gruppe": "angebotsartGruppe",  # noqa: E501
         "anzeige_anonym": "anzeigeAnonym",  # noqa: E501
-        "links": "_links",  # noqa: E501
     }
 
     read_only_vars = {}
@@ -245,41 +233,40 @@ class JobDetails(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             aktuelle_veroeffentlichungsdatum (date): [optional]  # noqa: E501
-            laufzeit_bis (date): [optional]  # noqa: E501
             angebotsart (str): [optional]  # noqa: E501
             arbeitgeber (str): [optional]  # noqa: E501
-            branchenbezeichnung (str): [optional]  # noqa: E501
+            branchengruppe (str): [optional]  # noqa: E501
+            branche (str): [optional]  # noqa: E501
             arbeitgeber_hash_id (str): [optional]  # noqa: E501
             arbeitsorte ([JobDetailsArbeitsorteInner]): [optional]  # noqa: E501
             arbeitszeitmodelle ([str]): [optional]  # noqa: E501
             befristung (str): [optional]  # noqa: E501
+            uebernahme (bool): [optional]  # noqa: E501
             betriebsgroesse (str): [optional]  # noqa: E501
             eintrittsdatum (date): [optional]  # noqa: E501
             erste_veroeffentlichungsdatum (date): [optional]  # noqa: E501
-            freie_bezeichnung (str): [optional]  # noqa: E501
+            allianzpartner (str): [optional]  # noqa: E501
+            allianzpartner_url (str): [optional]  # noqa: E501
+            titel (str): [optional]  # noqa: E501
             hash_id (str): [optional]  # noqa: E501
-            hauptberuf (str): [optional]  # noqa: E501
+            beruf (str): [optional]  # noqa: E501
             modifikations_timestamp (str): [optional]  # noqa: E501
             stellenbeschreibung (str): [optional]  # noqa: E501
-            referenznummer (str): [optional]  # noqa: E501
+            refnr (str): [optional]  # noqa: E501
             fuer_fluechtlinge_geeignet (bool): [optional]  # noqa: E501
             nur_fuer_schwerbehinderte (bool): [optional]  # noqa: E501
             anzahl_offene_stellen (int): [optional]  # noqa: E501
             arbeitgeber_adresse (JobDetailsArbeitgeberAdresse): [optional]  # noqa: E501
             fertigkeiten ([JobDetailsFertigkeitenInner]): [optional]  # noqa: E501
-            sprachkenntnisse ([JobDetailsSprachkenntnisseInner]): [optional]  # noqa: E501
-            staerken ([str]): [optional]  # noqa: E501
             mobilitaet (JobDetailsMobilitaet): [optional]  # noqa: E501
-            berufserfahrung (str): [optional]  # noqa: E501
             fuehrungskompetenzen (JobDetailsFuehrungskompetenzen): [optional]  # noqa: E501
-            ausbildungen ([JobDetailsAusbildungenInner]): [optional]  # noqa: E501
+            verguetung (str): [optional]  # noqa: E501
             arbeitgeberdarstellung_url (str): [optional]  # noqa: E501
+            arbeitgeberdarstellung (str): [optional]  # noqa: E501
             haupt_dkz (str): [optional]  # noqa: E501
             ist_betreut (bool): [optional]  # noqa: E501
             ist_google_jobs_relevant (bool): [optional]  # noqa: E501
-            angebotsart_gruppe (str): [optional]  # noqa: E501
             anzeige_anonym (bool): [optional]  # noqa: E501
-            links (JobDetailsLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -371,41 +358,40 @@ class JobDetails(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             aktuelle_veroeffentlichungsdatum (date): [optional]  # noqa: E501
-            laufzeit_bis (date): [optional]  # noqa: E501
             angebotsart (str): [optional]  # noqa: E501
             arbeitgeber (str): [optional]  # noqa: E501
-            branchenbezeichnung (str): [optional]  # noqa: E501
+            branchengruppe (str): [optional]  # noqa: E501
+            branche (str): [optional]  # noqa: E501
             arbeitgeber_hash_id (str): [optional]  # noqa: E501
             arbeitsorte ([JobDetailsArbeitsorteInner]): [optional]  # noqa: E501
             arbeitszeitmodelle ([str]): [optional]  # noqa: E501
             befristung (str): [optional]  # noqa: E501
+            uebernahme (bool): [optional]  # noqa: E501
             betriebsgroesse (str): [optional]  # noqa: E501
             eintrittsdatum (date): [optional]  # noqa: E501
             erste_veroeffentlichungsdatum (date): [optional]  # noqa: E501
-            freie_bezeichnung (str): [optional]  # noqa: E501
+            allianzpartner (str): [optional]  # noqa: E501
+            allianzpartner_url (str): [optional]  # noqa: E501
+            titel (str): [optional]  # noqa: E501
             hash_id (str): [optional]  # noqa: E501
-            hauptberuf (str): [optional]  # noqa: E501
+            beruf (str): [optional]  # noqa: E501
             modifikations_timestamp (str): [optional]  # noqa: E501
             stellenbeschreibung (str): [optional]  # noqa: E501
-            referenznummer (str): [optional]  # noqa: E501
+            refnr (str): [optional]  # noqa: E501
             fuer_fluechtlinge_geeignet (bool): [optional]  # noqa: E501
             nur_fuer_schwerbehinderte (bool): [optional]  # noqa: E501
             anzahl_offene_stellen (int): [optional]  # noqa: E501
             arbeitgeber_adresse (JobDetailsArbeitgeberAdresse): [optional]  # noqa: E501
             fertigkeiten ([JobDetailsFertigkeitenInner]): [optional]  # noqa: E501
-            sprachkenntnisse ([JobDetailsSprachkenntnisseInner]): [optional]  # noqa: E501
-            staerken ([str]): [optional]  # noqa: E501
             mobilitaet (JobDetailsMobilitaet): [optional]  # noqa: E501
-            berufserfahrung (str): [optional]  # noqa: E501
             fuehrungskompetenzen (JobDetailsFuehrungskompetenzen): [optional]  # noqa: E501
-            ausbildungen ([JobDetailsAusbildungenInner]): [optional]  # noqa: E501
+            verguetung (str): [optional]  # noqa: E501
             arbeitgeberdarstellung_url (str): [optional]  # noqa: E501
+            arbeitgeberdarstellung (str): [optional]  # noqa: E501
             haupt_dkz (str): [optional]  # noqa: E501
             ist_betreut (bool): [optional]  # noqa: E501
             ist_google_jobs_relevant (bool): [optional]  # noqa: E501
-            angebotsart_gruppe (str): [optional]  # noqa: E501
             anzeige_anonym (bool): [optional]  # noqa: E501
-            links (JobDetailsLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

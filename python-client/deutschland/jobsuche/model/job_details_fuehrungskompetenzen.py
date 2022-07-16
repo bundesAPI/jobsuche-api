@@ -89,7 +89,8 @@ class JobDetailsFuehrungskompetenzen(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            "fuehrungsverantwortung": (str,),  # noqa: E501
+            "hat_vollmacht": (bool,),  # noqa: E501
+            "hat_budgetverantwortung": (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +98,8 @@ class JobDetailsFuehrungskompetenzen(ModelNormal):
         return None
 
     attribute_map = {
-        "fuehrungsverantwortung": "fuehrungsverantwortung",  # noqa: E501
+        "hat_vollmacht": "hatVollmacht",  # noqa: E501
+        "hat_budgetverantwortung": "hatBudgetverantwortung",  # noqa: E501
     }
 
     read_only_vars = {}
@@ -140,7 +142,8 @@ class JobDetailsFuehrungskompetenzen(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fuehrungsverantwortung (str): [optional]  # noqa: E501
+            hat_vollmacht (bool): [optional]  # noqa: E501
+            hat_budgetverantwortung (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -231,7 +234,8 @@ class JobDetailsFuehrungskompetenzen(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fuehrungsverantwortung (str): [optional]  # noqa: E501
+            hat_vollmacht (bool): [optional]  # noqa: E501
+            hat_budgetverantwortung (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

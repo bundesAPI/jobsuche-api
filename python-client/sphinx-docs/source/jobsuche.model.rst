@@ -36,14 +36,6 @@ jobsuche.model.job\_details\_arbeitsorte\_inner\_koordinaten module
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_details\_ausbildungen\_inner module
--------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_ausbildungen_inner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 jobsuche.model.job\_details\_fertigkeiten\_inner module
 -------------------------------------------------------
 
@@ -60,58 +52,10 @@ jobsuche.model.job\_details\_fuehrungskompetenzen module
    :undoc-members:
    :show-inheritance:
 
-jobsuche.model.job\_details\_links module
------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_links
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_details\_links\_arbeitgeberlogo module
-----------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_links_arbeitgeberlogo
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_details\_links\_bewerbung module
-----------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_links_bewerbung
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_details\_links\_details module
---------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_links_details
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_details\_links\_self module
------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_links_self
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 jobsuche.model.job\_details\_mobilitaet module
 ----------------------------------------------
 
 .. automodule:: jobsuche.model.job_details_mobilitaet
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jobsuche.model.job\_details\_sprachkenntnisse\_inner module
------------------------------------------------------------
-
-.. automodule:: jobsuche.model.job_details_sprachkenntnisse_inner
    :members:
    :undoc-members:
    :show-inheritance:

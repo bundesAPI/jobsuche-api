@@ -89,8 +89,10 @@ class JobDetailsFertigkeitenInner(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            "bezeichnung": (str,),  # noqa: E501
-            "auspraegung": (str,),  # noqa: E501
+            "hierarchie_name": (str,),  # noqa: E501
+            "auspraegungen": (
+                {str: (bool, date, datetime, dict, float, int, list, str, none_type)},
+            ),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +100,8 @@ class JobDetailsFertigkeitenInner(ModelNormal):
         return None
 
     attribute_map = {
-        "bezeichnung": "bezeichnung",  # noqa: E501
-        "auspraegung": "auspraegung",  # noqa: E501
+        "hierarchie_name": "hierarchieName",  # noqa: E501
+        "auspraegungen": "auspraegungen",  # noqa: E501
     }
 
     read_only_vars = {}
@@ -142,8 +144,8 @@ class JobDetailsFertigkeitenInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bezeichnung (str): [optional]  # noqa: E501
-            auspraegung (str): [optional]  # noqa: E501
+            hierarchie_name (str): [optional]  # noqa: E501
+            auspraegungen ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -234,8 +236,8 @@ class JobDetailsFertigkeitenInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bezeichnung (str): [optional]  # noqa: E501
-            auspraegung (str): [optional]  # noqa: E501
+            hierarchie_name (str): [optional]  # noqa: E501
+            auspraegungen ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
