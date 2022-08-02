@@ -18,12 +18,11 @@ data_request=httr::GET(url=url, httr::add_headers(.headers=c("OAuthAccessToken"=
 data_request
 data=httr::content(data_request)
 
-hashID1=data$stellenangebote[[1]]$hashId 
-
 urlLogo="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/arJ0dxbYlPFXeMuZtdZzooRdCOnK2TjUXjLQlkBr-Ew="
 dataLogo=httr::content(httr::GET(url=urlLogo, httr::add_headers(.headers=c("OAuthAccessToken"=token)), config=httr::config(connecttimeout=60)))
 
-urlDetails="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v2/jobdetails/MTQ3NTEtNjExMzcwLVM"
+hashID1=data$stellenangebote[[1]]$hashId 
+urlDetails=paste0("https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v2/jobdetails/",jsonlite::base64_enc(hashID1))
 dataDetails=httr::content(httr::GET(url=urlDetails, httr::add_headers(.headers=c("OAuthAccessToken"=token)), config=httr::config(connecttimeout=60)))
 
 

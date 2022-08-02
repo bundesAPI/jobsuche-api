@@ -258,17 +258,18 @@ paths:
           example: 25
           required: false
 
-  /pc/v2/jobdetails/{hashID}:
+  /pc/v2/jobdetails/{encodedHashID}:
     get:
       summary: Jobdetail
       description: "Abrufen von Details zu einem Job."
       parameters:
-        - name: hashID
+        - name: encodedHashID
           in: path
           required: true
           schema:
             type: string
             example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+          description: Hash-ID eines Jobs (siehe JobSearchResponse), enkodiert mit Base64
       responses:
         '200':
             description: OK
