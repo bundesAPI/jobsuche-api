@@ -5,7 +5,7 @@ All URIs are relative to *https://rest.arbeitsagentur.de/jobboerse/jobsuche-serv
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ed_v1_arbeitgeberlogo_hash_id_get**](DefaultApi.md#ed_v1_arbeitgeberlogo_hash_id_get) | **GET** /ed/v1/arbeitgeberlogo/{hashID} | Unternehmen Logo
-[**pc_v2_jobdetails_hash_id_get**](DefaultApi.md#pc_v2_jobdetails_hash_id_get) | **GET** /pc/v2/jobdetails/{hashID} | Jobdetail
+[**pc_v2_jobdetails_encoded_hash_id_get**](DefaultApi.md#pc_v2_jobdetails_encoded_hash_id_get) | **GET** /pc/v2/jobdetails/{encodedHashID} | Jobdetail
 [**pc_v4_app_jobs_get**](DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche via App
 [**pc_v4_jobs_get**](DefaultApi.md#pc_v4_jobs_get) | **GET** /pc/v4/jobs | Jobsuche
 
@@ -87,8 +87,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **pc_v2_jobdetails_hash_id_get**
-> JobDetails pc_v2_jobdetails_hash_id_get(hash_id)
+# **pc_v2_jobdetails_encoded_hash_id_get**
+> JobDetails pc_v2_jobdetails_encoded_hash_id_get(encoded_hash_id)
 
 Jobdetail
 
@@ -125,15 +125,15 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with jobsuche.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
-    hash_id = "VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=" # str | 
+    encoded_hash_id = "VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=" # str | Hash-ID eines Jobs (siehe JobSearchResponse), enkodiert mit Base64
 
     # example passing only required values which don't have defaults set
     try:
         # Jobdetail
-        api_response = api_instance.pc_v2_jobdetails_hash_id_get(hash_id)
+        api_response = api_instance.pc_v2_jobdetails_encoded_hash_id_get(encoded_hash_id)
         pprint(api_response)
     except jobsuche.ApiException as e:
-        print("Exception when calling DefaultApi->pc_v2_jobdetails_hash_id_get: %s\n" % e)
+        print("Exception when calling DefaultApi->pc_v2_jobdetails_encoded_hash_id_get: %s\n" % e)
 ```
 
 
@@ -141,7 +141,7 @@ with jobsuche.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hash_id** | **str**|  |
+ **encoded_hash_id** | **str**| Hash-ID eines Jobs (siehe JobSearchResponse), enkodiert mit Base64 |
 
 ### Return type
 

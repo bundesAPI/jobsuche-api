@@ -91,7 +91,7 @@ All URIs are relative to *https://rest.arbeitsagentur.de/jobboerse/jobsuche-serv
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**ed_v1_arbeitgeberlogo_hash_id_get**](docs/DefaultApi.md#ed_v1_arbeitgeberlogo_hash_id_get) | **GET** /ed/v1/arbeitgeberlogo/{hashID} | Unternehmen Logo
-*DefaultApi* | [**pc_v2_jobdetails_hash_id_get**](docs/DefaultApi.md#pc_v2_jobdetails_hash_id_get) | **GET** /pc/v2/jobdetails/{hashID} | Jobdetail
+*DefaultApi* | [**pc_v2_jobdetails_encoded_hash_id_get**](docs/DefaultApi.md#pc_v2_jobdetails_encoded_hash_id_get) | **GET** /pc/v2/jobdetails/{encodedHashID} | Jobdetail
 *DefaultApi* | [**pc_v4_app_jobs_get**](docs/DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche via App
 *DefaultApi* | [**pc_v4_jobs_get**](docs/DefaultApi.md#pc_v4_jobs_get) | **GET** /pc/v4/jobs | Jobsuche
 

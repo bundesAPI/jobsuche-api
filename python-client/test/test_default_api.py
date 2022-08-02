@@ -32,8 +32,8 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_pc_v2_jobdetails_hash_id_get(self):
-        """Test case for pc_v2_jobdetails_hash_id_get
+    def test_pc_v2_jobdetails_encoded_hash_id_get(self):
+        """Test case for pc_v2_jobdetails_encoded_hash_id_get
 
         Jobdetail  # noqa: E501
         """

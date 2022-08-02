@@ -78,21 +78,21 @@ class DefaultApi(object):
             },
             api_client=api_client,
         )
-        self.pc_v2_jobdetails_hash_id_get_endpoint = _Endpoint(
+        self.pc_v2_jobdetails_encoded_hash_id_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobDetails,),
                 "auth": ["clientCredAuth"],
-                "endpoint_path": "/pc/v2/jobdetails/{hashID}",
-                "operation_id": "pc_v2_jobdetails_hash_id_get",
+                "endpoint_path": "/pc/v2/jobdetails/{encodedHashID}",
+                "operation_id": "pc_v2_jobdetails_encoded_hash_id_get",
                 "http_method": "GET",
                 "servers": None,
             },
             params_map={
                 "all": [
-                    "hash_id",
+                    "encoded_hash_id",
                 ],
                 "required": [
-                    "hash_id",
+                    "encoded_hash_id",
                 ],
                 "nullable": [],
                 "enum": [],
@@ -102,13 +102,13 @@ class DefaultApi(object):
                 "validations": {},
                 "allowed_values": {},
                 "openapi_types": {
-                    "hash_id": (str,),
+                    "encoded_hash_id": (str,),
                 },
                 "attribute_map": {
-                    "hash_id": "hashID",
+                    "encoded_hash_id": "encodedHashID",
                 },
                 "location_map": {
-                    "hash_id": "path",
+                    "encoded_hash_id": "path",
                 },
                 "collection_format_map": {},
             },
@@ -392,18 +392,18 @@ class DefaultApi(object):
             **kwargs
         )
 
-    def pc_v2_jobdetails_hash_id_get(self, hash_id, **kwargs):
+    def pc_v2_jobdetails_encoded_hash_id_get(self, encoded_hash_id, **kwargs):
         """Jobdetail  # noqa: E501
 
         Abrufen von Details zu einem Job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.pc_v2_jobdetails_hash_id_get(hash_id, async_req=True)
+        >>> thread = api.pc_v2_jobdetails_encoded_hash_id_get(encoded_hash_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            hash_id (str):
+            encoded_hash_id (str): Hash-ID eines Jobs (siehe JobSearchResponse), enkodiert mit Base64
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -452,8 +452,10 @@ class DefaultApi(object):
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
         kwargs["_request_auths"] = kwargs.get("_request_auths", None)
-        kwargs["hash_id"] = hash_id
-        return self.pc_v2_jobdetails_hash_id_get_endpoint.call_with_http_info(**kwargs)
+        kwargs["encoded_hash_id"] = encoded_hash_id
+        return self.pc_v2_jobdetails_encoded_hash_id_get_endpoint.call_with_http_info(
+            **kwargs
+        )
 
     def pc_v4_app_jobs_get(self, **kwargs):
         """Jobsuche via App  # noqa: E501
