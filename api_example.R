@@ -18,7 +18,7 @@ data_request=httr::GET(url=url, httr::add_headers(.headers=c("OAuthAccessToken"=
 data_request
 data=httr::content(data_request)
 
-writeLines(jsonlite::toJSON(data$facetten,pretty=TRUE,auto_unbox=TRUE),paste0(Sys.Date(),"jobsuche_facetten.txt"))
+writeLines(jsonlite::toJSON(data$facetten,pretty=TRUE,auto_unbox=TRUE),paste0(Sys.Date(),"_jobsuche_facetten.json"))
 
 urlLogo="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/arJ0dxbYlPFXeMuZtdZzooRdCOnK2TjUXjLQlkBr-Ew="
 dataLogo=httr::content(httr::GET(url=urlLogo, httr::add_headers(.headers=c("OAuthAccessToken"=token)), config=httr::config(connecttimeout=60)))
