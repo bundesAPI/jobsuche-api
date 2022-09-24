@@ -1,7 +1,7 @@
 #----------------
 # Simple Example
 #----------------
-install.packages(c("devtools","rjson","httr","png"))
+install.packages(c("devtools","jsonlite","httr","png"))
 devtools::install_github("AndreasFischer1985/qqBaseX")
 clientId="c003a37f-024f-462a-b36d-b001be4cd24a"
 clientSecret="32a39620-32b3-4307-9aa1-511e3d7f48a8"
@@ -11,12 +11,14 @@ token_request=httr::POST(
         body=postData,encode="form",
         config=httr::config(connecttimeout=60))
 token=(httr::content(token_request, as='parsed')$access_token)
-url="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/app/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false"
-url="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false"
+url="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/app/jobs?angebotsart=1"
+url="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1"
 data_request=httr::GET(url=url, httr::add_headers(.headers=c("OAuthAccessToken"=token)),
         config=httr::config(connecttimeout=60))
 data_request
 data=httr::content(data_request)
+
+writeLines(jsonlite::toJSON(data$facetten,pretty=TRUE,auto_unbox=TRUE),paste0(Sys.Date(),"jobsuche_facetten.txt"))
 
 urlLogo="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/arJ0dxbYlPFXeMuZtdZzooRdCOnK2TjUXjLQlkBr-Ew="
 dataLogo=httr::content(httr::GET(url=urlLogo, httr::add_headers(.headers=c("OAuthAccessToken"=token)), config=httr::config(connecttimeout=60)))
