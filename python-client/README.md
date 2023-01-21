@@ -15,7 +15,7 @@ Python >= 3.6
 ### pip install
 
 ```sh
-pip install deutschland[jobsuche]
+pip install 'deutschland[jobsuche]'
 ```
 
 ### poetry install
