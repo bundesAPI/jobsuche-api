@@ -1,7 +1,7 @@
 """
     Arbeitsagentur Jobsuche API
 
-    Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br> Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Folgende Client-Credentials können dafür verwendet werden:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8. **Achtung**: der OAuth header muss 'OAuthAccessToken' heißen.<br><br> Die API verfügt außerdem nicht über ein gültiges TLS Zertifikat. Deswegen sollte die TLS-Validierung deaktiviert werden.  # noqa: E501
+    Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br> Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs. Folgende Client-Credentials können dafür verwendet werden:<br><br> **ClientID:** c003a37f-024f-462a-b36d-b001be4cd24a <br> **ClientSecret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8.<br><br>**Achtung**: der generierte Token muss bei folgenden GET-requests im header als *'OAuthAccessToken'* inkludiert werden. Alternativ kann man bei folgenden GET-requests auch direkt die *client_id* als Header-Parameter *'X-API-Key'* übergeben - *'OAuthAccessToken'* ist in diesem Fall nicht erforderlich. 🚀<br><br> Die API verfügt außerdem nicht über ein gültiges TLS Zertifikat. Deswegen sollte die TLS-Validierung deaktiviert werden.  # noqa: E501
 
     The version of the OpenAPI document: 2.0.0
     Contact: kontakt@bund.dev
@@ -41,7 +41,7 @@ class DefaultApi(object):
         self.ed_v1_arbeitgeberlogo_hash_id_get_endpoint = _Endpoint(
             settings={
                 "response_type": (file_type,),
-                "auth": [],
+                "auth": ["APIKeyHeaders"],
                 "endpoint_path": "/ed/v1/arbeitgeberlogo/{hashID}",
                 "operation_id": "ed_v1_arbeitgeberlogo_hash_id_get",
                 "http_method": "GET",
@@ -81,7 +81,7 @@ class DefaultApi(object):
         self.pc_v2_jobdetails_encoded_hash_id_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobDetails,),
-                "auth": [],
+                "auth": ["APIKeyHeaders"],
                 "endpoint_path": "/pc/v2/jobdetails/{encodedHashID}",
                 "operation_id": "pc_v2_jobdetails_encoded_hash_id_get",
                 "http_method": "GET",
@@ -121,7 +121,7 @@ class DefaultApi(object):
         self.pc_v4_app_jobs_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobSearchResponse,),
-                "auth": [],
+                "auth": ["APIKeyHeaders"],
                 "endpoint_path": "/pc/v4/app/jobs",
                 "operation_id": "pc_v4_app_jobs_get",
                 "http_method": "GET",
@@ -225,7 +225,7 @@ class DefaultApi(object):
         self.pc_v4_jobs_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobSearchResponse,),
-                "auth": [],
+                "auth": ["APIKeyHeaders"],
                 "endpoint_path": "/pc/v4/jobs",
                 "operation_id": "pc_v4_jobs_get",
                 "http_method": "GET",
