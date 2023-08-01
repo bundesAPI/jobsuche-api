@@ -19,7 +19,6 @@ Abrufen des Logos eines Unternehmens
 
 ### Example
 
-* OAuth Authentication (clientCredAuth):
 
 ```python
 import time
@@ -32,19 +31,9 @@ configuration = jobsuche.Configuration(
     host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: clientCredAuth
-configuration = jobsuche.Configuration(
-    host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with jobsuche.ApiClient(configuration) as api_client:
+with jobsuche.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     hash_id = "VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=" # str | 
@@ -71,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[clientCredAuth](../README.md#clientCredAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -96,7 +85,6 @@ Abrufen von Details zu einem Job.
 
 ### Example
 
-* OAuth Authentication (clientCredAuth):
 
 ```python
 import time
@@ -110,19 +98,9 @@ configuration = jobsuche.Configuration(
     host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: clientCredAuth
-configuration = jobsuche.Configuration(
-    host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with jobsuche.ApiClient(configuration) as api_client:
+with jobsuche.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     encoded_hash_id = "VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=" # str | Hash-ID eines Jobs (siehe JobSearchResponse), enkodiert mit Base64
@@ -149,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[clientCredAuth](../README.md#clientCredAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +152,6 @@ Die Jobsuche via App ermöglicht verfügbare Jobangebote mit verschiedenen get P
 
 ### Example
 
-* OAuth Authentication (clientCredAuth):
 
 ```python
 import time
@@ -188,19 +165,9 @@ configuration = jobsuche.Configuration(
     host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: clientCredAuth
-configuration = jobsuche.Configuration(
-    host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with jobsuche.ApiClient(configuration) as api_client:
+with jobsuche.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     was = "Referatsleiter" # str | Freitext suche Jobtitel (optional)
@@ -254,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[clientCredAuth](../README.md#clientCredAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -279,7 +246,6 @@ Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parameter
 
 ### Example
 
-* OAuth Authentication (clientCredAuth):
 
 ```python
 import time
@@ -293,19 +259,9 @@ configuration = jobsuche.Configuration(
     host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: clientCredAuth
-configuration = jobsuche.Configuration(
-    host = "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with jobsuche.ApiClient(configuration) as api_client:
+with jobsuche.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     was = "Referatsleiter" # str | Freitext suche Jobtitel (optional)
@@ -359,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[clientCredAuth](../README.md#clientCredAuth)
+No authorization required
 
 ### HTTP request headers
 

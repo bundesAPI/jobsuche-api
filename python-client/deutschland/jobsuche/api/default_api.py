@@ -41,7 +41,7 @@ class DefaultApi(object):
         self.ed_v1_arbeitgeberlogo_hash_id_get_endpoint = _Endpoint(
             settings={
                 "response_type": (file_type,),
-                "auth": ["clientCredAuth"],
+                "auth": [],
                 "endpoint_path": "/ed/v1/arbeitgeberlogo/{hashID}",
                 "operation_id": "ed_v1_arbeitgeberlogo_hash_id_get",
                 "http_method": "GET",
@@ -81,7 +81,7 @@ class DefaultApi(object):
         self.pc_v2_jobdetails_encoded_hash_id_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobDetails,),
-                "auth": ["clientCredAuth"],
+                "auth": [],
                 "endpoint_path": "/pc/v2/jobdetails/{encodedHashID}",
                 "operation_id": "pc_v2_jobdetails_encoded_hash_id_get",
                 "http_method": "GET",
@@ -121,7 +121,7 @@ class DefaultApi(object):
         self.pc_v4_app_jobs_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobSearchResponse,),
-                "auth": ["clientCredAuth"],
+                "auth": [],
                 "endpoint_path": "/pc/v4/app/jobs",
                 "operation_id": "pc_v4_app_jobs_get",
                 "http_method": "GET",
@@ -225,7 +225,7 @@ class DefaultApi(object):
         self.pc_v4_jobs_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobSearchResponse,),
-                "auth": ["clientCredAuth"],
+                "auth": [],
                 "endpoint_path": "/pc/v4/jobs",
                 "operation_id": "pc_v4_jobs_get",
                 "http_method": "GET",
