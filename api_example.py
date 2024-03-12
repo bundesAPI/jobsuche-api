@@ -43,21 +43,6 @@ def search(jwt, what, where):
     return response.json()
 
 
-def job_details(jwt, job_ref):
-
-    headers = {
-        'User-Agent': 'Jobsuche/2.9.3 (de.arbeitsagentur.jobboerse; build:1078; iOS 15.1.0) Alamofire/5.4.4',
-        'Host': 'rest.arbeitsagentur.de',
-        'OAuthAccessToken': jwt,
-        'Connection': 'keep-alive',
-    }
-
-    response = requests.get(
-        f'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v2/jobdetails/{(base64.b64encode(job_ref.encode())).decode("UTF-8")}',
-        headers=headers, verify=False)
-
-    return response.json()
-
 
 if __name__ == "__main__":
     jwt = get_jwt()
