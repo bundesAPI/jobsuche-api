@@ -31,6 +31,7 @@ Der generierte Token sollte bei folgenden GET-requests an https://rest.arbeitsag
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:
 
+**Hinweis:** Die Details der Jobangebote können in einem weiteren Schritt mittels der gefundenen Referenznummern abgerufen werden (siehe Beispielskripte)
 
 ### Filter
 
