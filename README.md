@@ -24,6 +24,8 @@ Der generierte Token sollte bei folgenden GET-requests an https://rest.arbeitsag
 
 **Hinweis:** Alternativ kann man bei folgenden GET-requests auch direkt die *client_id* als Header-Parameter *'X-API-Key'* übergeben - *'OAuthAccessToken'* ist in diesem Fall nicht erforderlich. 🚀
 
+**Update:** Falls client_id nicht funktioniert kann man stattdessen "X-API-KEY: jobboerse-jobsuche" verwenden
+
 ## Jobbörse
 
 **URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs
