@@ -3,26 +3,12 @@ Die Bundesagentur für Arbeit verfügt über die größte Datenbank für offene 
 
 
 ## Authentifizierung
-Die Authentifizierung funktioniert per OAuth 2 Client Credentials mit JWTs.
-Die Client Credentials sind z.B. in der App hinterlegt:
+ie Authentifizierung funktioniert über die clientId:
 
-**client_id:** c003a37f-024f-462a-b36d-b001be4cd24a
+**clientId:** jobboerse-jobsuche
 
-**client_secret:** 32a39620-32b3-4307-9aa1-511e3d7f48a8
+Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.
 
-**grant_type:** client_credentials
-
-Die Credentials sind im body eines POST-request an https://rest.arbeitsagentur.de/oauth/gettoken_cc zu senden.
-
-```bash
-token=$(curl \
--d "client_id=c003a37f-024f-462a-b36d-b001be4cd24a&client_secret=32a39620-32b3-4307-9aa1-511e3d7f48a8&grant_type=client_credentials" \
--X POST 'https://rest.arbeitsagentur.de/oauth/gettoken_cc' |grep -Eo '[^"]{500,}'|head -n 1)
-```
-
-Der generierte Token sollte bei folgenden GET-requests an https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs o.ä. im header als Parameter *'OAuthAccessToken'* übergeben werden.
-
-**Hinweis:** Alternativ kann man bei folgenden GET-requests auch direkt die *client_id* als Header-Parameter *'X-API-Key'* übergeben - *'OAuthAccessToken'* ist in diesem Fall nicht erforderlich. 🚀
 
 ## Jobbörse
 
