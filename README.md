@@ -115,6 +115,6 @@ Mehrere Semikolon-separierte Werte möglich (z.B. arbeitszeit=vz;tz).
 ### Beispiel:
 ```bash
 jobs=$(curl -m 60 \
--H "OAuthAccessToken: $token" \
+-H "X-API-Key: jobboerse-jobsuche" \
 'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false')
 ```
