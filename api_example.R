@@ -16,5 +16,3 @@ writeLines(jsonlite::toJSON(data$facetten,pretty=TRUE,auto_unbox=TRUE),paste0(Sy
 
 urlLogo="https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/ed/v1/arbeitgeberlogo/arJ0dxbYlPFXeMuZtdZzooRdCOnK2TjUXjLQlkBr-Ew="
 dataLogo=httr::content(httr::GET(url=urlLogo, httr::add_headers(.headers=c("X-API-Key"=clientId)), config=httr::config(connecttimeout=60)))
-
-
