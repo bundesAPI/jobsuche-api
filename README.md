@@ -19,6 +19,7 @@ Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu 
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:
 
+**Hinweis:** Die Details der Jobangebote können in einem weiteren Schritt mittels der gefundenen Referenznummern abgerufen werden (siehe Beispielskripte)
 
 ### Filter
 
