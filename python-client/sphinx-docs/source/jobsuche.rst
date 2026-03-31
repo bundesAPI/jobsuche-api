@@ -20,45 +20,45 @@ jobsuche.api\_client module
 
 .. automodule:: jobsuche.api_client
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 jobsuche.configuration module
 -----------------------------
 
 .. automodule:: jobsuche.configuration
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 jobsuche.exceptions module
 --------------------------
 
 .. automodule:: jobsuche.exceptions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 jobsuche.model\_utils module
 ----------------------------
 
 .. automodule:: jobsuche.model_utils
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 jobsuche.rest module
 --------------------
 
 .. automodule:: jobsuche.rest
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: jobsuche
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
