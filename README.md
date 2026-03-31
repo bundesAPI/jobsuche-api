@@ -9,6 +9,8 @@ ie Authentifizierung funktioniert über die clientId:
 
 Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.
 
+**Update:** Falls client_id nicht funktioniert kann man stattdessen "X-API-KEY: jobboerse-jobsuche" verwenden
+
 
 ## Ablauf
 
@@ -18,7 +20,6 @@ Der typische Ablauf ist:
 2. **Details abrufen** via `/pc/v4/jobdetails/{base64(refnr)}` (empfohlen) oder `/pc/v3/jobdetails/{base64(refnr)}`.
 3. **Arbeitgeberlogo abrufen** via `/ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash}` (sofern im Detail-Response vorhanden).
 
-
 ## Jobbörse
 
 **URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs
@@ -26,6 +27,7 @@ Der typische Ablauf ist:
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:
 
+**Hinweis:** Die Details der Jobangebote können in einem weiteren Schritt mittels der gefundenen Referenznummern abgerufen werden (siehe Beispielskripte)
 
 ### Filter
 
