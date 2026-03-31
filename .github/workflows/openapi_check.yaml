@@ -1,20 +1,20 @@
 on: [push, pull_request]
 jobs:
-    openapi_check:
-      name: "OpenAPI check"
-      runs-on: ubuntu-latest
-      steps:
+  openapi_check:
+    name: "OpenAPI check"
+    runs-on: ubuntu-latest
+    steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
         # Create default .spectral.yaml file used for linting if its not existing already
-        - name: "Create spectral file if it not exists"
-          continue-on-error: true
-          run: |
-             set -C; echo "extends: spectral:oas" > .spectral.yaml
+    - name: "Create spectral file if it not exists"
+      continue-on-error: true
+      run: |
+        set -C; echo "extends: spectral:oas" > .spectral.yaml
 
         # Run Spectral
-        - uses: stoplightio/spectral-action@v0.8.2
-          with:
-            file_glob: openapi.yaml
-            spectral_ruleset: .spectral.yaml
+    - uses: stoplightio/spectral-action@v0.8.2
+      with:
+        file_glob: openapi.yaml
+        spectral_ruleset: .spectral.yaml

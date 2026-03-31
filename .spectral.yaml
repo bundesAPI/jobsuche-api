@@ -1,0 +1,10 @@
+# Spectral OpenAPI linting configuration
+# Used by both pre-commit hooks and GitHub Actions CI/CD
+# Documentation: https://meta.stoplight.io/docs/spectral/
+
+extends: spectral:oas
+
+# Custom rules can be added here
+# rules:
+#   operation-operationId: warn
+#   operation-tags: warn

@@ -10,22 +10,21 @@
 # sys.setrecursionlimit(n)
 
 from deutschland.jobsuche.model.job_details import JobDetails
-from deutschland.jobsuche.model.job_details_arbeitgeber_adresse import (
-    JobDetailsArbeitgeberAdresse,
+from deutschland.jobsuche.model.job_details_eintrittszeitraum import (
+    JobDetailsEintrittszeitraum,
 )
-from deutschland.jobsuche.model.job_details_arbeitsorte_inner import (
-    JobDetailsArbeitsorteInner,
+from deutschland.jobsuche.model.job_details_stellenlokationen_inner import (
+    JobDetailsStellenlokationenInner,
 )
-from deutschland.jobsuche.model.job_details_arbeitsorte_inner_koordinaten import (
-    JobDetailsArbeitsorteInnerKoordinaten,
+from deutschland.jobsuche.model.job_details_stellenlokationen_inner_adresse import (
+    JobDetailsStellenlokationenInnerAdresse,
 )
-from deutschland.jobsuche.model.job_details_fertigkeiten_inner import (
-    JobDetailsFertigkeitenInner,
+from deutschland.jobsuche.model.job_details_stellenlokationen_inner_adresse_koordinaten import (
+    JobDetailsStellenlokationenInnerAdresseKoordinaten,
 )
-from deutschland.jobsuche.model.job_details_fuehrungskompetenzen import (
-    JobDetailsFuehrungskompetenzen,
+from deutschland.jobsuche.model.job_details_veroeffentlichungszeitraum import (
+    JobDetailsVeroeffentlichungszeitraum,
 )
-from deutschland.jobsuche.model.job_details_mobilitaet import JobDetailsMobilitaet
 from deutschland.jobsuche.model.job_search_response import JobSearchResponse
 from deutschland.jobsuche.model.job_search_response_facetten_inner import (
     JobSearchResponseFacettenInner,

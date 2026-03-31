@@ -1,11 +1,11 @@
 openapi: "3.0.0"
 info:
   description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben."
-  version: "2.0.2"
+  version: "2.1.0"
   title: "Arbeitsagentur Jobsuche API"
 
 servers:
-  - url: "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
+- url: "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 
 paths:
   /pc/v4/jobs:
@@ -14,124 +14,124 @@ paths:
       description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
       responses:
         '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/JobSearchResponse'
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobSearchResponse'
       parameters:
-        - in: query
-          name: was
-          schema:
-            type: string
-          description: Freitext suche Jobtitel
-          example: Referatsleiter
-          required: false
-        - in: query
-          name: wo
-          schema:
-            type: string
-          description: Freitext suche Beschäftigungsort
-          example: Berlin
-          required: false
-        - in: query
-          name: berufsfeld
-          schema:
-            type: string
-          description: Freitext suche Berufsfeld
-          example: Informatik
-          required: false          
-        - in: query
-          name: page
-          schema:
-            type: integer
-          description: Ergebnissseite
-          example: 1
-          required: false
-        - in: query
-          name: size
-          schema:
-            type: integer
-          example: 50
-          description: Anzahl von Ergebnissen
-          required: false
-        - in: query
-          name: arbeitgeber
-          schema:
-            type: string
-          example: Deutsche%20Bahn%20AG
-          description: Arbeitgeber der Stelle
-          required: false
-        - in: query
-          name: veroeffentlichtseit
-          schema:
-            type: integer
-          example: 30
-          description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
-          required: false
-        - in: query
-          name: zeitarbeit
-          schema:
-            type: boolean
-          example: true
-          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
-          required: false
-        - in: query
-          name: angebotsart
-          schema:
-            type: integer
-            enum:
-              - 1
-              - 2
-              - 4
-              - 34
-          example: 1
-          description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
-          required: false
-        - in: query
-          name: befristung
-          schema:
-            type: integer
-            enum:
-              - 1
-              - 2
-          example: 1
-          required: false
-          description: Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
-        - in: query
-          name: arbeitszeit
-          schema:
-            type: string
-            enum:
-              - vz
-              - tz
-              - snw
-              - ho
-              - mj
-          description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
-          example: vz
-          required: false
+      - in: query
+        name: was
+        schema:
+          type: string
+        description: Freitext suche Jobtitel
+        example: Referatsleiter
+        required: false
+      - in: query
+        name: wo
+        schema:
+          type: string
+        description: Freitext suche Beschäftigungsort
+        example: Berlin
+        required: false
+      - in: query
+        name: berufsfeld
+        schema:
+          type: string
+        description: Freitext suche Berufsfeld
+        example: Informatik
+        required: false
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Ergebnissseite
+        example: 1
+        required: false
+      - in: query
+        name: size
+        schema:
+          type: integer
+        example: 50
+        description: Anzahl von Ergebnissen
+        required: false
+      - in: query
+        name: arbeitgeber
+        schema:
+          type: string
+        example: Deutsche%20Bahn%20AG
+        description: Arbeitgeber der Stelle
+        required: false
+      - in: query
+        name: veroeffentlichtseit
+        schema:
+          type: integer
+        example: 30
+        description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
+        required: false
+      - in: query
+        name: zeitarbeit
+        schema:
+          type: boolean
+        example: true
+        description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
+        required: false
+      - in: query
+        name: angebotsart
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 4
+          - 34
+        example: 1
+        description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
+        required: false
+      - in: query
+        name: befristung
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+        example: 1
+        required: false
+        description: Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
+      - in: query
+        name: arbeitszeit
+        schema:
+          type: string
+          enum:
+          - vz
+          - tz
+          - snw
+          - ho
+          - mj
+        description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+        example: vz
+        required: false
 
-        - in: query
-          name: behinderung
-          schema:
-            type: boolean
-          example: true
-          required: false
-        - in: query
-          name: corona
-          schema:
-            type: boolean
-          example: true
-          description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
-          required: false
-        - in: query
-          name: umkreis
-          schema:
-            type: integer
-          description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
-          example: 25
-          required: false
+      - in: query
+        name: behinderung
+        schema:
+          type: boolean
+        example: true
+        required: false
+      - in: query
+        name: corona
+        schema:
+          type: boolean
+        example: true
+        description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+        required: false
+      - in: query
+        name: umkreis
+        schema:
+          type: integer
+        description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
+        example: 25
+        required: false
 
   /pc/v4/app/jobs:
     get:
@@ -139,158 +139,180 @@ paths:
       description: "Die Jobsuche via App ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
       responses:
         '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/JobSearchResponse'
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobSearchResponse'
       parameters:
-        - in: query
-          name: was
-          schema:
-            type: string
-          description: Freitext suche Jobtitel
-          example: Referatsleiter
-          required: false
-        - in: query
-          name: wo
-          schema:
-            type: string
-          description: Freitext suche Beschäftigungsort
-          example: Berlin
-          required: false
-        - in: query
-          name: berufsfeld
-          schema:
-            type: string
-          description: Freitext suche Berufsfeld
-          example: Informatik
-          required: false          
-        - in: query
-          name: page
-          schema:
-            type: integer
-          description: Ergebnissseite
-          example: 1
-          required: false
-        - in: query
-          name: size
-          schema:
-            type: integer
-          example: 50
-          description: Anzahl von Ergebnissen
-          required: false
-        - in: query
-          name: arbeitgeber
-          schema:
-            type: string
-          example: Deutsche%20Bahn%20AG
-          description: Arbeitgeber der Stelle
-          required: false
-        - in: query
-          name: veroeffentlichtseit
-          schema:
-            type: integer
-          example: 30
-          description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
-          required: false
-        - in: query
-          name: zeitarbeit
-          schema:
-            type: boolean
-          example: true
-          description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
-          required: false
-        - in: query
-          name: angebotsart
-          schema:
-            type: integer
-            enum:
-              - 1
-              - 2
-              - 4
-              - 34
-          example: 1
-          description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
-          required: false
-        - in: query
-          name: befristung
-          schema:
-            type: integer
-            enum:
-              - 1
-              - 2
-          example: 1
-          required: false
-          description: Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
-        - in: query
-          name: arbeitszeit
-          schema:
-            type: string
-            enum:
-              - vz
-              - tz
-              - snw
-              - ho
-              - mj
-          description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
-          example: vz
-          required: false
+      - in: query
+        name: was
+        schema:
+          type: string
+        description: Freitext suche Jobtitel
+        example: Referatsleiter
+        required: false
+      - in: query
+        name: wo
+        schema:
+          type: string
+        description: Freitext suche Beschäftigungsort
+        example: Berlin
+        required: false
+      - in: query
+        name: berufsfeld
+        schema:
+          type: string
+        description: Freitext suche Berufsfeld
+        example: Informatik
+        required: false
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Ergebnissseite
+        example: 1
+        required: false
+      - in: query
+        name: size
+        schema:
+          type: integer
+        example: 50
+        description: Anzahl von Ergebnissen
+        required: false
+      - in: query
+        name: arbeitgeber
+        schema:
+          type: string
+        example: Deutsche%20Bahn%20AG
+        description: Arbeitgeber der Stelle
+        required: false
+      - in: query
+        name: veroeffentlichtseit
+        schema:
+          type: integer
+        example: 30
+        description: Anzahl der Tage, seit der Job veröffentlicht wurde. Kann zwischen 0 und 100 Tagen liegen.
+        required: false
+      - in: query
+        name: zeitarbeit
+        schema:
+          type: boolean
+        example: true
+        description: Gibt an, ob Jobs von Zeitarbeitsfirmen in die Suchergebnisse einbezogen werden sollen (default true).
+        required: false
+      - in: query
+        name: angebotsart
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 4
+          - 34
+        example: 1
+        description: 1=ARBEIT; 2=SELBSTAENDIGKEIT, 4=AUSBILDUNG/Duales Studium, 34=Praktikum/Trainee
+        required: false
+      - in: query
+        name: befristung
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+        example: 1
+        required: false
+        description: Semikolon-separierte mehrere Werte möglich (z.B. befristung=1;2) 1 = befristet; 2 = unbefristet
+      - in: query
+        name: arbeitszeit
+        schema:
+          type: string
+          enum:
+          - vz
+          - tz
+          - snw
+          - ho
+          - mj
+        description: Semikolon-separierte mehrere Werte möglich (z.B. arbeitszeit=vz;tz) vz=VOLLZEIT, tz=TEILZEIT, snw=SCHICHT_NACHTARBEIT_WOCHENENDE, ho=HEIM_TELEARBEIT, mj=MINIJOB
+        example: vz
+        required: false
 
-        - in: query
-          name: behinderung
-          schema:
-            type: boolean
-          example: true
-          required: false
-        - in: query
-          name: corona
-          schema:
-            type: boolean
-          example: true
-          description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
-          required: false
-        - in: query
-          name: umkreis
-          schema:
-            type: integer
-          description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
-          example: 25
-          required: false
+      - in: query
+        name: behinderung
+        schema:
+          type: boolean
+        example: true
+        required: false
+      - in: query
+        name: corona
+        schema:
+          type: boolean
+        example: true
+        description: Wenn true, werden nur Jobs die im Kontext von Corona angeboten werden angezeigt.
+        required: false
+      - in: query
+        name: umkreis
+        schema:
+          type: integer
+        description: Umkreis in Kilometern von Wo-Parameter. (z.B. 25 oder 200)
+        example: 25
+        required: false
 
+
+  /pc/v4/jobdetails/{refnr}:
+    get:
+      summary: Job Details
+      description: "Detaillierte Informationen zu einem Stellenangebot abrufen"
+      parameters:
+      - name: refnr
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 10000-1234567890-S
+        description: Referenznummer des Stellenangebots
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetails'
+        '404':
+          description: Stellenangebot nicht gefunden
 
   /ed/v1/arbeitgeberlogo/{hashID}:
     get:
       summary: Unternehmen Logo
       description: "Abrufen des Logos eines Unternehmens"
       parameters:
-        - name: hashID
-          in: path
-          required: true
-          schema:
-            type: string
-            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+      - name: hashID
+        in: path
+        required: true
+        schema:
+          type: string
+          example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
       responses:
         '200':
-            description: OK
-            content:
-              image/png:
-                schema:
-                  type: string
-                  format: binary
+          description: OK
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
 
 
 security:
-  - APIKeyHeaders: []
+- APIKeyHeaders: []
 
 components:
   securitySchemes:
-    APIKeyHeaders:    
+    APIKeyHeaders:
       type: apiKey
       in: header
       name: X-API-Key
       description: "X-API-Key ist die clientId jobboerse-jobsuche"
-      
+
   schemas:
 
     JobSearchResponse:
@@ -298,57 +320,57 @@ components:
       properties:
         stellenangebote:
           type: array
-          items: 
+          items:
             type: object
-            properties: 
-              hashId: 
+            properties:
+              hashId:
                 type: string
                 example: WBTAiM10b25rJgZqiLhVIHzAF9e0rnV_DXdsRZtlb54=
-              beruf: 
+              beruf:
                 type: string
-                example: Elektroinstallateur/in              
-              refnr: 
+                example: Elektroinstallateur/in
+              refnr:
                 type: string
                 example: 10000-1184867112-S
-              arbeitgeber: 
+              arbeitgeber:
                 type: string
                 example: Gröger & Oltermann Sicherheits- und Elektrotechnik GmbH
-              aktuelleVeroeffentlichungsdatum: 
+              aktuelleVeroeffentlichungsdatum:
                 type: string
                 format: date
                 example: 2021-07-25
-              eintrittsdatum: 
+              eintrittsdatum:
                 type: string
                 format: date
                 example: 2021-07-26
-              arbeitsort: 
-                  type: object
-                  properties: 
-                    plz: 
-                      type: integer
-                      example: 90537
-                    ort: 
-                      type: string
-                      example: Berlin
-                    strasse: 
-                      type: string
-                      example: Altdorfer Straße
-                    region: 
-                      type: string
-                      example: Berlin
-                    land: 
-                      type: string
-                      example: Deutschland
-                    koordinaten: 
-                      type: object
-                      properties: 
-                        lat: 
-                          type: number
-                          example: 52.4926832
-                        lon: 
-                          type: number
-                          example: 13.4025753
-              modifikationsTimestamp: 
+              arbeitsort:
+                type: object
+                properties:
+                  plz:
+                    type: integer
+                    example: 90537
+                  ort:
+                    type: string
+                    example: Berlin
+                  strasse:
+                    type: string
+                    example: Altdorfer Straße
+                  region:
+                    type: string
+                    example: Berlin
+                  land:
+                    type: string
+                    example: Deutschland
+                  koordinaten:
+                    type: object
+                    properties:
+                      lat:
+                        type: number
+                        example: 52.4926832
+                      lon:
+                        type: number
+                        example: 13.4025753
+              modifikationsTimestamp:
                 type: string
         maxErgebnisse:
           type: string
@@ -356,292 +378,255 @@ components:
           type: string
         size:
           type: string
-        facetten: 
+        facetten:
           type: array
-          items: 
+          items:
             type: object
-            properties: 
+            properties:
               befristung:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               behinderung:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               pav:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               berufsfeld:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               arbeitsort:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               ausbildungsart:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               veroeffentlichtseit:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               schulbildung:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               arbeitsort_plz:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               arbeitgeber:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               beruf:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               branche:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               arbeitszeit:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               eintrittsdatum:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               zeitarbeit:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
               corona:
                 type: object
-                properties: 
+                properties:
                   counts:
                     type: object
                   maxCount:
                     type: integer
     JobDetails:
       type: object
+      description: "Detaillierte Informationen zu einem Stellenangebot. Hinweis: Die Feldnamen entsprechen der tatsächlichen API-Antwort (Stand 2024/2025), nicht den ursprünglich dokumentierten camelCase-Namen."
       properties:
-            aktuelleVeroeffentlichungsdatum: 
-              type: string
-              format: date
-              example: 2021-07-25
-            angebotsart: 
-              type: string
-              example: ARBEIT
-            arbeitgeber: 
-              type: string
-              example: Kerstin Nickel Frisör
-            branchengruppe: 
-              type: string
-              example:  IT, Computer, Telekommunikation
-            branche: 
-              type: string
-              example:  Sonstige Softwareentwicklung              
-            arbeitgeberHashId: 
-              type: string
-              example: dj32HpGiU3tdrYi6ohcMOtUhtBLPvwGIRiRlcvDsebg=
-            arbeitsorte: 
-              type: array
-              items: 
+        referenznummer:
+          type: string
+          example: 10000-1183999289-S
+          description: "Referenznummer des Stellenangebots (API-Feldname: referenznummer, nicht refnr)"
+        stellenangebotsTitel:
+          type: string
+          example: Wissenschaftlicher Mitarbeiter (m/w/d)
+          description: "Titel des Stellenangebots (API-Feldname: stellenangebotsTitel, nicht titel)"
+        stellenangebotsart:
+          type: string
+          example: ARBEIT
+          description: "Art des Stellenangebots"
+        firma:
+          type: string
+          example: Kerstin Nickel Frisör
+          description: "Name des Arbeitgebers (API-Feldname: firma, nicht arbeitgeber)"
+        arbeitgeberKundennummerHash:
+          type: string
+          example: dj32HpGiU3tdrYi6ohcMOtUhtBLPvwGIRiRlcvDsebg=
+          description: "Hash der Arbeitgeber-Kundennummer"
+        hauptberuf:
+          type: string
+          example: Wissenschaftliche/r Mitarbeiter/in (Hochschule)
+          description: "Hauptberuf für das Stellenangebot"
+        stellenangebotsBeschreibung:
+          type: string
+          description: "Beschreibung des Stellenangebots (API-Feldname: stellenangebotsBeschreibung, nicht stellenbeschreibung)"
+        stellenlokationen:
+          type: array
+          description: "Arbeitsorte (API-Feldname: stellenlokationen, nicht arbeitsorte)"
+          items:
+            type: object
+            properties:
+              adresse:
                 type: object
-                properties: 
-                  land: 
+                properties:
+                  land:
                     type: string
                     example: Deutschland
-                  region: 
+                  region:
                     type: string
                     example: Berlin
-                  plz: 
+                  plz:
                     type: string
                     example: "13597"
-                  ort: 
+                  ort:
                     type: string
                     example: Berlin
-                  strasse: 
+                  strasse:
                     type: string
                     example: Jüdenstr. 31
-                  koordinaten: 
+                  koordinaten:
                     type: object
-                    properties: 
-                      lat: 
+                    properties:
+                      lat:
                         type: number
                         example: 52.5383857
-                      lon: 
+                      lon:
                         type: number
                         example: 13.2029692
-            arbeitszeitmodelle: 
-              type: array
-              items: 
-                type: string
-                example: TEILZEIT
-            befristung: 
-              type: string
-              example: UNBEFRISTET
-            uebernahme: 
-              type: boolean
-              example: false
-            betriebsgroesse: 
-              type: string
-              example: '2'
-            eintrittsdatum: 
-              type: string
-              format: date
-              example: 2021-07-25
-            ersteVeroeffentlichungsdatum: 
+        arbeitszeitVollzeit:
+          type: boolean
+          description: "Gibt an, ob es sich um Vollzeit handelt (API-Feldname: arbeitszeitVollzeit, nicht arbeitszeitmodelle)"
+          example: true
+        verguetungsangabe:
+          type: string
+          example: Entgeltgruppe 13 TV-L
+          description: "Vergütungsangabe (API-Feldname: verguetungsangabe, nicht verguetung)"
+        vertragsdauer:
+          type: string
+          description: "Dauer des Vertrags"
+        eintrittszeitraum:
+          type: object
+          description: "Zeitraum für den Eintritt"
+          properties:
+            von:
               type: string
               format: date
-              example: 2021-05-23              
-            allianzpartner: 
+            bis:
               type: string
-              example: arbeitsagentur.de
-            allianzpartnerUrl: 
+              format: date
+        veroeffentlichungszeitraum:
+          type: object
+          description: "Zeitraum der Veröffentlichung"
+          properties:
+            von:
               type: string
-              example: http://www.arbeitsagentur.de
-            titel: 
+              format: date
+            bis:
               type: string
-              example: Wissenschaftlicher Mitarbeiter (m/w/d)              
-            hashId: 
-              type: string
-              example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
-            beruf: 
-              type: string
-              example: Wissenschaftliche/r Mitarbeiter/in (Hochschule)
-            modifikationsTimestamp: 
-              type: string
-              example: 2021-07-25T13:12:33.913
-            stellenbeschreibung: 
-              type: string
-            refnr: 
-              type: string
-              example: 10000-1183999289-S
-            fuerFluechtlingeGeeignet: 
-              type: boolean
-              example: false
-            nurFuerSchwerbehinderte: 
-              type: boolean
-              example: false
-            anzahlOffeneStellen: 
-              type: integer
-              format: int32
-              example: 1
-            arbeitgeberAdresse: 
-              type: object
-              properties: 
-                land: 
-                  type: string
-                  example: Deutschland
-                region: 
-                  type: string
-                  example: Berlin
-                plz: 
-                  type: string
-                  example: "13597"
-                ort: 
-                  type: string
-                  example: Berlin
-                strasse: 
-                  type: string
-                  example: Jüdenstr. 31
-                strasseHausnummer: 
-                  type: string
-                  example: Jüdenstr. 31
-            fertigkeiten: 
-              type: array
-              items: 
-                type: object
-                properties: 
-                  hierarchieName: 
-                    type: string
-                    example: Soziales, Erziehung, Gesundheit, Sport
-                  auspraegungen: 
-                    type: object
-            mobilitaet: 
-              type: object
-              properties: 
-                reisebereitschaft: 
-                  type: string
-                  example: '1'
-            fuehrungskompetenzen: 
-              type: object
-              properties: 
-                hatVollmacht: 
-                  type: boolean
-                  example: false
-                hatBudgetverantwortung: 
-                  type: boolean
-                  example: false                  
-            verguetung: 
-              type: string
-              example: Entgeltgruppe 13 TV-L
-            arbeitgeberdarstellungUrl: 
-              type: string
-              example: http://www.friseur-nickel.de
-            arbeitgeberdarstellung: 
-              type: string
-            hauptDkz: 
-              type: string
-              example: "9907"
-            istBetreut: 
-              type: boolean
-            istGoogleJobsRelevant: 
-              type: boolean
-            anzeigeAnonym: 
-              type: boolean
+              format: date
+        datumErsteVeroeffentlichung:
+          type: string
+          format: date
+          example: 2021-05-23
+          description: "Datum der ersten Veröffentlichung"
+        aenderungsdatum:
+          type: string
+          format: date-time
+          example: 2021-07-25T13:12:33.913000
+          description: "Datum der letzten Änderung"
+        istBetreut:
+          type: boolean
+          description: "Gibt an, ob das Angebot betreut wird"
+        istBehinderungGefordert:
+          type: boolean
+          example: false
+          description: "Nur für Schwerbehinderte (API-Feldname: istBehinderungGefordert, nicht nurFuerSchwerbehinderte)"
+        istGeringfuegigeBeschaeftigung:
+          type: boolean
+          description: "Gibt an, ob es sich um eine geringfügige Beschäftigung handelt"
+        istArbeitnehmerUeberlassung:
+          type: boolean
+          description: "Gibt an, ob es sich um Arbeitnehmerüberlassung handelt"
+        istPrivateArbeitsvermittlung:
+          type: boolean
+          description: "Gibt an, ob es sich um private Arbeitsvermittlung handelt"
+        quereinstiegGeeignet:
+          type: boolean
+          description: "Gibt an, ob das Angebot für Quereinsteiger geeignet ist"
+        allianzpartnerName:
+          type: string
+          example: arbeitsagentur.de
+          description: "Name des Allianzpartners (API-Feldname: allianzpartnerName, nicht allianzpartner)"
+        allianzpartnerUrl:
+          type: string
+          example: http://www.arbeitsagentur.de
+          description: "URL des Allianzpartners"
 
 externalDocs:
   description: "Weiterführende Dokumentation"
