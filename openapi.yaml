@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 info:
-  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben."
-  version: "2.0.2"
+  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v4/jobs oder /pc/v4/app/jobs → refnr merken. (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden)."
+  version: "2.1.0"
   title: "Arbeitsagentur Jobsuche API"
 
 servers:
@@ -259,25 +259,74 @@ paths:
           required: false
 
 
-  /ed/v1/arbeitgeberlogo/{hashID}:
+  /pc/v4/jobdetails/{encryptedJobCode}:
     get:
-      summary: Unternehmen Logo
-      description: "Abrufen des Logos eines Unternehmens"
+      summary: Jobdetails (v4)
+      description: "Abrufen der Details einer Stellenanzeige anhand des Base64-kodierten Referenzwertes (base64(refnr)). Empfohlene Version."
       parameters:
-        - name: hashID
+        - name: encryptedJobCode
           in: path
           required: true
           schema:
             type: string
-            example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
+            example: MTAwMDEtMTAwMjcxNjkyMi1T
+          description: "Base64-kodierter Wert der refnr aus der Jobsuche. Beispiel: base64('10001-1002716922-S') = 'MTAwMDEtMTAwMjcxNjkyMi1T'"
       responses:
         '200':
             description: OK
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobDetails'
+
+  /pc/v3/jobdetails/{encryptedJobCode}:
+    get:
+      summary: Jobdetails (v3)
+      description: "Abrufen der Details einer Stellenanzeige anhand des Base64-kodierten Referenzwertes (base64(refnr))."
+      parameters:
+        - name: encryptedJobCode
+          in: path
+          required: true
+          schema:
+            type: string
+            example: MTAwMDEtMTAwMjcxNjkyMi1T
+          description: "Base64-kodierter Wert der refnr aus der Jobsuche. Beispiel: base64('10001-1002716922-S') = 'MTAwMDEtMTAwMjcxNjkyMi1T'"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/JobDetails'
+
+  /ct/v1/arbeitgeberlogo/{kundennummerHash}:
+    servers:
+      - url: "https://rest.arbeitsagentur.de/vermittlung/ag-darstellung-service"
+    get:
+      summary: Unternehmen Logo
+      description: "Abrufen des Logos eines Unternehmens anhand des arbeitgeberKundennummerHash aus der Jobdetail-Antwort. Gibt 404 zurück, wenn kein Logo vorhanden ist."
+      parameters:
+        - name: kundennummerHash
+          in: path
+          required: true
+          schema:
+            type: string
+            example: Z-HzVkUCLGQiQFxQSAICs302sSdB9Sp7XtgOiO4GGCA=
+          description: "Wert des Feldes arbeitgeberKundennummerHash aus der Jobdetail-Antwort (URL-kodiert falls nötig)."
+      responses:
+        '200':
+            description: OK
+            content:
+              image/webp:
+                schema:
+                  type: string
+                  format: binary
               image/png:
                 schema:
                   type: string
                   format: binary
+        '404':
+            description: Kein Logo für diesen Arbeitgeber vorhanden.
 
 
 security:
@@ -348,6 +397,16 @@ components:
                         lon: 
                           type: number
                           example: 13.4025753
+              kundennummerHash:
+                type: string
+                nullable: true
+                example: Z-HzVkUCLGQiQFxQSAICs302sSdB9Sp7XtgOiO4GGCA=
+                description: "Hash-ID des Arbeitgebers für den Logo-Abruf. Ist nicht immer vorhanden."
+              externeUrl:
+                type: string
+                nullable: true
+                example: https://example.com/job/123
+                description: "Externe URL zur Stellenanzeige (optional)."
               modifikationsTimestamp: 
                 type: string
         maxErgebnisse:
@@ -495,6 +554,11 @@ components:
             arbeitgeberHashId: 
               type: string
               example: dj32HpGiU3tdrYi6ohcMOtUhtBLPvwGIRiRlcvDsebg=
+            arbeitgeberKundennummerHash:
+              type: string
+              nullable: true
+              example: Z-HzVkUCLGQiQFxQSAICs302sSdB9Sp7XtgOiO4GGCA=
+              description: "Hash-ID des Arbeitgebers für den Logo-Abruf (/ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash}). Kann null sein."
             arbeitsorte: 
               type: array
               items: 
@@ -555,6 +619,10 @@ components:
             titel: 
               type: string
               example: Wissenschaftlicher Mitarbeiter (m/w/d)              
+            stellenangebotsTitel:
+              type: string
+              example: Wissenschaftlicher Mitarbeiter (m/w/d)
+              description: "Stellen-Titel (Feldname in v3/v4 jobdetails-Antworten)."
             hashId: 
               type: string
               example: VK2qoXBe0s-UAdH_qxLDRrZrY5iY8a1PJt3MjJCXsdo=
@@ -566,9 +634,16 @@ components:
               example: 2021-07-25T13:12:33.913
             stellenbeschreibung: 
               type: string
+            stellenangebotsBeschreibung:
+              type: string
+              description: "Stellenbeschreibung (Feldname in v3/v4 jobdetails-Antworten)."
             refnr: 
               type: string
               example: 10000-1183999289-S
+            referenznummer:
+              type: string
+              example: 10000-1183999289-S
+              description: "Referenznummer der Stelle (Feldname in v3/v4 jobdetails-Antworten)."
             fuerFluechtlingeGeeignet: 
               type: boolean
               example: false
