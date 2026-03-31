@@ -9,13 +9,13 @@ jobsuche.api.default\_api module
 
 .. automodule:: jobsuche.api.default_api
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: jobsuche.api
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
