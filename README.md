@@ -10,6 +10,8 @@ ie Authentifizierung funktioniert über die clientId:
 Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.
 
 
+**Update:** Falls client_id nicht funktioniert kann man stattdessen "X-API-KEY: jobboerse-jobsuche" verwenden
+
 ## Jobbörse
 
 **URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs
