@@ -9,8 +9,16 @@ ie Authentifizierung funktioniert über die clientId:
 
 Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.
 
-
 **Update:** Falls client_id nicht funktioniert kann man stattdessen "X-API-KEY: jobboerse-jobsuche" verwenden
+
+
+## Ablauf
+
+Der typische Ablauf ist:
+
+1. **Stellen suchen** via `/pc/v4/jobs` oder `/pc/v4/app/jobs` → `refnr` aus der Antwort merken.
+2. **Details abrufen** via `/pc/v4/jobdetails/{base64(refnr)}` (empfohlen) oder `/pc/v3/jobdetails/{base64(refnr)}`.
+3. **Arbeitgeberlogo abrufen** via `/ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash}` (sofern im Detail-Response vorhanden).
 
 ## Jobbörse
 
@@ -120,4 +128,52 @@ Mehrere Semikolon-separierte Werte möglich (z.B. arbeitszeit=vz;tz).
 jobs=$(curl -m 60 \
 -H "X-API-Key: jobboerse-jobsuche" \
 'https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?angebotsart=1&wo=Berlin&umkreis=200&arbeitszeit=ho;mj&page=1&size=25&pav=false')
+```
+
+
+## Jobdetails
+
+**URL (empfohlen):** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobdetails/{encryptedJobCode}
+
+**URL (alternativ):** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v3/jobdetails/{encryptedJobCode}
+
+Der `encryptedJobCode` ist der Base64-kodierte Wert der `refnr` aus der Jobsuche-Antwort.
+
+**Beispiel:** `refnr = 10001-1002716922-S` → `base64(refnr) = MTAwMDEtMTAwMjcxNjkyMi1T`
+
+Die Detail-Antwort enthält u.a.:
+- `stellenangebotsTitel` – Titel der Stelle
+- `stellenangebotsBeschreibung` – Beschreibung der Stelle
+- `referenznummer` – Referenznummer der Stelle
+- `arbeitgeberKundennummerHash` – Hash für den Logo-Abruf (kann `null` sein)
+
+### Hinweise zu Sonderfällen
+
+- Manche Stellenanzeigen haben kein `kundennummerHash` in der Suchantwort und kein `arbeitgeberKundennummerHash` in der Detail-Antwort – in diesem Fall steht kein Logo zur Verfügung.
+- Externe Stellenanzeigen können ein `externeUrl`-Feld in der Suchantwort enthalten.
+
+### Beispiel:
+```bash
+refnr="10001-1002716922-S"
+encoded=$(python3 -c "import base64; print(base64.b64encode('$refnr'.encode()).decode())")
+curl -m 60 \
+  -H "X-API-Key: jobboerse-jobsuche" \
+  "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobdetails/$encoded"
+```
+
+
+## Arbeitgeberlogo
+
+**URL:** https://rest.arbeitsagentur.de/vermittlung/ag-darstellung-service/ct/v1/arbeitgeberlogo/{kundennummerHash}
+
+Der `kundennummerHash` entspricht dem Feld `arbeitgeberKundennummerHash` aus der Jobdetail-Antwort (URL-kodiert falls nötig, da der Wert `=`-Zeichen enthalten kann).
+
+Gibt `200 image/webp` oder `200 image/png` zurück, wenn ein Logo vorhanden ist.  
+Gibt `404` zurück, wenn kein Logo für diesen Arbeitgeber hinterlegt ist – dies ist ein normaler Fall, kein Fehler.
+
+### Beispiel:
+```bash
+curl -m 60 \
+  -H "X-API-Key: jobboerse-jobsuche" \
+  "https://rest.arbeitsagentur.de/vermittlung/ag-darstellung-service/ct/v1/arbeitgeberlogo/Z-HzVkUCLGQiQFxQSAICs302sSdB9Sp7XtgOiO4GGCA%3D"
 ```
