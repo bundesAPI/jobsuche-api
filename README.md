@@ -3,7 +3,7 @@ Die Bundesagentur für Arbeit verfügt über die größte Datenbank für offene 
 
 
 ## Authentifizierung
-ie Authentifizierung funktioniert über die clientId:
+Die Authentifizierung funktioniert über die clientId:
 
 **clientId:** jobboerse-jobsuche
 
@@ -95,12 +95,12 @@ Angebotsart: 1=ARBEIT; 2=SELBSTAENDIGKEIT; 4=AUSBILDUNG/Duales Studium; 34=Prakt
 Befristung: 1 = befristet; 2 = unbefristet. Mehrere Semikolon-separierte Werte möglich (z.B. befristung=1;2).
 
 
-Parameter: behinderung (Optional)
+**Parameter:** *behinderung* (Optional)
 - false 
 - true
 
 
-Parameter: corona (Optional)
+**Parameter:** *corona* (Optional)
 - false 
 - true
 
