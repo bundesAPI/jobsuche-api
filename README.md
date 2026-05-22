@@ -95,12 +95,12 @@ Angebotsart: 1=ARBEIT; 2=SELBSTAENDIGKEIT; 4=AUSBILDUNG/Duales Studium; 34=Prakt
 Befristung: 1 = befristet; 2 = unbefristet. Mehrere Semikolon-separierte Werte möglich (z.B. befristung=1;2).
 
 
-Parameter: behinderung (Optional)
+**Parameter:** *behinderung* (Optional)
 - false 
 - true
 
 
-Parameter: corona (Optional)
+**Parameter:** *corona* (Optional)
 - false 
 - true
 
